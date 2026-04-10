@@ -1,0 +1,9 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <!-- -*- extra stuff goes here -*- -->
+  <permission
+      id="sc.videos.video.add"
+      title="sc.videos: Add Video"
+      />
+
+</configure>

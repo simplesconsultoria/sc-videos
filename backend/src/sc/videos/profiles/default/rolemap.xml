@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rolemap>
+  <permissions>
+    <!-- -*- extra stuff goes here -*- -->
+    <!-- Video -->
+    <permission acquire="False"
+                name="sc.videos: Add Video"
+    >
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Editor" />
+      <role name="Contributor" />
+    </permission>
+  </permissions>
+</rolemap>

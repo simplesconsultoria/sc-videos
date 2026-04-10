@@ -1,0 +1,16 @@
+{
+    "npm_package_name": "@simplesconsultoria/volto-videos",
+    "github_organization": "simplesconsultoria",
+    "python_package_name": "sc.videos",
+    "author": "Simples Consultoria",
+    "container_registry": "github",
+    "use_prerelease_versions": true,
+    "volto_version": "19.0.0-alpha.29",
+    "title": "Video Support for Plone",
+    "email": "comercial@simplesconsultoria.com.br",
+    "description": "A Plone add-on providing a Video content type that supports external video sources",
+    "project_slug": "sc-videos",
+    "plone_version": "6.2.0rc1",
+    "initialize_documentation": true,
+    "__template__": "monorepo_addon"
+}
