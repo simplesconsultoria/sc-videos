@@ -12,18 +12,26 @@ const VideoView: React.FC<VideoViewProps> = ({ content }) => {
   const previewImage = content.preview_image?.scales?.huge?.download;
 
   return (
-    <Container id="page-document" className="view-wrapper video-view" narrow>
-      <h1 className="documentFirstHeading">{title}</h1>
-      {description && <p className="documentDescription">{description}</p>}
-      <figure>
-        <VideoPlayer url={videoUrl} title={title} previewImage={previewImage} />
-      </figure>
+    <div id="page-document" className="view-wrapper video-view">
+      <Container className="contentHeader">
+        <h1 className="documentFirstHeading">{title}</h1>
+        {description && <p className="documentDescription">{description}</p>}
+      </Container>
+      <Container className="contentPlayer">
+        <figure>
+          <VideoPlayer
+            url={videoUrl}
+            title={title}
+            previewImage={previewImage}
+          />
+        </figure>
+      </Container>
       {text && (
-        <Container className="body">
+        <Container className="contentBody">
           <div dangerouslySetInnerHTML={{ __html: text?.data }} />
         </Container>
       )}
-    </Container>
+    </div>
   );
 };
 
