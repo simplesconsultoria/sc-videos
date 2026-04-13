@@ -1,0 +1,71 @@
+{
+  "@id": "/videos/world-plone-day-2026",
+  "@type": "Video",
+  "UID": "05ba0470ead14e7fa8fa93c76cf8b007",
+  "_metadata": {
+    "channel": "Plone",
+    "duration": 0,
+    "service": "youtube",
+    "subjects": [],
+    "text": "",
+    "thumbnail_url": "https://i.ytimg.com/vi/ATy8ALW63rQ/maxresdefault.jpg",
+    "title": "World Plone Day 2026 - Bras\u00edlia, Brazil",
+    "video_id": "ATy8ALW63rQ"
+  },
+  "allow_discussion": null,
+  "changeNote": "",
+  "created": "2026-04-13T17:52:08+00:00",
+  "description": "A comunidade PloneGov-Br realizar\u00e1 a edi\u00e7\u00e3o brasileira do World Plone Day no dia 16 de Abril, das 14h \u00e0s 17h (Hor\u00e1rio de Bras\u00edlia).",
+  "duration": 3600,
+  "exclude_from_nav": false,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "world-plone-day-2026",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-04-13T22:28:10+00:00",
+  "nav_title": null,
+  "preview_caption": null,
+  "preview_image": {
+    "blob_path": "05ba0470ead14e7fa8fa93c76cf8b007/preview_image/maxresdefault.jpg",
+    "content-type": "image/jpeg",
+    "filename": "maxresdefault.jpg",
+    "height": 720,
+    "size": 117635,
+    "width": 1280
+  },
+  "review_state": "published",
+  "subjects": [],
+  "text": {
+    "content-type": "text/html",
+    "data": "<p>A comunidade PloneGov-Br realizar\u00e1 a edi\u00e7\u00e3o brasileira do World Plone Day no dia 16 de Abril, das 14h \u00e0s 17h.<br/></p><p>O evento ocorrer\u00e1 nas depend\u00eancias do\u00a0<strong>Senado Federal</strong><strong></strong>\u00a0em Bras\u00edlia, e contaremos com transmiss\u00e3o simult\u00e2nea pelo YouTube da comunidade Plone.</p>",
+    "encoding": "utf8"
+  },
+  "title": "World Plone Day 2026",
+  "type_title": "Video",
+  "version": "current",
+  "versioning_enabled": true,
+  "videoUrl": "https://www.youtube.com/watch?v=ATy8ALW63rQ",
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": "admin",
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-04-13T17:52:08+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": "admin",
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-04-13T17:53:05+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

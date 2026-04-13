@@ -1,15 +1,102 @@
 {
   "__version__": "1.0.0",
   "_blob_files_": [
-    "a58ccead718140c1baa98d43595fc3e6/image/plone-foundation.png"
+    "a58ccead718140c1baa98d43595fc3e6/image/plone-foundation.png",
+    "05ba0470ead14e7fa8fa93c76cf8b007/preview_image/maxresdefault.jpg",
+    "acfe06363f87461fbbe7bd35b02feb8c/image/wpd2026.png"
   ],
   "_data_files_": [
     "plone_site_root/data.json",
     "a720393b3c0240e5bd27c43fcd2cfd1e/data.json",
-    "a58ccead718140c1baa98d43595fc3e6/data.json"
+    "a58ccead718140c1baa98d43595fc3e6/data.json",
+    "5224dc4e52754cb08d8d0ba0f2e9f662/data.json",
+    "05ba0470ead14e7fa8fa93c76cf8b007/data.json",
+    "acfe06363f87461fbbe7bd35b02feb8c/data.json"
   ],
   "default_page": {},
+  "local_permissions": {
+    "05ba0470ead14e7fa8fa93c76cf8b007": {},
+    "5224dc4e52754cb08d8d0ba0f2e9f662": {},
+    "a58ccead718140c1baa98d43595fc3e6": {},
+    "a720393b3c0240e5bd27c43fcd2cfd1e": {},
+    "acfe06363f87461fbbe7bd35b02feb8c": {},
+    "plone_site_root": {
+      "Add portal member": {
+        "acquire": false,
+        "roles": [
+          "Manager",
+          "Site Administrator",
+          "Owner"
+        ]
+      },
+      "Content rules: Manage rules": {
+        "acquire": false,
+        "roles": [
+          "Manager",
+          "Site Administrator"
+        ]
+      },
+      "Set own password": {
+        "acquire": false,
+        "roles": [
+          "Authenticated",
+          "Manager",
+          "Site Administrator"
+        ]
+      },
+      "Set own properties": {
+        "acquire": false,
+        "roles": [
+          "Authenticated",
+          "Manager",
+          "Site Administrator"
+        ]
+      },
+      "Show Toolbar": {
+        "acquire": false,
+        "roles": [
+          "Authenticated"
+        ]
+      },
+      "plone.resource: Export ZIP file": {
+        "acquire": false,
+        "roles": [
+          "Manager"
+        ]
+      },
+      "plone.resourceeditor: Manage Sources": {
+        "acquire": false,
+        "roles": [
+          "Manager",
+          "Site Administrator"
+        ]
+      },
+      "sc.videos: Add Video": {
+        "acquire": false,
+        "roles": [
+          "Manager",
+          "Site Administrator",
+          "Editor",
+          "Contributor"
+        ]
+      }
+    }
+  },
   "local_roles": {
+    "05ba0470ead14e7fa8fa93c76cf8b007": {
+      "local_roles": {
+        "admin": [
+          "Owner"
+        ]
+      }
+    },
+    "5224dc4e52754cb08d8d0ba0f2e9f662": {
+      "local_roles": {
+        "admin": [
+          "Owner"
+        ]
+      }
+    },
     "a58ccead718140c1baa98d43595fc3e6": {
       "local_roles": {
         "admin": [
@@ -18,6 +105,13 @@
       }
     },
     "a720393b3c0240e5bd27c43fcd2cfd1e": {
+      "local_roles": {
+        "admin": [
+          "Owner"
+        ]
+      }
+    },
+    "acfe06363f87461fbbe7bd35b02feb8c": {
       "local_roles": {
         "admin": [
           "Owner"
@@ -33,8 +127,11 @@
     }
   },
   "ordering": {
+    "05ba0470ead14e7fa8fa93c76cf8b007": 0,
+    "5224dc4e52754cb08d8d0ba0f2e9f662": 42,
     "a58ccead718140c1baa98d43595fc3e6": 0,
-    "a720393b3c0240e5bd27c43fcd2cfd1e": 42
+    "a720393b3c0240e5bd27c43fcd2cfd1e": 41,
+    "acfe06363f87461fbbe7bd35b02feb8c": 0
   },
   "relations": []
 }

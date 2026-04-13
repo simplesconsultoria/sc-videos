@@ -1,0 +1,39 @@
+{
+  "@id": "/videos/world-plone-day-2026/wpd2026.png",
+  "@type": "Image",
+  "UID": "acfe06363f87461fbbe7bd35b02feb8c",
+  "allow_discussion": null,
+  "contributors": [],
+  "created": "2026-04-13T17:52:48+00:00",
+  "creators": [
+    "admin"
+  ],
+  "description": "",
+  "effective": null,
+  "expires": null,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "wpd2026.png",
+  "image": {
+    "blob_path": "acfe06363f87461fbbe7bd35b02feb8c/image/wpd2026.png",
+    "content-type": "image/png",
+    "filename": "wpd2026.png",
+    "height": 720,
+    "size": 870934,
+    "width": 1280
+  },
+  "is_folderish": false,
+  "language": "##DEFAULT##",
+  "layout": "image_view",
+  "lock": {},
+  "modified": "2026-04-13T17:52:48+00:00",
+  "review_state": null,
+  "rights": "",
+  "subjects": [],
+  "title": "World Plone Day 2026",
+  "type_title": "Image",
+  "version": "current",
+  "workflow_history": {},
+  "working_copy": null,
+  "working_copy_of": null
+}

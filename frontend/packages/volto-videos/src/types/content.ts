@@ -1,6 +1,8 @@
-import type { Content } from '@plone/types';
+import type { Content, Image } from '@plone/types';
 
 export interface Video extends Content {
-  remoteUrl: string;
-  length: number;
+  videoUrl: string;
+  duration: number;
+  text: object;
+  preview_image?: Image;
 }

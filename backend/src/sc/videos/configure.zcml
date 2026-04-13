@@ -16,10 +16,14 @@
   <include file="profiles.zcml" />
   <include file="permissions.zcml" />
 
+  <include package=".behaviors" />
   <include package=".controlpanels" />
   <include package=".indexers" />
   <include package=".serializers" />
   <include package=".vocabularies" />
+  <include package=".integration" />
+  <include package=".services" />
+  <include package=".subscribers" />
 
   <!-- -*- extra stuff goes here -*- -->
 

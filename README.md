@@ -74,6 +74,40 @@ make stack-start
 
 And... you're all set! Your Plone site is up and running locally! 🚀
 
+## YouTube Integration 🎬
+
+This add-on uses the **YouTube Data API v3** to fetch video metadata (title, description, duration, thumbnails).
+You will need an API key to enable this feature.
+
+### Setting Up Your YouTube API Key
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com) and create a new project (or use an existing one).
+
+2. Enable the YouTube Data API:
+   - Navigate to **APIs & Services → Library**.
+   - Search for **YouTube Data API v3** and click **Enable**.
+
+3. Create an API key:
+   - Go to **APIs & Services → Credentials**.
+   - Click **Create Credentials → API Key**.
+   - Copy the generated key.
+
+4. Restrict the key (recommended for production):
+   - Click the key to open its details.
+   - Under **API restrictions**, select **Restrict key** and pick only **YouTube Data API v3**.
+   - Optionally set **Application restrictions** (HTTP referrer or IP) for your environment.
+   - Click **Save**.
+
+5. In your Plone site, go to **Site Setup → Video Settings** and paste the key into the **YouTube API Key** field.
+
+### Quotas
+
+The YouTube Data API provides a free daily quota of **10,000 units**.
+Fetching metadata for a single video costs **1 unit**, so the free tier is more than sufficient for typical usage.
+You can monitor your usage in the Google Cloud Console under **APIs & Services → Quotas**.
+
+> **Note:** No OAuth or billing setup is required — a plain API key is enough for reading public video metadata.
+
 ## Project structure 🏗️
 
 This monorepo consists of the following distinct sections:

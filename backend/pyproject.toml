@@ -28,6 +28,7 @@ classifiers = [
 ]
 dependencies = [
     "Products.CMFPlone",
+    "httpx",
     "plone.api",
     "plone.restapi",
     "plone.volto",
