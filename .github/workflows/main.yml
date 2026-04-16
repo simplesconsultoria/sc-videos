@@ -72,8 +72,7 @@ jobs:
       ${{
         github.ref == 'refs/heads/main' &&
         !cancelled() &&
-        needs.docs.result != 'failure' &&
-        needs.frontend.result != 'failure' &&
+        !contains(needs.*.result, 'failure') &&
         (needs.docs.result == 'success' || needs.frontend.result == 'success')
       }}
     concurrency:
