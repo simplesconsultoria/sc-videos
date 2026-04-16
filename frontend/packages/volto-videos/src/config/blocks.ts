@@ -1,5 +1,6 @@
 import type { ConfigType } from '@plone/registry';
 import type { BlockConfigBase } from '@plone/types';
+import cloneDeep from 'lodash/cloneDeep';
 
 // Player
 import VideoBlockInfo from '@simplesconsultoria/volto-videos/components/Blocks/VideoBlock';
@@ -22,6 +23,25 @@ export default function install(config: ConfigType) {
   // Blocks
   config.blocks.blocksConfig.video = VideoBlockInfo;
   config.blocks.blocksConfig.playerBlock = VideoPlayerBlockInfo;
+
+  // Blocks allowed inside Grid block
+  const gridLocalBlocks = ['video'];
+
+  ['gridBlock'].forEach((blockId) => {
+    const block = (config.blocks.blocksConfig as any)[blockId];
+    if (
+      block !== undefined &&
+      block.allowedBlocks !== undefined &&
+      block.blocksConfig !== undefined
+    ) {
+      block.allowedBlocks = [...block.allowedBlocks, ...gridLocalBlocks];
+      gridLocalBlocks.forEach((localBlockId) => {
+        block.blocksConfig[localBlockId] = cloneDeep(
+          (config.blocks.blocksConfig as any)[localBlockId],
+        );
+      });
+    }
+  });
 
   // Default blocks
   config.blocks.initialBlocks.Video = [

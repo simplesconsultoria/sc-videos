@@ -15,3 +15,32 @@ msgstr ""
 "Language-Name: Português do Brasil\n"
 "Preferred-Encodings: utf-8\n"
 "Domain: volto\n"
+
+#. Default: "Alignment"
+#: components/Blocks/VideoBlock/schema
+#: components/Blocks/VideoPlayerBlock/schema
+msgid "Alignment"
+msgstr ""
+
+#. Default: "Video Auto Play"
+#: components/Blocks/VideoBlock/schema
+#: components/Blocks/VideoPlayerBlock/schema
+msgid "Auto Play"
+msgstr ""
+
+#. Default: "Link to"
+#: components/Blocks/VideoBlock/schema
+msgid "Link to"
+msgstr ""
+
+#. Default: "Video Player Block"
+#: components/Blocks/VideoBlock/schema
+#: components/Blocks/VideoPlayerBlock/schema
+msgid "Player Block"
+msgstr ""
+
+#. Default: "Video size"
+#: components/Blocks/VideoBlock/schema
+#: components/Blocks/VideoPlayerBlock/schema
+msgid "Video size"
+msgstr ""
