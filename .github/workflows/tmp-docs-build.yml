@@ -1,0 +1,82 @@
+name: Documentation
+
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        required: true
+        type: string
+        default: '3.12'
+      working-directory:
+        type: string
+        required: false
+        default: '.'
+      check-links:
+        default: true
+        type: boolean
+      check-vale:
+        default: true
+        type: boolean
+      artifacts-store:
+        default: false
+        type: boolean
+      artifacts-name-prefix:
+        type: string
+        required: false
+        default: 'docs-artifacts'
+    outputs:
+      artifacts-name:
+        description: "Name of the uploaded docs artifact (only meaningful when artifacts-store: true)"
+        value: ${{ jobs.docs.outputs.artifacts-name }}
+
+jobs:
+  docs:
+    name: Documentation
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    outputs:
+      artifacts-name: ${{ steps.artifact-name.outputs.name }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup uv
+        uses: plone/meta/.github/actions/setup_uv@2.x
+        with:
+          python-version: ${{ inputs.python-version }}
+          working-directory: ${{ inputs.working-directory }}
+
+      - name: Install Dependencies
+        shell: bash
+        run: make install
+
+      - name: Check for broken links
+        if: ${{ inputs.check-links }}
+        shell: bash
+        run: |
+          make linkcheckbroken
+
+      - name: Build HTML documentation
+        shell: bash
+        run: |
+          make build
+
+      - name: Run vale checks
+        if: ${{ inputs.check-vale }}
+        shell: bash
+        run: |
+          make vale VALEOPTS="--minAlertLevel='warning'"
+
+      - name: Compute artifact name
+        id: artifact-name
+        shell: bash
+        run: |
+          echo "name=${{ inputs.artifacts-name-prefix }}-${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
+
+      - name: Archive documentation artifacts
+        if: ${{ inputs.artifacts-store }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.artifact-name.outputs.name }}
+          path: ${{ inputs.working-directory }}/_build/html

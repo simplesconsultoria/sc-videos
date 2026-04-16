@@ -24,6 +24,9 @@ on:
       docs:
         description: "Flag reporting if we should run the docs jobs"
         value: ${{ jobs.config.outputs.docs }}
+      deploy-docs:
+        description: "Flag reporting if we should deploy the docs"
+        value: ${{ jobs.config.outputs.deploy-docs }}
       frontend:
         description: "Flag reporting if we should run the frontend jobs"
         value: ${{ jobs.config.outputs.frontend }}
@@ -54,6 +57,7 @@ jobs:
       backend: ${{ steps.filter.outputs.backend }}
       devops: ${{ steps.filter.outputs.devops }}
       docs: ${{ steps.filter.outputs.docs }}
+      deploy-docs: ${{ steps.filter.outputs.deploy-docs }}
       frontend: ${{ steps.filter.outputs.frontend }}
       base-tag: ${{ steps.vars.outputs.base-tag }}
       plone-version: ${{ steps.vars.outputs.plone-version }}
@@ -94,12 +98,20 @@ jobs:
             devops:
               - 'devops/**'
             docs:
-              - '.readthedocs.yaml'
               - 'docs/**'
-              - '.github/workflows/docs.yaml'
+              - '.github/workflows/docs.yml'
+              - '.github/workflows/tmp-docs-build.yml'
+            deploy-docs:
+              - 'docs/**'
+              - '.github/workflows/docs.yml'
+              - '.github/workflows/tmp-docs-*'
+              - 'frontend/**'
+              - '.github/workflows/frontend.yml'
+              - '.github/workflows/tmp-frontend-*'
             frontend:
               - 'frontend/**'
               - '.github/workflows/frontend*'
+              - '.github/workflows/tmp-frontend-*'
 
       - name: Test vars
         run: |

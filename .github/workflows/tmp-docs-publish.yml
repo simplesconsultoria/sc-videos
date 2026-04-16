@@ -1,0 +1,46 @@
+---
+name: Documentation Deploy
+
+on:
+  workflow_call:
+    inputs:
+      artifacts-docs-name:
+        type: string
+        required: true
+      artifacts-storybook-name:
+        type: string
+        required: true
+
+jobs:
+
+  deploy:
+    name: "Deploy to GitHub Pages"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download docs artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifacts-docs-name }}
+          path: site
+
+      - name: Download Storybook artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifacts-storybook-name }}
+          path: site/storybook
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

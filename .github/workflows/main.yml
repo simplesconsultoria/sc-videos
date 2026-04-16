@@ -33,6 +33,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+
   docs:
     uses: ./.github/workflows/docs.yml
     needs:
@@ -51,11 +52,29 @@ jobs:
         image-name-suffix: frontend
         node-version: ${{ needs.config.outputs.node-version }}
         volto-version: ${{ needs.config.outputs.volto-version }}
-        storybook-deploy: true
     if: ${{ needs.config.outputs.frontend == 'true' }}
     permissions:
       contents: read
       packages: write
+
+  deploy-docs:
+    name: "Deploy documentation and Storybook"
+    uses: ./.github/workflows/tmp-docs-publish.yml
+    needs:
+        - config
+        - docs
+        - frontend
+    if: ${{ github.ref == 'refs/heads/main' && needs.config.outputs.deploy-docs == 'true' && needs.docs.result == 'success' && needs.frontend.result == 'success' }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    with:
+      artifacts-docs-name: ${{ needs.docs.outputs.artifacts-name }}
+      artifacts-storybook-name: ${{ needs.frontend.outputs.storybook-artifacts-name }}
 
   report:
     name: "Final report"
@@ -66,6 +85,7 @@ jobs:
       - backend
       - frontend
       - docs
+      - deploy-docs
     steps:
       - name: Write report
         run: |
@@ -76,3 +96,4 @@ jobs:
           echo '| backend | ${{ needs.backend.result }} |' >> $GITHUB_STEP_SUMMARY
           echo '| frontend | ${{ needs.frontend.result }} |' >> $GITHUB_STEP_SUMMARY
           echo '| docs | ${{ needs.docs.result }} |' >> $GITHUB_STEP_SUMMARY
+          echo '| deploy-docs | ${{ needs.deploy-docs.result }} |' >> $GITHUB_STEP_SUMMARY

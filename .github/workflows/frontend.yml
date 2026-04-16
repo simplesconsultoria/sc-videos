@@ -18,14 +18,14 @@ on:
       volto-version:
         required: true
         type: string
-      storybook-deploy:
-        required: false
-        type: boolean
-        default: true
       working-directory:
         required: false
         type: string
         default: frontend
+    outputs:
+      storybook-artifacts-name:
+        description: "Name of the uploaded Storybook artifact, propagated from the storybook job"
+        value: ${{ jobs.storybook.outputs.artifacts-name }}
 
 jobs:
   code-analysis:
@@ -51,7 +51,7 @@ jobs:
 
   storybook:
     name: "Storybook"
-    uses: plone/meta/.github/workflows/frontend-storybook.yml@2.x
+    uses: ./.github/workflows/tmp-frontend-storybook.yml
     needs:
       - code-analysis
       - unit
@@ -59,7 +59,7 @@ jobs:
     with:
       node-version: ${{ inputs.node-version }}
       working-directory: ${{ inputs.working-directory }}
-      deploy: ${{ inputs.storybook-deploy }}
+      artifacts-store: true
 
   release:
     name: "Frontend: Build and publish container image"
