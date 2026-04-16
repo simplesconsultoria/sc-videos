@@ -5,7 +5,7 @@
  * the submit button to validate it and fetch metadata from the
  * @@video-metadata service.
  */
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Input, Button, Loader, Message } from 'semantic-ui-react';
 import FormFieldWrapper from '@plone/volto/components/manage/Widgets/FormFieldWrapper';
@@ -18,7 +18,10 @@ import type {
   VideoMetadata,
   VideoURLWidgetProps,
 } from '@simplesconsultoria/volto-videos/types/widgets';
-import { fetchVideoMetadata } from '@simplesconsultoria/volto-videos/helpers/videoMetadata';
+import {
+  fetchVideoMetadata,
+  isVideoMetadataPopulated,
+} from '@simplesconsultoria/volto-videos/helpers/videoMetadata';
 import { applyVideoMetadataToForm } from '@simplesconsultoria/volto-videos/helpers/applyMetadata';
 import MetadataPreview from '@simplesconsultoria/volto-videos/components/Sidebar/MetadataPreview';
 
@@ -55,7 +58,21 @@ const VideoURLWidget: React.FC<VideoURLWidgetProps> = (props) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [fetchError, setFetchError] = useState<string | null>(null);
 
-  const metadata = (props.formData?._metadata as VideoMetadata) ?? null;
+  // Re-sync local state when `props.value` changes externally — e.g. when
+  // the same field is rendered by a second VideoURLWidget instance (the
+  // in-block EditForm and the content-type sidebar both bind to videoUrl).
+  // While the user is typing in *this* instance, onChangeValue has already
+  // pushed the new value to the parent, so props.value matches and the
+  // functional setter is a no-op.
+  useEffect(() => {
+    const next = props.value ?? '';
+    setValue((current) => (current === next ? current : next));
+  }, [props.value]);
+
+  const rawMetadata = props.formData?._metadata;
+  const metadata = isVideoMetadataPopulated(rawMetadata)
+    ? rawMetadata
+    : undefined;
 
   const handleFetchMetadata = useCallback(
     async (videoUrl: string) => {

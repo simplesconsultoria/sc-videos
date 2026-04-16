@@ -1,0 +1,47 @@
+.video-edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .formHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-medium 0 0;
+    color: var(--theme-foreground-color);
+    text-align: center;
+  }
+  .formTitle {
+    margin: $spacing-small 0 0;
+  }
+  .formWidget {
+    width: min(100%, 800px);
+    margin-top: $spacing-small;
+    .video-url {
+      .ui.grid {
+        .wrapper {
+          width: 100%;
+          .ui.input {
+            width: 100%;
+            input {
+              padding: $spacing-small;
+            }
+          }
+          .ui.buttons {
+            padding-left: $spacing-small;
+            .primary.button {
+              svg {
+                height: 26px;
+              }
+            }
+            .cancel {
+              display: none !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

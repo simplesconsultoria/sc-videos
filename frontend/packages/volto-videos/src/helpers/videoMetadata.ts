@@ -15,6 +15,21 @@ export interface FetchVideoMetadataResult {
 }
 
 /**
+ * Whether `_metadata` represents a real fetched payload or just the empty
+ * default ({}) the backend uses for unset content. The widget and EditForm
+ * gate UI affordances on this rather than truthiness.
+ */
+export function isVideoMetadataPopulated(
+  metadata: unknown,
+): metadata is VideoMetadata {
+  if (typeof metadata !== 'object' || metadata === null) return false;
+  const candidate = metadata as Partial<VideoMetadata>;
+  return (
+    typeof candidate.video_id === 'string' && candidate.video_id.length > 0
+  );
+}
+
+/**
  * Build the full API URL for the video-metadata service.
  */
 export function buildMetadataUrl(options: FetchVideoMetadataOptions): string {

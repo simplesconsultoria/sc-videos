@@ -1,0 +1,1 @@
+Stop showing the clear/cancel button on freshly-created Videos. The backend defaults ``_metadata`` to an empty ``{}``, which the widget previously read as truthy and treated as populated metadata.

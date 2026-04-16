@@ -1,5 +1,7 @@
 .video-url {
-  .cancel svg {
-    fill: #e40166;
+  .ui.buttons {
+    .cancel svg {
+      fill: var(--video-url-widget-cancel) !important;
+    }
   }
 }

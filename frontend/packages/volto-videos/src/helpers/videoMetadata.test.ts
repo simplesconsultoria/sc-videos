@@ -1,5 +1,9 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { buildMetadataUrl, fetchVideoMetadata } from './videoMetadata';
+import {
+  buildMetadataUrl,
+  fetchVideoMetadata,
+  isVideoMetadataPopulated,
+} from './videoMetadata';
 import type { FetchVideoMetadataOptions } from './videoMetadata';
 import {
   YOUTUBE_METADATA,
@@ -11,6 +15,31 @@ const defaultOptions: FetchVideoMetadataOptions = {
   legacyTraverse: false,
   contextUrl: '/my-folder',
 };
+
+describe('isVideoMetadataPopulated', () => {
+  it('rejects the empty object the backend uses as default', () => {
+    expect(isVideoMetadataPopulated({})).toBe(false);
+  });
+
+  it('rejects null and undefined', () => {
+    expect(isVideoMetadataPopulated(null)).toBe(false);
+    expect(isVideoMetadataPopulated(undefined)).toBe(false);
+  });
+
+  it('rejects metadata with empty video_id', () => {
+    expect(
+      isVideoMetadataPopulated({ ...YOUTUBE_METADATA, video_id: '' }),
+    ).toBe(false);
+  });
+
+  it('accepts a fully populated YouTube metadata payload', () => {
+    expect(isVideoMetadataPopulated(YOUTUBE_METADATA)).toBe(true);
+  });
+
+  it('accepts a fully populated Vimeo metadata payload', () => {
+    expect(isVideoMetadataPopulated(VIMEO_METADATA)).toBe(true);
+  });
+});
 
 describe('buildMetadataUrl', () => {
   it('builds URL with ++api++ suffix', () => {

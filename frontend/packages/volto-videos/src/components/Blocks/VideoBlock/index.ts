@@ -1,6 +1,6 @@
 import { composeSchema } from '@plone/volto/helpers/Extensions';
 import type { BlockConfigBase } from '@plone/types';
-import videoSVG from '@plone/volto/icons/video.svg';
+import videoSVG from '@plone/volto/icons/videocamera.svg';
 import { defaultStylingSchema } from '@kitconcept/volto-light-theme/components/Blocks/schema';
 
 import type { ImageScalesSummary } from '@simplesconsultoria/volto-videos/types/content';
@@ -8,11 +8,15 @@ import { videoSchemaEnhancer } from '@simplesconsultoria/volto-videos/components
 import VideoBlockView from './View';
 import VideoBlockEdit from './Edit';
 import { VideoBlockSchema } from './schema';
+import { videoBlockDataAdapter } from './dataAdapter';
 import { videoRestrict } from '@simplesconsultoria/volto-videos/helpers/blocks';
 
 export interface VideoHref {
   '@id': string;
   Title: string;
+  // Lowercase `title` is what Volto's ObjectBrowserWidget uses to render the
+  // selected-item label in the sidebar; keep it in sync with `Title`.
+  title: string;
   Description: string;
   hasPreviewImage: boolean;
   image_scales: ImageScalesSummary;
@@ -37,6 +41,7 @@ const VideoBlockInfo: BlockConfigBase = {
   view: VideoBlockView,
   edit: VideoBlockEdit,
   blockSchema: VideoBlockSchema,
+  dataAdapter: videoBlockDataAdapter,
   restricted: videoRestrict,
   schemaEnhancer: composeSchema(defaultStylingSchema, videoSchemaEnhancer),
   mostUsed: true,

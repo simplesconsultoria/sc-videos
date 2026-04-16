@@ -1,0 +1,1 @@
+Re-sync ``VideoURLWidget`` local state with ``props.value`` so a second instance of the widget (e.g. the content-type sidebar form) reflects URL changes made from the in-block EditForm.

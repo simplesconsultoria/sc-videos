@@ -1,0 +1,1 @@
+Add an in-block ``VideoInput`` placeholder for the Video block. When no video is selected the block now renders a "pick a video" affordance that opens the Volto object browser filtered to ``Video`` content (no external URLs); selection is committed via the block's new ``dataAdapter``.

@@ -1,6 +1,6 @@
 import { composeSchema } from '@plone/volto/helpers/Extensions';
 import type { BlockConfigBase } from '@plone/types';
-import playerSVG from '@plone/volto/icons/video.svg';
+import playerSVG from '@plone/volto/icons/videocamera.svg';
 import { defaultStylingSchema } from '@kitconcept/volto-light-theme/components/Blocks/schema';
 
 import { videoSchemaEnhancer } from '@simplesconsultoria/volto-videos/components/Blocks/schema';

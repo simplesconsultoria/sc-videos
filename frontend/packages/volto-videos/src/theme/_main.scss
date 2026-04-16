@@ -1,6 +1,8 @@
 // This theme extends the volto-light-theme
 @import 'root';
 @import 'blocks/video';
+@import 'components/editForm';
 @import 'components/metadataPreview';
 @import 'components/videoPlayer';
 @import 'widgets/videoURL';
+@import 'widgets/videoInput';
