@@ -40,7 +40,10 @@ jobs:
         - config
     with:
       python-version: ${{ needs.config.outputs.python-version }}
-    if: ${{ needs.config.outputs.docs == 'true' }}
+    # Run when docs changed, or when anything that ends up on the published
+    # Pages site changed — we need a fresh docs artifact to deploy alongside
+    # Storybook so the combined site doesn't drift.
+    if: ${{ needs.config.outputs.docs == 'true' || needs.config.outputs.deploy-docs == 'true' }}
 
   frontend:
     uses: ./.github/workflows/frontend.yml
@@ -52,7 +55,9 @@ jobs:
         image-name-suffix: frontend
         node-version: ${{ needs.config.outputs.node-version }}
         volto-version: ${{ needs.config.outputs.volto-version }}
-    if: ${{ needs.config.outputs.frontend == 'true' }}
+    # Same reasoning as `docs` above — keeps the Storybook artifact fresh
+    # when the Pages site is about to be redeployed.
+    if: ${{ needs.config.outputs.frontend == 'true' || needs.config.outputs.deploy-docs == 'true' }}
     permissions:
       contents: read
       packages: write

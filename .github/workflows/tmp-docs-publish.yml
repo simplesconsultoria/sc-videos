@@ -20,77 +20,21 @@ jobs:
       contents: read
       pages: write
       id-token: write
-      actions: read
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Download docs artifact (current run)
-        id: dl-docs-current
-        continue-on-error: true
+      - name: Download docs artifact
         uses: actions/download-artifact@v4
         with:
           name: ${{ inputs.artifacts-docs-name }}
           path: site
 
-      - name: Fall back to last successful main docs artifact
-        if: ${{ steps.dl-docs-current.outcome != 'success' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          RUN_ID=$(gh run list \
-            --workflow main.yml \
-            --branch main \
-            --status success \
-            --limit 1 \
-            --json databaseId \
-            --jq '.[0].databaseId' \
-            --repo "${{ github.repository }}")
-          if [[ -z "$RUN_ID" ]]; then
-            echo "::error::No prior successful main run with a docs artifact found."
-            exit 1
-          fi
-          echo "Falling back to docs artifact from run $RUN_ID"
-          mkdir -p site
-          gh run download "$RUN_ID" \
-            --repo "${{ github.repository }}" \
-            --name "${{ inputs.artifacts-docs-name }}" \
-            --dir site
-
-      - name: Download Storybook artifact (current run)
-        id: dl-storybook-current
-        continue-on-error: true
+      - name: Download Storybook artifact
         uses: actions/download-artifact@v4
         with:
           name: ${{ inputs.artifacts-storybook-name }}
           path: site/storybook
-
-      - name: Fall back to last successful main Storybook artifact
-        if: ${{ steps.dl-storybook-current.outcome != 'success' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          RUN_ID=$(gh run list \
-            --workflow main.yml \
-            --branch main \
-            --status success \
-            --limit 1 \
-            --json databaseId \
-            --jq '.[0].databaseId' \
-            --repo "${{ github.repository }}")
-          if [[ -z "$RUN_ID" ]]; then
-            echo "::warning::No prior successful main run with a Storybook artifact; deploying without it."
-            exit 0
-          fi
-          echo "Falling back to Storybook artifact from run $RUN_ID"
-          mkdir -p site/storybook
-          gh run download "$RUN_ID" \
-            --repo "${{ github.repository }}" \
-            --name "${{ inputs.artifacts-storybook-name }}" \
-            --dir site/storybook || \
-              echo "::warning::Storybook artifact not found in run $RUN_ID; deploying without it."
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
