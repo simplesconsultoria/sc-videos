@@ -14,7 +14,7 @@ _SERVICE_PATTERNS: list[tuple[str, re.Pattern]] = [
     (
         "youtube",
         re.compile(
-            r"(?:youtu\.be/|youtube\.com/(?:watch\?.*v=|embed/|v/|shorts/))"
+            r"(?:youtu\.be/|youtube\.com/(?:watch\?.*v=|embed/|v/|shorts/|live/))"
             r"([A-Za-z0-9_-]{11})"
         ),
     ),

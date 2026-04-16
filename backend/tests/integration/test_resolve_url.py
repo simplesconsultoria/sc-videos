@@ -19,6 +19,7 @@ class TestResolveYouTubeURLs:
             ("https://www.youtube.com/embed/ATy8ALW63rQ", "ATy8ALW63rQ"),
             ("https://www.youtube.com/v/ATy8ALW63rQ", "ATy8ALW63rQ"),
             ("https://www.youtube.com/shorts/ATy8ALW63rQ", "ATy8ALW63rQ"),
+            ("https://www.youtube.com/live/ATy8ALW63rQ", "ATy8ALW63rQ"),
         ],
     )
     def test_youtube_urls(self, url: str, expected_id: str):
