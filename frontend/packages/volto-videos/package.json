@@ -34,18 +34,26 @@
     "@kitconcept/volto-light-theme": "8.0.0-alpha.18"
   },
   "peerDependencies": {
+    "classnames": "2.5.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-intl": "3.12.1",
+    "react-router-dom": "5.2.0",
+    "semantic-ui-react": "2.1.5"
   },
   "devDependencies": {
     "@plone/registry": "workspace:*",
     "@plone/scripts": "workspace:*",
     "@plone/types": "workspace:*",
+    "@testing-library/react": "^16.2.0",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
-    "typescript": "^5.7.3",
-    "@testing-library/react": "^16.2.0",
+    "classnames": "2.5.1",
+    "react-intl": "3.12.1",
+    "react-router-dom": "5.2.0",
     "release-it": "^19.0.5",
+    "semantic-ui-react": "2.1.5",
+    "typescript": "^5.7.3",
     "vitest": "^3.1.2"
   }
 }

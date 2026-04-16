@@ -6,3 +6,7 @@ export interface Video extends Content {
   text: object;
   preview_image?: Image;
 }
+
+export interface ImageScalesSummary {
+  [key: string]: Image[];
+}

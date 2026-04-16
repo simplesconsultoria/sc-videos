@@ -1,0 +1,86 @@
+.block.video {
+  &.align.left,
+  &.align.right {
+    // This is to equal the heading margin in case of the
+    // floating image + heading use case
+    // It matches the mocks for standalone images anyways
+    margin-top: $spacing-large;
+    margin-bottom: 0 !important;
+  }
+
+  &.has--block-width--default,
+  &.has--block-width--narrow,
+  &.has--block-width--full {
+    figure:not(.left, .right) {
+      margin-top: $spacing-large;
+      margin-bottom: $spacing-large;
+    }
+  }
+  figure {
+    img.video-player__placeholder {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+    &.right {
+      width: 50%;
+      height: auto;
+      float: right;
+    }
+    &.left {
+      width: 50%;
+      height: auto;
+      float: left;
+    }
+    &.left,
+    &.right {
+      &.large {
+        width: 50%;
+        height: auto;
+
+        @media only screen and (max-width: 768px) {
+          width: 100%;
+        }
+      }
+
+      &.medium {
+        width: 50%;
+        height: auto;
+        @media only screen and (max-width: 768px) {
+          width: 100%;
+        }
+      }
+
+      &.small {
+        width: 25%;
+        height: auto;
+        @media only screen and (max-width: 768px) {
+          width: 100%;
+        }
+      }
+    }
+    &.wide,
+    &.full {
+      margin-top: $spacing-large;
+      margin-bottom: $spacing-large;
+    }
+
+    &.center {
+      width: 100% !important;
+      margin-right: auto !important;
+      margin-bottom: $spacing-large;
+      margin-left: auto !important;
+      object-fit: cover;
+      img.video-player__placeholder {
+        height: auto;
+        margin-right: initial;
+        margin-left: initial;
+      }
+      &.large,
+      &.medium,
+      &.small {
+        width: 100% !important;
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@ export interface VideoInfo {
 export interface VideoPlayerProps {
   url: string;
   title?: string;
-  previewImage?: string;
+  previewImage?: string | null;
   autoplay?: boolean;
   aspectRatio?: string;
   className?: string;

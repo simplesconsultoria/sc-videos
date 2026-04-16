@@ -23,24 +23,16 @@
   }
 
   // Placeholder image
-  .video-player__placeholder {
+  img.video-player__placeholder {
     display: block;
     width: 100%;
+    max-width: 100%;
     height: 100%;
     object-fit: cover;
 
     &--fallback {
       background: var(--video-player-fallback-bg);
     }
-  }
-
-  // Volto Image component wraps in a <picture> or <img>
-  picture,
-  picture img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 
   // Play button overlay
