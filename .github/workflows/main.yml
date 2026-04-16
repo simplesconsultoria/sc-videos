@@ -34,17 +34,6 @@ jobs:
       contents: read
       packages: write
 
-  docs:
-    uses: ./.github/workflows/docs.yml
-    needs:
-        - config
-    with:
-      python-version: ${{ needs.config.outputs.python-version }}
-    # Run when docs changed, or when anything that ends up on the published
-    # Pages site changed — we need a fresh docs artifact to deploy alongside
-    # Storybook so the combined site doesn't drift.
-    if: ${{ needs.config.outputs.docs == 'true' || needs.config.outputs.deploy-docs == 'true' }}
-
   frontend:
     uses: ./.github/workflows/frontend.yml
     needs:
@@ -55,12 +44,33 @@ jobs:
         image-name-suffix: frontend
         node-version: ${{ needs.config.outputs.node-version }}
         volto-version: ${{ needs.config.outputs.volto-version }}
-    # Same reasoning as `docs` above — keeps the Storybook artifact fresh
-    # when the Pages site is about to be redeployed.
-    if: ${{ needs.config.outputs.frontend == 'true' || needs.config.outputs.deploy-docs == 'true' }}
+    if: ${{ needs.config.outputs.frontend == 'true' }}
     permissions:
       contents: read
       packages: write
+
+  storybook:
+    name: "Storybook"
+    uses: ./.github/workflows/tmp-frontend-storybook.yml
+    if: ${{ needs.config.outputs.deploy-docs == 'true' &&always() && github.ref == 'refs/heads/main' && !contains(needs.*.result, 'failure') }}
+    needs:
+      - config
+      - frontend
+    with:
+      node-version: ${{ needs.config.outputs.node-version }}
+      working-directory: "frontend"
+      artifacts-store: true
+
+  docs:
+    uses: ./.github/workflows/docs.yml
+    needs:
+        - config
+    with:
+      python-version: ${{ needs.config.outputs.python-version }}
+    # Run when docs changed, or when anything that ends up on the published
+    # Pages site changed — we need a fresh docs artifact to deploy alongside
+    # Storybook so the combined site doesn't drift.
+    if: ${{ needs.config.outputs.deploy-docs == 'true' }}
 
   deploy-docs:
     name: "Deploy documentation and Storybook"
@@ -68,18 +78,8 @@ jobs:
     needs:
         - config
         - docs
-        - frontend
-    # Run when we're on main AND at least one of docs/frontend actually
-    # produced something, AND nothing upstream failed. The artifact fallback
-    # inside the publish workflow lets us keep the other half of the site
-    # fresh from the most recent successful main run.
-    if: >-
-      ${{
-        github.ref == 'refs/heads/main' &&
-        !cancelled() &&
-        !contains(needs.*.result, 'failure') &&
-        (needs.docs.result == 'success' || needs.frontend.result == 'success')
-      }}
+        - storybook
+    if: ${{ needs.config.outputs.deploy-docs == 'true' &&always() && github.ref == 'refs/heads/main' && !contains(needs.*.result, 'failure') }}
     concurrency:
       group: pages
       cancel-in-progress: false
@@ -90,7 +90,7 @@ jobs:
       actions: read
     with:
       artifacts-docs-name: ${{ needs.docs.outputs.artifacts-name || format('docs-artifacts-{0}', github.ref_name) }}
-      artifacts-storybook-name: ${{ needs.frontend.outputs.storybook-artifacts-name || format('storybook-artifacts-{0}', github.ref_name) }}
+      artifacts-storybook-name: ${{ needs.storybook.outputs.artifacts-name || format('storybook-artifacts-{0}', github.ref_name) }}
 
   report:
     name: "Final report"
@@ -101,6 +101,7 @@ jobs:
       - backend
       - frontend
       - docs
+      - storybook
       - deploy-docs
     steps:
       - name: Write report
@@ -111,5 +112,6 @@ jobs:
           echo '| config | ${{ needs.config.result }} |' >> $GITHUB_STEP_SUMMARY
           echo '| backend | ${{ needs.backend.result }} |' >> $GITHUB_STEP_SUMMARY
           echo '| frontend | ${{ needs.frontend.result }} |' >> $GITHUB_STEP_SUMMARY
+          echo '| storybook | ${{ needs.storybook.result }} |' >> $GITHUB_STEP_SUMMARY
           echo '| docs | ${{ needs.docs.result }} |' >> $GITHUB_STEP_SUMMARY
           echo '| deploy-docs | ${{ needs.deploy-docs.result }} |' >> $GITHUB_STEP_SUMMARY
