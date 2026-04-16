@@ -1,0 +1,1 @@
+Drop the local ``catalog:`` block from ``pnpm-workspace.yaml`` so ``.pnpmfile.cjs`` can inject the full Volto catalog from ``core/catalog.json``. Fixes container image builds that were failing with ``Cannot find module '@simplesconsultoria/volto-videos'`` because an incomplete catalog broke workspace-link resolution for ``@plone/volto``.
