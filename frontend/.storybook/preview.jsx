@@ -8,7 +8,20 @@ import { initialize, mswLoader } from 'msw-storybook-addon';
 import '@root/theme';
 
 // Start MSW — waitUntilReady: false prevents blocking Storybook boot if SW registration fails.
-initialize({ onUnhandledRequest: 'bypass', waitUntilReady: false });
+// `serviceWorker.url` is resolved from the current document URL so the
+// worker is found both locally (served at `/`) and when Storybook is
+// published under a subpath on GitHub Pages (e.g. `/sc-videos/storybook/`).
+const basePath =
+  typeof window !== 'undefined'
+    ? window.location.pathname.replace(/[^/]*$/, '')
+    : '/';
+initialize({
+  onUnhandledRequest: 'bypass',
+  waitUntilReady: false,
+  serviceWorker: {
+    url: `${basePath}mockServiceWorker.js`,
+  },
+});
 
 export const parameters = {
   controls: {
