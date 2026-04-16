@@ -64,7 +64,18 @@ jobs:
         - config
         - docs
         - frontend
-    if: ${{ github.ref == 'refs/heads/main' && needs.config.outputs.deploy-docs == 'true' && needs.docs.result == 'success' && needs.frontend.result == 'success' }}
+    # Run when we're on main AND at least one of docs/frontend actually
+    # produced something, AND nothing upstream failed. The artifact fallback
+    # inside the publish workflow lets us keep the other half of the site
+    # fresh from the most recent successful main run.
+    if: >-
+      ${{
+        github.ref == 'refs/heads/main' &&
+        !cancelled() &&
+        needs.docs.result != 'failure' &&
+        needs.frontend.result != 'failure' &&
+        (needs.docs.result == 'success' || needs.frontend.result == 'success')
+      }}
     concurrency:
       group: pages
       cancel-in-progress: false
@@ -72,9 +83,10 @@ jobs:
       contents: read
       pages: write
       id-token: write
+      actions: read
     with:
-      artifacts-docs-name: ${{ needs.docs.outputs.artifacts-name }}
-      artifacts-storybook-name: ${{ needs.frontend.outputs.storybook-artifacts-name }}
+      artifacts-docs-name: ${{ needs.docs.outputs.artifacts-name || format('docs-artifacts-{0}', github.ref_name) }}
+      artifacts-storybook-name: ${{ needs.frontend.outputs.storybook-artifacts-name || format('storybook-artifacts-{0}', github.ref_name) }}
 
   report:
     name: "Final report"
