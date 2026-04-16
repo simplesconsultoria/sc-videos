@@ -10,7 +10,7 @@ interface VideoBlockViewProps {
   style?: React.CSSProperties;
 }
 
-const VideoBlockView: React.FC<VideoBlockViewProps> = ({
+export const VideoBlockView: React.FC<VideoBlockViewProps> = ({
   data,
   className,
   style,

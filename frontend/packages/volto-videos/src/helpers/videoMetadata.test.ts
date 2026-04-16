@@ -1,6 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { buildMetadataUrl, fetchVideoMetadata } from './videoMetadata';
 import type { FetchVideoMetadataOptions } from './videoMetadata';
+import {
+  YOUTUBE_METADATA,
+  VIMEO_METADATA,
+} from '@simplesconsultoria/volto-videos/mocks/videoMetadata';
 
 const defaultOptions: FetchVideoMetadataOptions = {
   apiPath: 'http://localhost:3000',
@@ -33,23 +37,12 @@ describe('fetchVideoMetadata', () => {
     vi.restoreAllMocks();
   });
 
-  it('returns metadata on success', async () => {
-    const mockData = {
-      service: 'youtube',
-      video_id: 'abc123',
-      title: 'Test Video',
-      text: 'A description',
-      duration: 213,
-      thumbnail_url: 'https://example.com/thumb.jpg',
-      channel: 'Test Channel',
-      subjects: ['test'],
-    };
-
+  it('returns YouTube metadata on success', async () => {
     vi.stubGlobal(
       'fetch',
       vi.fn().mockResolvedValue({
         ok: true,
-        json: () => Promise.resolve(mockData),
+        json: () => Promise.resolve(YOUTUBE_METADATA),
       }),
     );
 
@@ -58,7 +51,7 @@ describe('fetchVideoMetadata', () => {
       defaultOptions,
     );
 
-    expect(result.data).toEqual(mockData);
+    expect(result.data).toEqual(YOUTUBE_METADATA);
     expect(result.error).toBeNull();
     expect(fetch).toHaveBeenCalledWith(
       'http://localhost:3000/++api++/my-folder/@video-metadata',
@@ -69,6 +62,24 @@ describe('fetchVideoMetadata', () => {
         }),
       }),
     );
+  });
+
+  it('returns Vimeo metadata on success', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: () => Promise.resolve(VIMEO_METADATA),
+      }),
+    );
+
+    const result = await fetchVideoMetadata(
+      'https://vimeo.com/110591222',
+      defaultOptions,
+    );
+
+    expect(result.data).toEqual(VIMEO_METADATA);
+    expect(result.error).toBeNull();
   });
 
   it('returns error on non-ok response with error body', async () => {

@@ -12,7 +12,7 @@ interface VideoPlayerBlockViewProps {
   content: VideoContent;
 }
 
-const VideoPlayerBlockView: React.FC<VideoPlayerBlockViewProps> = ({
+export const VideoPlayerBlockView: React.FC<VideoPlayerBlockViewProps> = ({
   data,
   className,
   content,
