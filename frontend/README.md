@@ -26,53 +26,6 @@ Add `@simplesconsultoria/volto-videos` to your `package.json`.
 }
 ```
 
-Add `@simplesconsultoria/volto-videos` to your `volto.config.js`.
-
-```javascript
-const addons = ['@simplesconsultoria/volto-videos'];
-```
-
-If this package provides a Volto theme, and you want to activate it, then add the following to your `volto.config.js`.
-
-```javascript
-const theme = '@simplesconsultoria/volto-videos';
-```
-
-### Volto 17 and earlier
-
-Create a new Volto project.
-You can skip this step if you already have one.
-
-```
-npm install -g yo @plone/generator-volto
-yo @plone/volto my-volto-project --addon @simplesconsultoria/volto-videos
-cd my-volto-project
-```
-
-Add `@simplesconsultoria/volto-videos` to your `package.json`.
-
-```JSON
-"addons": [
-    "@simplesconsultoria/volto-videos"
-],
-
-"dependencies": {
-    "@simplesconsultoria/volto-videos": "*"
-}
-```
-
-Download and install the new add-on.
-
-```
-yarn install
-```
-
-Start Volto.
-
-```
-yarn start
-```
-
 ## Test installation
 
 Visit http://localhost:3000/ in a browser, login, and check the awesome new features.
