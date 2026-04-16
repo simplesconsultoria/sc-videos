@@ -25,6 +25,22 @@ interface ApplyMetadataOptions {
   onChange: (id: string, value: unknown) => void;
 }
 
+// Maps each form field to the metadata key that populates it,
+// plus an optional transform applied before writing.
+const FIELD_MAPPINGS: ReadonlyArray<{
+  field: string;
+  source: keyof VideoMetadata;
+  transform?: (value: string) => unknown;
+}> = [
+  { field: 'title', source: 'title' },
+  { field: 'description', source: 'text', transform: buildDescription },
+  { field: 'duration', source: 'duration' },
+  { field: 'channel', source: 'channel' },
+  { field: 'subjects', source: 'subjects' },
+  { field: 'video_id', source: 'video_id' },
+  { field: 'service', source: 'service' },
+];
+
 export function applyVideoMetadataToForm({
   metadata,
   formData,
@@ -32,25 +48,10 @@ export function applyVideoMetadataToForm({
 }: ApplyMetadataOptions): void {
   onChange('_metadata', metadata);
 
-  if (!formData?.title && metadata.title) {
-    onChange('title', metadata.title);
-  }
-  if (!formData?.description && metadata.text) {
-    onChange('description', buildDescription(metadata.text));
-  }
-  if (!formData?.duration && metadata.duration) {
-    onChange('duration', metadata.duration);
-  }
-  if (!formData?.channel && metadata.channel) {
-    onChange('channel', metadata.channel);
-  }
-  if (!formData?.subjects && metadata.subjects) {
-    onChange('subjects', metadata.subjects);
-  }
-  if (!formData?.video_id && metadata.video_id) {
-    onChange('video_id', metadata.video_id);
-  }
-  if (!formData?.service && metadata.service) {
-    onChange('service', metadata.service);
+  for (const { field, source, transform } of FIELD_MAPPINGS) {
+    const raw = metadata[source];
+    if (!formData?.[field] && raw) {
+      onChange(field, transform ? transform(raw as string) : raw);
+    }
   }
 }
