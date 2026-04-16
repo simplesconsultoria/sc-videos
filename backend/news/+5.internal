@@ -1,0 +1,1 @@
+Rename IRemoteVideo.length to IRemoteVideo.duration (Int, seconds).

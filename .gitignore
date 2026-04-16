@@ -3,6 +3,7 @@ node_modules
 /core
 /public
 *.mo
+.*_cache
 
 # Local Claude context (not for sharing)
 .claude/*.local.*

@@ -10,7 +10,6 @@ import subprocess
 logger = logging.getLogger("i18n")
 logger.setLevel(logging.DEBUG)
 
-
 PATTERN = r"^[a-z]{2}.*"
 
 locale_path = Path(__file__).parent.resolve()

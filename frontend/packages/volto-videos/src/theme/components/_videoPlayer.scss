@@ -1,0 +1,75 @@
+.video-player {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: var(--video-player-fallback-bg);
+
+  // Aspect ratios
+  &.aspect-16-9 {
+    aspect-ratio: 16 / 9;
+  }
+
+  &.aspect-4-3 {
+    aspect-ratio: 4 / 3;
+  }
+
+  // Iframe fills the container exactly
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  // Placeholder image
+  img.video-player__placeholder {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    &--fallback {
+      background: var(--video-player-fallback-bg);
+    }
+  }
+
+  // Play button overlay
+  .video-player__play-button {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    width: var(--video-player-icon-size);
+    height: var(--video-player-icon-size);
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    background: var(--video-player-play-bg);
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: background 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      background: var(--video-player-play-bg-hover);
+    }
+
+    &:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 3px;
+    }
+
+    // Icon sizing inside the button
+    svg {
+      width: 40%;
+      height: 40%;
+      margin-left: 4px; // optical centering — play triangles look off-center
+      fill: #fff;
+    }
+  }
+}

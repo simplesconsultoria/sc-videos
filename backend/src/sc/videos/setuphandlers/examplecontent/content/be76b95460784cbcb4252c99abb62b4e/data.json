@@ -1,0 +1,104 @@
+{
+  "@id": "/videos/world-plone-day-2026-brasilia-brazil",
+  "@type": "Video",
+  "UID": "be76b95460784cbcb4252c99abb62b4e",
+  "_metadata": {
+    "channel": "Plone",
+    "duration": 0,
+    "service": "youtube",
+    "subjects": [
+      "Plone",
+      "World Plone Day",
+      "WPD2026"
+    ],
+    "text": "A comunidade PloneGov-Br realizar\u00e1 a edi\u00e7\u00e3o brasileira do World Plone Day no dia 16 de Abril, das 14h \u00e0s 17h (Hor\u00e1rio de Bras\u00edlia).",
+    "thumbnail_url": "https://i.ytimg.com/vi/ATy8ALW63rQ/maxresdefault_live.jpg",
+    "title": "World Plone Day 2026 - Bras\u00edlia, Brazil",
+    "video_id": "ATy8ALW63rQ"
+  },
+  "allow_discussion": null,
+  "blocks": {
+    "8f4d970a-a5ea-4823-86de-eb80f3f99945": {
+      "@type": "playerBlock",
+      "align": "wide",
+      "autoPlay": false,
+      "size": "l",
+      "styles": {},
+      "theme": "grey"
+    },
+    "9bd2d6c3-ea19-40c2-bbcd-b4cbf608ef3c": {
+      "@type": "slate"
+    },
+    "ac75d5d7-6c3e-4dd1-8f60-bf619e655a40": {
+      "@type": "title"
+    },
+    "bd63e224-bc6d-4b2c-bed6-9cbf87e154a2": {
+      "@type": "description"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "ac75d5d7-6c3e-4dd1-8f60-bf619e655a40",
+      "bd63e224-bc6d-4b2c-bed6-9cbf87e154a2",
+      "8f4d970a-a5ea-4823-86de-eb80f3f99945",
+      "9bd2d6c3-ea19-40c2-bbcd-b4cbf608ef3c"
+    ]
+  },
+  "changeNote": "",
+  "channel": "Plone",
+  "created": "2026-04-15T17:18:55+00:00",
+  "description": "A comunidade PloneGov-Br realizar\u00e1 a edi\u00e7\u00e3o brasileira do World Plone Day no dia 16 de Abril, das 14h \u00e0s 17h (Hor\u00e1rio de Bras\u00edlia).",
+  "duration": null,
+  "exclude_from_nav": false,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "world-plone-day-2026-brasilia-brazil",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-04-15T17:52:42+00:00",
+  "nav_title": null,
+  "preview_caption": null,
+  "preview_image": {
+    "blob_path": "be76b95460784cbcb4252c99abb62b4e/preview_image/maxresdefault_live.jpg",
+    "content-type": "image/jpeg",
+    "filename": "maxresdefault_live.jpg",
+    "height": 720,
+    "size": 117635,
+    "width": 1280
+  },
+  "review_state": "published",
+  "service": "youtube",
+  "subjects": [
+    "Plone",
+    "World Plone Day",
+    "WPD2026"
+  ],
+  "title": "World Plone Day 2026 - Bras\u00edlia, Brazil",
+  "type_title": "Video",
+  "version": "current",
+  "versioning_enabled": true,
+  "videoUrl": "https://www.youtube.com/live/ATy8ALW63rQ",
+  "video_id": "ATy8ALW63rQ",
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": "admin",
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-04-15T17:18:55+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": "admin",
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-04-15T17:19:01+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

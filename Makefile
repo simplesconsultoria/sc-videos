@@ -247,3 +247,27 @@ ci-acceptance-test:
 	pnpm dlx wait-on --httpTimeout 20000 http-get://localhost:55001/plone http://localhost:3000
 	$(MAKE) -C "./frontend/" ci-acceptance-test
 	$(MAKE) acceptance-containers-stop
+
+############################################
+# Documentation
+############################################
+
+.PHONY: docs-html
+docs-html: $(VENV_FOLDER) ## Build HTML documentation
+	@make -C ./docs html
+
+.PHONY: docs-livehtml
+docs-livehtml: $(VENV_FOLDER) ## Build documentation and serve it
+	@make -C ./docs livehtml
+
+.PHONY: docs-vale
+docs-vale: $(VENV_FOLDER) ## Run vale on the documentation
+	@make -C ./docs vale
+
+.PHONY: docs-linkcheckbroken
+docs-linkcheckbroken: $(VENV_FOLDER) ## Run checks for broken links
+	@make -C ./docs linkcheckbroken
+
+.PHONY: docs-test
+docs-test: $(VENV_FOLDER) ## Run tests on the documentation
+	@make -C ./docs test

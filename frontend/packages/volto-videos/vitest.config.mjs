@@ -2,12 +2,34 @@ import { defineConfig } from 'vitest/config';
 import voltoVitestConfig from '@plone/volto/vitest.config.mjs';
 import path from 'path';
 
+const addonAlias = {
+  '@simplesconsultoria/volto-videos': path.resolve(
+    path.dirname(new URL(import.meta.url).pathname),
+    'src',
+  ),
+};
+
+const projects = (voltoVitestConfig.test?.projects ?? []).map((project) => ({
+  ...project,
+  resolve: {
+    ...project.resolve,
+    alias: {
+      ...(project.resolve?.alias ?? {}),
+      ...addonAlias,
+    },
+  },
+}));
+
 export default defineConfig({
   ...voltoVitestConfig,
   resolve: {
     alias: {
-      '@plone/volto': path.resolve(__dirname, '../../core/packages/volto/src'), // Add paths accordingly
-      // 'promise-file-reader': require.resolve('promise-file-reader') // Add to identify dependency from package
+      ...(voltoVitestConfig.resolve?.alias ?? {}),
+      ...addonAlias,
     },
+  },
+  test: {
+    ...voltoVitestConfig.test,
+    projects,
   },
 });

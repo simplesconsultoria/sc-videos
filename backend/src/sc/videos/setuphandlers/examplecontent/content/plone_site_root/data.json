@@ -4,222 +4,182 @@
   "UID": "plone_site_root",
   "allow_discussion": null,
   "blocks": {
-    "47c92ffe-c201-493c-97c9-a2d4e0beab69": {
+    "359d80e6-2ff3-4f9c-9515-030b174e7d05": {
+      "@type": "listing",
+      "headlineTag": "h2",
+      "querystring": {
+        "query": [
+          {
+            "i": "portal_type",
+            "o": "plone.app.querystring.operation.selection.any",
+            "v": [
+              "Video"
+            ]
+          }
+        ],
+        "sort_on": "effective",
+        "sort_order": "ascending"
+      },
+      "styles": {},
+      "theme": "default",
+      "variation": "grid"
+    },
+    "36796cc4-dce9-4ec4-9d47-5ce6bf3d263d": {
       "@type": "slate",
-      "plaintext": "Plone is a powerful content management system built on a rock-solid application stack written in the Python and JavaScript programming languages.",
+      "plaintext": "Teaser",
       "value": [
         {
           "children": [
             {
-              "text": "Plone is a powerful content management system built on a rock-solid application stack written in the "
-            },
-            {
-              "children": [
-                {
-                  "text": "Python"
-                }
-              ],
-              "type": "em"
-            },
-            {
-              "text": " and "
-            },
-            {
-              "children": [
-                {
-                  "text": "JavaScript"
-                }
-              ],
-              "type": "em"
-            },
-            {
-              "text": " programming languages."
-            }
-          ],
-          "type": "p"
-        }
-      ]
-    },
-    "5f31e9e4-173f-4ec1-ab48-64e9e2789b76": {
-      "@type": "title"
-    },
-    "68357972-bd25-47e2-a098-c7932a923182": {
-      "@type": "image",
-      "alt": "Plone Foundation Logo",
-      "href": [
-        {
-          "@id": "https://plone.org/foundation",
-          "title": "plone.org/foundation"
-        }
-      ],
-      "image_field": "image",
-      "url": "resolveuid/a58ccead718140c1baa98d43595fc3e6"
-    },
-    "ae41d44d-c4b1-426c-acf6-2e28cb9a97a0": {
-      "@type": "slate",
-      "plaintext": "Find out more about Plone",
-      "value": [
-        {
-          "children": [
-            {
-              "text": "Find out more about Plone"
+              "text": "Teaser"
             }
           ],
           "type": "h3"
         }
       ]
     },
-    "d9707a27-2565-4d7d-9daa-6c61d60ce8fd": {
+    "5ee215ce-b178-48a1-abff-55791e3eeee3": {
       "@type": "slate",
-      "plaintext": " The features of Plone   Plone Documentation   Plone Training   Plone Community Forum   Add-ons for Plone (backend)   Add-ons for Volto (frontend) ",
+      "plaintext": "Center",
+      "styles": {},
+      "theme": "default",
       "value": [
         {
           "children": [
             {
-              "children": [
-                {
-                  "text": ""
-                },
-                {
-                  "children": [
-                    {
-                      "text": "The features of Plone"
-                    }
-                  ],
-                  "data": {
-                    "url": "https://plone.org/why-plone/features"
-                  },
-                  "type": "link"
-                },
-                {
-                  "text": ""
-                }
-              ],
-              "type": "li"
-            },
-            {
-              "children": [
-                {
-                  "text": ""
-                },
-                {
-                  "children": [
-                    {
-                      "text": "Plone Documentation"
-                    }
-                  ],
-                  "data": {
-                    "url": "https://docs.plone.org/"
-                  },
-                  "type": "link"
-                },
-                {
-                  "text": ""
-                }
-              ],
-              "type": "li"
-            },
-            {
-              "children": [
-                {
-                  "text": ""
-                },
-                {
-                  "children": [
-                    {
-                      "text": "Plone Training"
-                    }
-                  ],
-                  "data": {
-                    "url": "https://training.plone.org/"
-                  },
-                  "type": "link"
-                },
-                {
-                  "text": ""
-                }
-              ],
-              "type": "li"
-            },
-            {
-              "children": [
-                {
-                  "text": ""
-                },
-                {
-                  "children": [
-                    {
-                      "text": "Plone Community Forum"
-                    }
-                  ],
-                  "data": {
-                    "url": "https://community.plone.org/"
-                  },
-                  "type": "link"
-                },
-                {
-                  "text": ""
-                }
-              ],
-              "type": "li"
-            },
-            {
-              "children": [
-                {
-                  "text": ""
-                },
-                {
-                  "children": [
-                    {
-                      "text": "Add-ons for Plone (backend)"
-                    }
-                  ],
-                  "data": {
-                    "url": "https://github.com/collective/awesome-plone#readme"
-                  },
-                  "type": "link"
-                },
-                {
-                  "text": ""
-                }
-              ],
-              "type": "li"
-            },
-            {
-              "children": [
-                {
-                  "text": ""
-                },
-                {
-                  "children": [
-                    {
-                      "text": "Add-ons for Volto (frontend)"
-                    }
-                  ],
-                  "data": {
-                    "url": "https://github.com/collective/awesome-volto#readme"
-                  },
-                  "type": "link"
-                },
-                {
-                  "text": ""
-                }
-              ],
-              "type": "li"
+              "text": "Center"
             }
           ],
-          "type": "ul"
+          "type": "h3"
+        }
+      ]
+    },
+    "5f31e9e4-173f-4ec1-ab48-64e9e2789b76": {
+      "@type": "title"
+    },
+    "7f87446c-879c-4592-a5c6-2df23d8ba71d": {
+      "@type": "video",
+      "align": "wide",
+      "autoPlay": false,
+      "href": [
+        {
+          "@id": "resolveuid/9becb741ddf041eaba515a0f49c2a975",
+          "Description": "O Plone 6.1 j\u00e1 \u00e9 uma realidade e voc\u00ea pode se beneficiar das novidades. A comunidade PloneGov-Br vai te contar como, rapidamente, iniciar um novo projeto com Plone 6.1",
+          "Title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6.1",
+          "getRemoteUrl": "https://www.youtube.com/watch?v=x7QX9tQxEBc",
+          "hasPreviewImage": true,
+          "title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6.1"
+        }
+      ],
+      "size": "l",
+      "styles": {},
+      "theme": "default"
+    },
+    "80a03202-f37a-4f9b-9869-4012e8dd80da": {
+      "@type": "video",
+      "align": "right",
+      "autoPlay": false,
+      "href": [
+        {
+          "@id": "resolveuid/9becb741ddf041eaba515a0f49c2a975",
+          "Description": "O Plone 6.1 j\u00e1 \u00e9 uma realidade e voc\u00ea pode se beneficiar das novidades. A comunidade PloneGov-Br vai te contar como, rapidamente, iniciar um novo projeto com Plone 6.1",
+          "Title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6.1",
+          "getRemoteUrl": "https://www.youtube.com/watch?v=x7QX9tQxEBc",
+          "hasPreviewImage": true,
+          "title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6.1"
+        }
+      ],
+      "size": "l",
+      "styles": {},
+      "theme": "default"
+    },
+    "c9e00e20-1bca-498d-9f4c-6c6764146deb": {
+      "@type": "teaser",
+      "description": "O Plone 6.1 j\u00e1 \u00e9 uma realidade e voc\u00ea pode se beneficiar das novidades. A comunidade PloneGov-Br vai te contar como, rapidamente, iniciar um novo projeto com Plone 6.1",
+      "head_title": null,
+      "href": [
+        {
+          "@id": "resolveuid/9becb741ddf041eaba515a0f49c2a975",
+          "@type": "Video",
+          "Description": "O Plone 6.1 j\u00e1 \u00e9 uma realidade e voc\u00ea pode se beneficiar das novidades. A comunidade PloneGov-Br vai te contar como, rapidamente, iniciar um novo projeto com Plone 6.1",
+          "Title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6.1",
+          "description": "O Plone 6.1 j\u00e1 \u00e9 uma realidade e voc\u00ea pode se beneficiar das novidades. A comunidade PloneGov-Br vai te contar como, rapidamente, iniciar um novo projeto com Plone 6.1",
+          "effective": "1969-12-31T03:00:00+00:00",
+          "end": null,
+          "getObjSize": "133.3 KB",
+          "getRemoteUrl": "https://www.youtube.com/watch?v=x7QX9tQxEBc",
+          "hasPreviewImage": true,
+          "head_title": null,
+          "image_field": "preview_image",
+          "mime_type": "text/plain",
+          "nav_title": null,
+          "review_state": "published",
+          "start": null,
+          "title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6.1",
+          "type_title": "Video"
+        }
+      ],
+      "overwrite": false,
+      "styles": {
+        "align": "center"
+      },
+      "theme": "default",
+      "title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6.1"
+    },
+    "dd3f3fad-d6ad-42db-a711-99c46356ff05": {
+      "@type": "slate",
+      "plaintext": "Right",
+      "styles": {},
+      "theme": "default",
+      "value": [
+        {
+          "children": [
+            {
+              "text": "Right"
+            }
+          ],
+          "type": "h3"
+        }
+      ]
+    },
+    "deb718b9-22b3-4b9c-a9d1-b46c172831b8": {
+      "@type": "slate",
+      "plaintext": "All Videos",
+      "value": [
+        {
+          "children": [
+            {
+              "text": "All Videos"
+            }
+          ],
+          "type": "h3"
         }
       ]
     },
     "e5ace182-3746-472c-ad81-696425a2b161": {
       "@type": "slate",
-      "plaintext": "Welcome to your new Plone site!",
+      "plaintext": "Video content type for Plone",
       "value": [
         {
           "children": [
             {
-              "text": "Welcome to your new Plone site!"
+              "text": "Video content type for Plone"
+            }
+          ],
+          "type": "h2"
+        }
+      ]
+    },
+    "f1b16dc0-747c-45e3-b03e-2a71762afa87": {
+      "@type": "slate",
+      "plaintext": "Players",
+      "styles": {},
+      "theme": "default",
+      "value": [
+        {
+          "children": [
+            {
+              "text": "Players"
             }
           ],
           "type": "h2"
@@ -231,10 +191,15 @@
     "items": [
       "5f31e9e4-173f-4ec1-ab48-64e9e2789b76",
       "e5ace182-3746-472c-ad81-696425a2b161",
-      "ae41d44d-c4b1-426c-acf6-2e28cb9a97a0",
-      "47c92ffe-c201-493c-97c9-a2d4e0beab69",
-      "d9707a27-2565-4d7d-9daa-6c61d60ce8fd",
-      "68357972-bd25-47e2-a098-c7932a923182"
+      "deb718b9-22b3-4b9c-a9d1-b46c172831b8",
+      "359d80e6-2ff3-4f9c-9515-030b174e7d05",
+      "36796cc4-dce9-4ec4-9d47-5ce6bf3d263d",
+      "c9e00e20-1bca-498d-9f4c-6c6764146deb",
+      "f1b16dc0-747c-45e3-b03e-2a71762afa87",
+      "5ee215ce-b178-48a1-abff-55791e3eeee3",
+      "7f87446c-879c-4592-a5c6-2df23d8ba71d",
+      "dd3f3fad-d6ad-42db-a711-99c46356ff05",
+      "80a03202-f37a-4f9b-9869-4012e8dd80da"
     ]
   },
   "contributors": [],
@@ -243,25 +208,24 @@
   ],
   "description": "",
   "effective": null,
-  "exclude_from_nav": false,
   "expires": null,
   "exportimport.constrains": {},
   "exportimport.conversation": [],
-  "exportimport.versions": {},
   "id": "Plone",
   "is_folderish": true,
-  "items_total": 0,
+  "items_total": 2,
   "language": "##DEFAULT##",
+  "layout": "document_view",
   "lock": {
     "locked": false,
     "stealable": true
   },
-  "parent": {},
   "review_state": null,
   "rights": "",
   "subjects": [],
-  "table_of_contents": null,
-  "title": "Project Title",
+  "title": "SC-Videos",
   "type_title": "Plone Site",
-  "workflow_history": {}
+  "workflow_history": {},
+  "working_copy": null,
+  "working_copy_of": null
 }

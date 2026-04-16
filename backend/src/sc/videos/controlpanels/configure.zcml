@@ -4,7 +4,18 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="sc.videos"
     >
-
+  <!-- Control panel -->
+  <browser:page
+      name="video-controlpanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".controlpanel.SettingsControlPanelFormWrapper"
+      permission="cmf.ManagePortal"
+      layer="sc.videos.interfaces.IBrowserLayer"
+      />
+  <adapter
+      factory=".controlpanel.SettingsConfigletPanel"
+      name="video_settings"
+      />
   <!-- -*- extra stuff goes here -*- -->
 
 </configure>

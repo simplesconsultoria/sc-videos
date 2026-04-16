@@ -3,8 +3,12 @@ import React from 'react';
 import { StaticRouter } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 import enMessages from '@root/../locales/en.json';
+import { initialize, mswLoader } from 'msw-storybook-addon';
 
 import '@root/theme';
+
+// Start MSW — waitUntilReady: false prevents blocking Storybook boot if SW registration fails.
+initialize({ onUnhandledRequest: 'bypass', waitUntilReady: false });
 
 export const parameters = {
   controls: {
@@ -14,6 +18,8 @@ export const parameters = {
     },
   },
 };
+
+export const loaders = [mswLoader];
 
 export const decorators = [
   (Story) => (
