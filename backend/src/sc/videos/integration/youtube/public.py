@@ -20,8 +20,12 @@ class YouTubePublicClient(BaseClient):
     def fetch_metadata(self, video_id: str) -> VideoMetadata:
         """Fetch metadata for a YouTube video using oEmbed.
 
-        Note: oEmbed does not provide duration, description, or tags.
-        Those fields will be empty in the returned metadata.
+        .. note::
+           oEmbed does not provide duration, description, or tags.
+           Those fields will be empty in the returned metadata.
+
+        :param video_id: 11-character YouTube video identifier.
+        :returns: Partially populated metadata (no duration/description/tags).
         """
         url = f"https://www.youtube.com/watch?v={video_id}"
         data = self.get(
@@ -39,13 +43,15 @@ class YouTubePublicClient(BaseClient):
 
 
 def _build_hq_thumbnail(video_id: str, data: dict) -> str:
-    """Return a high-quality thumbnail URL.
+    """Return a high-quality thumbnail URL for a YouTube video.
 
-    oEmbed returns a thumbnail, but it is typically 480x360.
-    We construct the maxresdefault URL and fall back to the oEmbed one.
+    Constructs the ``maxresdefault`` URL when a *video_id* is available,
+    otherwise falls back to the oEmbed-provided thumbnail.
+
+    :param video_id: YouTube video identifier.
+    :param data: Raw oEmbed response dict.
+    :returns: Best-available thumbnail URL.
     """
     oembed_thumb = data.get("thumbnail_url", "")
-    # The maxresdefault image may not exist for every video,
-    # but it is the best we can offer without an extra request.
     hq_url = f"https://i.ytimg.com/vi/{video_id}/maxresdefault.jpg"
     return hq_url if video_id else oembed_thumb

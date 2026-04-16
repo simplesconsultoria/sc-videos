@@ -16,7 +16,11 @@ class VimeoPublicClient(BaseClient):
     base_url = OEMBED_BASE
 
     def fetch_metadata(self, video_id: str) -> VideoMetadata:
-        """Fetch metadata for a Vimeo video using oEmbed."""
+        """Fetch metadata for a Vimeo video using oEmbed.
+
+        :param video_id: Numeric Vimeo video identifier.
+        :returns: Populated metadata.
+        """
         url = f"https://vimeo.com/{video_id}"
         data = self.get(
             "/api/oembed.json",

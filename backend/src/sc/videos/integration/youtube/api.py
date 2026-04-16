@@ -10,7 +10,11 @@ YOUTUBE_API_BASE = "https://www.googleapis.com/youtube/v3"
 
 
 def _parse_iso8601_duration(raw: str) -> int:
-    """Convert ISO 8601 duration (PT1H2M3S) to total seconds."""
+    """Convert an ISO 8601 duration string (e.g. ``PT1H2M3S``) to seconds.
+
+    :param raw: Duration string from the YouTube API.
+    :returns: Total number of seconds, or ``0`` if *raw* cannot be parsed.
+    """
     pattern = re.compile(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?")
     match = pattern.match(raw)
     if not match:
@@ -26,12 +30,17 @@ class YouTubeAPIClient(BaseClient):
 
     base_url = YOUTUBE_API_BASE
 
-    def __init__(self, api_key: str, timeout: float = 10.0):
+    def __init__(self, api_key: str, timeout: float = 10.0) -> None:
         super().__init__(timeout=timeout)
         self._api_key = api_key
 
     def fetch_metadata(self, video_id: str) -> VideoMetadata:
-        """Fetch metadata for a single YouTube video by its ID."""
+        """Fetch metadata for a single YouTube video.
+
+        :param video_id: 11-character YouTube video identifier.
+        :returns: Populated metadata.
+        :raises ValueError: If the video is not found.
+        """
         data = self.get(
             "/videos",
             params={
@@ -59,7 +68,11 @@ class YouTubeAPIClient(BaseClient):
 
 
 def _best_thumbnail(thumbnails: dict) -> str:
-    """Return the highest-resolution thumbnail URL available."""
+    """Return the highest-resolution thumbnail URL from a thumbnails dict.
+
+    :param thumbnails: Mapping of size keys to thumbnail objects.
+    :returns: URL string, or ``""`` if *thumbnails* is empty.
+    """
     for key in ("maxres", "standard", "high", "medium", "default"):
         if key in thumbnails:
             return thumbnails[key]["url"]

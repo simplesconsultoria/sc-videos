@@ -1,4 +1,4 @@
-"""@video-metadata service for fetching external video metadata."""
+"""``@video-metadata`` POST service for fetching external video metadata."""
 
 from plone.dexterity.content import DexterityContent
 from plone.restapi.deserializer import json_body
@@ -9,18 +9,29 @@ from ZPublisher.HTTPRequest import WSGIRequest
 
 
 class VideoMetadataPostService(Service):
-    """Obtain metadata for a video."""
+    """Accept a video URL and return its metadata as JSON.
+
+    The request body must contain ``{"videoUrl": "<url>"}``.
+    """
 
     context: DexterityContent
     request: WSGIRequest
 
     def error_response(self, status_code: int, message: str) -> dict:
-        """Helper method to create an error response."""
+        """Build and return a JSON error response.
+
+        :param status_code: HTTP status code to set on the response.
+        :param message: Human-readable error description.
+        :returns: ``{"error": message}`` dict.
+        """
         self.request.response.setStatus(status_code)
         return {"error": message}
 
     def reply(self) -> dict:
-        """Obtain metadata for a video."""
+        """Handle the POST request: resolve URL, fetch metadata, return JSON.
+
+        :returns: Metadata dict on success, or an error dict on failure.
+        """
         data = json_body(self.request)
         url: str = data.get("videoUrl") or ""
         video_ref = resolve_url(url)

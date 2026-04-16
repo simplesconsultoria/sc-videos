@@ -1,3 +1,5 @@
+"""Video settings control panel registration."""
+
 from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
 from plone.app.registry.browser.controlpanel import RegistryEditForm
 from plone.restapi.controlpanels import RegistryConfigletPanel
@@ -9,18 +11,22 @@ from zope.interface import Interface
 
 
 class SettingsEditForm(RegistryEditForm):
+    """Classic (non-REST) edit form for video settings."""
+
     schema = ISCVideoSettings
     schema_prefix = "video"
     label = "Video Settings"
 
 
 class SettingsControlPanelFormWrapper(ControlPanelFormWrapper):
+    """Wrapper that renders :class:`SettingsEditForm` inside the control panel."""
+
     form = SettingsEditForm
 
 
 @adapter(Interface, IBrowserLayer)
 class SettingsConfigletPanel(RegistryConfigletPanel):
-    """Control Panel endpoint"""
+    """REST API control-panel endpoint for video settings."""
 
     schema = ISCVideoSettings
     configlet_id = "video_settings"

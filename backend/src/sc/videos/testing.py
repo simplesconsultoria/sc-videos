@@ -32,12 +32,10 @@ INTEGRATION_TESTING = IntegrationTesting(
     name="Sc.VideosLayer:IntegrationTesting",
 )
 
-
 FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(FIXTURE, WSGI_SERVER_FIXTURE),
     name="Sc.VideosLayer:FunctionalTesting",
 )
-
 
 ACCEPTANCE_TESTING = FunctionalTesting(
     bases=(

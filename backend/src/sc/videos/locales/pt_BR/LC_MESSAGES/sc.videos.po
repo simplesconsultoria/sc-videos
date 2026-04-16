@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2022-05-25 17:12+0000\n"
+"POT-Creation-Date: 2026-04-16 02:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,3 +13,129 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
+
+#: sc/videos/profiles.zcml:13
+msgid "A Plone add-on providing a Video content type that supports external video sources"
+msgstr ""
+
+#: sc/videos/profiles/default/types/Video.xml
+msgid "A video content"
+msgstr ""
+
+#: sc/videos/profiles.zcml:22
+msgid "Create example content to showcase this addon."
+msgstr ""
+
+#: sc/videos/controlpanels/interfaces.py:12
+msgid "Enable YouTube API (Authenticated)"
+msgstr ""
+
+#: sc/videos/controlpanels/interfaces.py:13
+msgid "Enable or disable YouTube API integration."
+msgstr ""
+
+#: sc/videos/behaviors/video.py:18
+msgid "Enter a video URL (YouTube, Vimeo)"
+msgstr ""
+
+#: sc/videos/controlpanels/interfaces.py:20
+msgid "Enter your YouTube API key for video integration."
+msgstr ""
+
+#: sc/videos/behaviors/configure.zcml:20
+msgid "Fields for external video content"
+msgstr ""
+
+#: sc/videos/behaviors/configure.zcml:20
+msgid "Remote Video Behavior"
+msgstr ""
+
+#: sc/videos/fields/url.py:17
+msgid "The address is not a valid video URL."
+msgstr ""
+
+#: sc/videos/profiles.zcml:30
+msgid "Uninstall Video Support for Plone setup."
+msgstr ""
+
+#: sc/videos/profiles/default/types/Video.xml
+msgid "Video"
+msgstr ""
+
+#: sc/videos/behaviors/video.py:25
+msgid "Video Metadata"
+msgstr ""
+
+#: sc/videos/controlpanels/controlpanel.py:34
+msgid "Video Settings"
+msgstr ""
+
+#: sc/videos/profiles.zcml:22
+msgid "Video Support for Plone: Example content"
+msgstr ""
+
+#: sc/videos/profiles.zcml:13
+msgid "Video Support for Plone: Install"
+msgstr ""
+
+#: sc/videos/profiles.zcml:30
+msgid "Video Support for Plone: Uninstall"
+msgstr ""
+
+#: sc/videos/behaviors/video.py:17
+msgid "Video URL"
+msgstr ""
+
+#: sc/videos/controlpanels/interfaces.py:19
+msgid "YouTube API Key"
+msgstr ""
+
+#. Default: "Enter the video channel"
+#: sc/videos/behaviors/video.py:51
+msgid "help_video_channel"
+msgstr ""
+
+#. Default: "Duration of the video in seconds."
+#: sc/videos/behaviors/video.py:31
+msgid "help_video_duration"
+msgstr ""
+
+#. Default: "Enter the video ID (e.g. YouTube video ID)."
+#: sc/videos/behaviors/video.py:60
+msgid "help_video_id"
+msgstr ""
+
+#. Default: "Metadata of the video."
+#: sc/videos/behaviors/video.py:70
+msgid "help_video_metadata"
+msgstr ""
+
+#. Default: "Select the video service."
+#: sc/videos/behaviors/video.py:41
+msgid "help_video_service"
+msgstr ""
+
+#. Default: "Video Channel"
+#: sc/videos/behaviors/video.py:50
+msgid "label_video_channel"
+msgstr ""
+
+#. Default: "Video Duration"
+#: sc/videos/behaviors/video.py:30
+msgid "label_video_duration"
+msgstr ""
+
+#. Default: "Video ID"
+#: sc/videos/behaviors/video.py:59
+msgid "label_video_id"
+msgstr ""
+
+#. Default: "Video Metadata"
+#: sc/videos/behaviors/video.py:69
+msgid "label_video_metadata"
+msgstr ""
+
+#. Default: "Video Service"
+#: sc/videos/behaviors/video.py:40
+msgid "label_video_service"
+msgstr ""
