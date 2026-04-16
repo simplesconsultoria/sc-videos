@@ -6,4 +6,10 @@
       name="youtube"
       />
 
+  <utility
+      factory="sc.videos.integration.vimeo.data.VimeoMetadataProvider"
+      provides="sc.videos.interfaces.IVideoMetadataProvider"
+      name="vimeo"
+      />
+
 </configure>
