@@ -3,7 +3,7 @@
   <!-- Indexers/Metadata -->
   <adapter
       factory=".video.video_url"
-      name="getRemoteUrl"
+      name="videoUrl"
       />
   <!-- -*- extra stuff goes here -*- -->
 

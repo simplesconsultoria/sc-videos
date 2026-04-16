@@ -25,7 +25,7 @@ const YOUTUBE_HREF: VideoHref = {
       },
     ],
   } as unknown as VideoHref['image_scales'],
-  getRemoteUrl: 'https://www.youtube.com/watch?v=x7QX9tQxEBc',
+  videoUrl: 'https://www.youtube.com/watch?v=x7QX9tQxEBc',
 };
 
 const VIMEO_HREF: VideoHref = {
@@ -47,7 +47,7 @@ const VIMEO_HREF: VideoHref = {
       },
     ],
   } as unknown as VideoHref['image_scales'],
-  getRemoteUrl: 'https://vimeo.com/110591222',
+  videoUrl: 'https://vimeo.com/110591222',
 };
 
 const YOUTUBE_LIVE_HREF: VideoHref = {
@@ -56,7 +56,7 @@ const YOUTUBE_LIVE_HREF: VideoHref = {
   Description: 'A live URL variant.',
   hasPreviewImage: false,
   image_scales: {} as unknown as VideoHref['image_scales'],
-  getRemoteUrl: 'https://www.youtube.com/live/ATy8ALW63rQ',
+  videoUrl: 'https://www.youtube.com/live/ATy8ALW63rQ',
 };
 
 type StoryParams = {

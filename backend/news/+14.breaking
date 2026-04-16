@@ -1,0 +1,1 @@
+Rename catalog metadata column and indexer from ``getRemoteUrl`` to ``videoUrl`` to disambiguate from Plone's standard ``getRemoteUrl`` index used by Link content type.

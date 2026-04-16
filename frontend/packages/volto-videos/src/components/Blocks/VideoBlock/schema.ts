@@ -45,7 +45,7 @@ export const VideoBlockSchema = (props: BlockSchemaProps): any => {
           'Title',
           'Description',
           'hasPreviewImage',
-          'getRemoteUrl',
+          'videoUrl',
         ],
         allowExternals: false,
       },

@@ -16,7 +16,7 @@ export interface VideoHref {
   Description: string;
   hasPreviewImage: boolean;
   image_scales: ImageScalesSummary;
-  getRemoteUrl: string;
+  videoUrl: string;
 }
 
 export interface VideoBlockData {

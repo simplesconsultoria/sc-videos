@@ -17,7 +17,7 @@ export const VideoBlockView: React.FC<VideoBlockViewProps> = ({
 }) => {
   const theme = data.styles?.theme || 'default';
   const href = data.href?.[0] || {};
-  const { Title, image_scales, getRemoteUrl } = href;
+  const { Title, image_scales, videoUrl } = href;
   const previewImagePath =
     image_scales?.preview_image?.[0]?.scales?.great?.download || null;
   const previewImage = previewImagePath
@@ -25,7 +25,7 @@ export const VideoBlockView: React.FC<VideoBlockViewProps> = ({
     : null;
   return (
     <VideoPlayerBlock
-      videoUrl={getRemoteUrl}
+      videoUrl={videoUrl}
       title={Title}
       previewImage={previewImage}
       theme={theme}
