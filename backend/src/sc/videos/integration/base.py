@@ -50,3 +50,20 @@ class BaseClient:
     def fetch_metadata(self, video_id: str) -> VideoMetadata:
         """Fetch metadata for a video.  Subclasses must implement this."""
         raise NotImplementedError
+
+
+class MetadataProvider:
+    """Base class for metadata providers."""
+
+    id: str = ""
+    name: str = ""
+
+    def _get_client(self) -> BaseClient:
+        raise NotImplementedError(
+            "Subclasses must implement _get_client() to return a configured BaseClient instance."
+        )
+
+    def fetch_metadata(self, video_id: str) -> VideoMetadata:
+        raise NotImplementedError(
+            "Subclasses must implement fetch_metadata() to return a VideoMetadata instance."
+        )

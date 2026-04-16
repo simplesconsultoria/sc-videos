@@ -11,5 +11,7 @@ class IBrowserLayer(IDefaultBrowserLayer):
 class IVideoMetadataProvider(Interface):
     """A named utility that fetches video metadata for a specific service."""
 
+    name: str
+
     def fetch_metadata(video_id: str):
         """Return a VideoMetadata for the given video ID."""

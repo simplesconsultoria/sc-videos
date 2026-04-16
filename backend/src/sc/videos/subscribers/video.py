@@ -1,3 +1,4 @@
+from Acquisition import aq_inner
 from sc.videos.content.video import Video
 from sc.videos.utils import image_from_url
 from zope.globalrequest import getRequest
@@ -6,15 +7,34 @@ from zope.lifecycleevent import ObjectModifiedEvent
 from ZPublisher.HTTPRequest import WSGIRequest
 
 
+_DEFAULT_VALUE = object()
+
+
+def _update_preview_image(obj: Video, metadata: dict):
+    """Update video preview image."""
+    thumbnail_url = metadata.get("thumbnail_url")
+    if thumbnail_url and not obj.preview_image:
+        image = image_from_url(thumbnail_url)
+        obj.preview_image = image
+
+
+def _update_metadata_attr(obj: Video, metadata: dict, attr_name: str):
+    """Update video metadata attribute."""
+    value = metadata.get(attr_name)
+    obj = aq_inner(obj)
+    current_value = getattr(obj, attr_name, _DEFAULT_VALUE)
+    if value and current_value is not _DEFAULT_VALUE and value != current_value:
+        setattr(obj, attr_name, value)
+
+
 def _update_video_metadata(obj: Video, request: WSGIRequest):
     """Update video metadata."""
     metadata = obj._metadata
     if not metadata:
         return
-    thumbnail_url = metadata.get("thumbnail_url")
-    if not obj.preview_image:
-        image = image_from_url(thumbnail_url)
-        obj.preview_image = image
+    _update_preview_image(obj, metadata)
+    for attr in ("duration", "service", "channel", "video_id", "subjects"):
+        _update_metadata_attr(obj, metadata, attr)
 
 
 def added(obj: Video, event: ObjectAddedEvent):

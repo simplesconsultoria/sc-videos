@@ -27,10 +27,10 @@ class TestContentTypeFTI:
                 "Video",
                 "behaviors",
                 (
-                    "sc.videos.remotevideo",
                     "plone.basic",
+                    "sc.videos.remotevideo",
                     "plone.namefromtitle",
-                    "plone.richtext",
+                    "volto.blocks",
                     "volto.preview_image",
                     "plone.categorization",
                     "volto.navtitle",

@@ -1,5 +1,10 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+  <utility
+      name="sc.videos.vocabulary.video_services"
+      component=".video_services.VideoServicesVocabulary"
+      />
+
   <!-- -*- extra stuff goes here -*- -->
 
 </configure>

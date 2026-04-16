@@ -1,7 +1,10 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
   <!-- Indexers/Metadata -->
-
+  <adapter
+      factory=".video.video_url"
+      name="getRemoteUrl"
+      />
   <!-- -*- extra stuff goes here -*- -->
 
 </configure>

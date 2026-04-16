@@ -1,0 +1,96 @@
+{
+  "@id": "/videos/plone-conference-2014-the-case-for-plone-distributions",
+  "@type": "Video",
+  "UID": "a6847c670ff4447d84da47bd384c3d99",
+  "_metadata": {
+    "channel": "Matt Hamilton",
+    "duration": 2226,
+    "service": "vimeo",
+    "subjects": [],
+    "text": "",
+    "thumbnail_url": "https://i.vimeocdn.com/video/494898553-7d9ffca85c819d438d3125c608e8cc665a44429ca619f7b2e742149f3e22deb4-d_295x166?region=us",
+    "title": "Plone Conference 2014 - The case for Plone Distributions \u00c9rico Andrei",
+    "video_id": "110591222"
+  },
+  "allow_discussion": null,
+  "blocks": {
+    "47094132-1e31-4a59-af1a-5a3e6bf380ea": {
+      "@type": "playerBlock",
+      "align": "wide",
+      "autoPlay": false,
+      "size": "l",
+      "styles": {},
+      "theme": "grey"
+    },
+    "51abadcf-6554-445b-afa6-c5ee78dde3dc": {
+      "@type": "slate"
+    },
+    "67d4d298-106f-42b1-b9d4-9bd057386fdb": {
+      "@type": "description"
+    },
+    "e759f62d-41ec-441c-bfa9-bf215d6e832e": {
+      "@type": "title"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "e759f62d-41ec-441c-bfa9-bf215d6e832e",
+      "67d4d298-106f-42b1-b9d4-9bd057386fdb",
+      "47094132-1e31-4a59-af1a-5a3e6bf380ea",
+      "51abadcf-6554-445b-afa6-c5ee78dde3dc"
+    ]
+  },
+  "changeNote": "",
+  "channel": "Matt Hamilton",
+  "created": "2026-04-15T17:24:11+00:00",
+  "description": "Presented by  \u00c9rico Andrei",
+  "duration": 2226,
+  "exclude_from_nav": false,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "plone-conference-2014-the-case-for-plone-distributions",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-04-15T19:57:12+00:00",
+  "nav_title": null,
+  "preview_caption": null,
+  "preview_image": {
+    "blob_path": "a6847c670ff4447d84da47bd384c3d99/preview_image/494898553-7d9ffca85c819d438d3125c608e8cc665a44429ca619f7b2e742149f3e22deb4-d_295x166?region=us",
+    "content-type": "image/jpeg",
+    "filename": "494898553-7d9ffca85c819d438d3125c608e8cc665a44429ca619f7b2e742149f3e22deb4-d_295x166?region=us",
+    "height": 166,
+    "size": 10745,
+    "width": 295
+  },
+  "review_state": "published",
+  "service": "vimeo",
+  "subjects": [],
+  "title": "Plone Conference 2014 - The case for Plone Distributions",
+  "type_title": "Video",
+  "version": "current",
+  "versioning_enabled": true,
+  "videoUrl": "https://vimeo.com/110591222",
+  "video_id": "110591222",
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": "admin",
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-04-15T17:24:11+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": "admin",
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-04-15T17:24:18+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

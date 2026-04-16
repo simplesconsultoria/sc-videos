@@ -20,7 +20,9 @@
         "sort_on": "effective",
         "sort_order": "ascending"
       },
-      "variation": "summary"
+      "styles": {},
+      "theme": "default",
+      "variation": "grid"
     },
     "36796cc4-dce9-4ec4-9d47-5ce6bf3d263d": {
       "@type": "slate",
@@ -36,33 +38,109 @@
         }
       ]
     },
+    "5ee215ce-b178-48a1-abff-55791e3eeee3": {
+      "@type": "slate",
+      "plaintext": "Center",
+      "styles": {},
+      "theme": "default",
+      "value": [
+        {
+          "children": [
+            {
+              "text": "Center"
+            }
+          ],
+          "type": "h3"
+        }
+      ]
+    },
     "5f31e9e4-173f-4ec1-ab48-64e9e2789b76": {
       "@type": "title"
     },
+    "7f87446c-879c-4592-a5c6-2df23d8ba71d": {
+      "@type": "video",
+      "align": "wide",
+      "autoPlay": false,
+      "href": [
+        {
+          "@id": "resolveuid/9becb741ddf041eaba515a0f49c2a975",
+          "Description": "O Plone 6.1 j\u00e1 \u00e9 uma realidade e voc\u00ea pode se beneficiar das novidades. A comunidade PloneGov-Br vai te contar como, rapidamente, iniciar um novo projeto com Plone 6.1",
+          "Title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6.1",
+          "getRemoteUrl": "https://www.youtube.com/watch?v=x7QX9tQxEBc",
+          "hasPreviewImage": true,
+          "title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6.1"
+        }
+      ],
+      "size": "l",
+      "styles": {},
+      "theme": "default"
+    },
     "80a03202-f37a-4f9b-9869-4012e8dd80da": {
-      "@type": "slate"
+      "@type": "video",
+      "align": "right",
+      "autoPlay": false,
+      "href": [
+        {
+          "@id": "resolveuid/9becb741ddf041eaba515a0f49c2a975",
+          "Description": "O Plone 6.1 j\u00e1 \u00e9 uma realidade e voc\u00ea pode se beneficiar das novidades. A comunidade PloneGov-Br vai te contar como, rapidamente, iniciar um novo projeto com Plone 6.1",
+          "Title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6.1",
+          "getRemoteUrl": "https://www.youtube.com/watch?v=x7QX9tQxEBc",
+          "hasPreviewImage": true,
+          "title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6.1"
+        }
+      ],
+      "size": "l",
+      "styles": {},
+      "theme": "default"
     },
     "c9e00e20-1bca-498d-9f4c-6c6764146deb": {
       "@type": "teaser",
-      "description": "A comunidade PloneGov-Br realizar\u00e1 a edi\u00e7\u00e3o brasileira do World Plone Day no dia 16 de Abril, das 14h \u00e0s 17h (Hor\u00e1rio de Bras\u00edlia).",
+      "description": "O Plone 6.1 j\u00e1 \u00e9 uma realidade e voc\u00ea pode se beneficiar das novidades. A comunidade PloneGov-Br vai te contar como, rapidamente, iniciar um novo projeto com Plone 6.1",
       "head_title": null,
       "href": [
         {
-          "@id": "resolveuid/05ba0470ead14e7fa8fa93c76cf8b007",
+          "@id": "resolveuid/9becb741ddf041eaba515a0f49c2a975",
           "@type": "Video",
-          "Description": "A comunidade PloneGov-Br realizar\u00e1 a edi\u00e7\u00e3o brasileira do World Plone Day no dia 16 de Abril, das 14h \u00e0s 17h (Hor\u00e1rio de Bras\u00edlia).",
-          "Title": "World Plone Day 2026",
-          "hasPreviewImage": null,
+          "Description": "O Plone 6.1 j\u00e1 \u00e9 uma realidade e voc\u00ea pode se beneficiar das novidades. A comunidade PloneGov-Br vai te contar como, rapidamente, iniciar um novo projeto com Plone 6.1",
+          "Title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6.1",
+          "description": "O Plone 6.1 j\u00e1 \u00e9 uma realidade e voc\u00ea pode se beneficiar das novidades. A comunidade PloneGov-Br vai te contar como, rapidamente, iniciar um novo projeto com Plone 6.1",
+          "effective": "1969-12-31T03:00:00+00:00",
+          "end": null,
+          "getObjSize": "133.3 KB",
+          "getRemoteUrl": "https://www.youtube.com/watch?v=x7QX9tQxEBc",
+          "hasPreviewImage": true,
           "head_title": null,
-          "image_field": "preview_image_link",
-          "title": "World Plone Day 2026"
+          "image_field": "preview_image",
+          "mime_type": "text/plain",
+          "nav_title": null,
+          "review_state": "published",
+          "start": null,
+          "title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6.1",
+          "type_title": "Video"
         }
       ],
       "overwrite": false,
       "styles": {
         "align": "center"
       },
-      "title": "World Plone Day 2026"
+      "theme": "default",
+      "title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6.1"
+    },
+    "dd3f3fad-d6ad-42db-a711-99c46356ff05": {
+      "@type": "slate",
+      "plaintext": "Right",
+      "styles": {},
+      "theme": "default",
+      "value": [
+        {
+          "children": [
+            {
+              "text": "Right"
+            }
+          ],
+          "type": "h3"
+        }
+      ]
     },
     "deb718b9-22b3-4b9c-a9d1-b46c172831b8": {
       "@type": "slate",
@@ -91,6 +169,22 @@
           "type": "h2"
         }
       ]
+    },
+    "f1b16dc0-747c-45e3-b03e-2a71762afa87": {
+      "@type": "slate",
+      "plaintext": "Players",
+      "styles": {},
+      "theme": "default",
+      "value": [
+        {
+          "children": [
+            {
+              "text": "Players"
+            }
+          ],
+          "type": "h2"
+        }
+      ]
     }
   },
   "blocks_layout": {
@@ -101,6 +195,10 @@
       "359d80e6-2ff3-4f9c-9515-030b174e7d05",
       "36796cc4-dce9-4ec4-9d47-5ce6bf3d263d",
       "c9e00e20-1bca-498d-9f4c-6c6764146deb",
+      "f1b16dc0-747c-45e3-b03e-2a71762afa87",
+      "5ee215ce-b178-48a1-abff-55791e3eeee3",
+      "7f87446c-879c-4592-a5c6-2df23d8ba71d",
+      "dd3f3fad-d6ad-42db-a711-99c46356ff05",
       "80a03202-f37a-4f9b-9869-4012e8dd80da"
     ]
   },
@@ -115,7 +213,7 @@
   "exportimport.conversation": [],
   "id": "Plone",
   "is_folderish": true,
-  "items_total": 1,
+  "items_total": 2,
   "language": "##DEFAULT##",
   "layout": "document_view",
   "lock": {

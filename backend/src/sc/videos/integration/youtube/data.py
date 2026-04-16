@@ -1,6 +1,7 @@
 """YouTube metadata provider utility."""
 
 from plone import api
+from sc.videos.integration.base import MetadataProvider
 from sc.videos.integration.base import VideoMetadata
 from sc.videos.integration.youtube.api import YouTubeAPIClient
 from sc.videos.integration.youtube.public import YouTubePublicClient
@@ -9,12 +10,15 @@ from zope.interface import implementer
 
 
 @implementer(IVideoMetadataProvider)
-class YouTubeMetadataProvider:
+class YouTubeMetadataProvider(MetadataProvider):
     """Named utility that fetches YouTube video metadata.
 
     Uses the authenticated API client when an API key is configured
     and enabled, otherwise falls back to the public oEmbed endpoint.
     """
+
+    id: str = "youtube"
+    name: str = "YouTube"
 
     def _get_client(self) -> YouTubeAPIClient | YouTubePublicClient:
         api_enabled: bool = api.portal.get_registry_record(

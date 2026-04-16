@@ -21,7 +21,9 @@ class IRemoteVideo(model.Schema):
     directives.order_before(videoUrl="*")
 
     fieldset(
-        "video-metadata", label=_("Video Metadata"), fields=["duration", "_metadata"]
+        "video-metadata",
+        label=_("Video Metadata"),
+        fields=["duration", "service", "channel", "video_id", "_metadata"],
     )
 
     duration = schema.Int(
@@ -32,6 +34,35 @@ class IRemoteVideo(model.Schema):
         ),
         required=False,
         min=0,
+    )
+
+    service = schema.Choice(
+        title=_("label_video_service", default="Video Service"),
+        description=_(
+            "help_video_service",
+            default="Select the video service.",
+        ),
+        vocabulary="sc.videos.vocabulary.video_services",
+        required=False,
+    )
+
+    channel = schema.TextLine(
+        title=_("label_video_channel", default="Video Channel"),
+        description=_(
+            "help_video_channel",
+            default="Enter the video channel",
+        ),
+        required=False,
+        default="",
+    )
+    video_id = schema.ASCIILine(
+        title=_("label_video_id", default="Video ID"),
+        description=_(
+            "help_video_id",
+            default="Enter the video ID (e.g. YouTube video ID).",
+        ),
+        required=False,
+        default="",
     )
 
     _metadata = JSONField(
