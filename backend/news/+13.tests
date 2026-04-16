@@ -1,0 +1,1 @@
+Add tests for ``get_video_services`` and ``image_from_url`` in ``sc.videos.utils``.
