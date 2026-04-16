@@ -18,8 +18,22 @@ import type {
   VideoMetadata,
   VideoURLWidgetProps,
 } from '@simplesconsultoria/volto-videos/types/widgets';
-import { formatDuration } from '@simplesconsultoria/volto-videos/helpers/format';
 import { fetchVideoMetadata } from '@simplesconsultoria/volto-videos/helpers/videoMetadata';
+import { applyVideoMetadataToForm } from '@simplesconsultoria/volto-videos/helpers/applyMetadata';
+import MetadataPreview from '@simplesconsultoria/volto-videos/components/Sidebar/MetadataPreview';
+
+const FieldDescription: React.FC<{
+  description?: string;
+  metadata?: VideoMetadata;
+  isLoading?: boolean;
+}> = ({ description, metadata, isLoading = false }) => {
+  return (
+    <>
+      {description}
+      {metadata && !isLoading && <MetadataPreview metadata={metadata} />}
+    </>
+  );
+};
 
 const VideoURLWidget: React.FC<VideoURLWidgetProps> = (props) => {
   const {
@@ -60,21 +74,11 @@ const VideoURLWidget: React.FC<VideoURLWidgetProps> = (props) => {
       setIsLoading(false);
 
       if (result.data) {
-        const { formData } = props;
-        onChange('_metadata', result.data);
-        // Only populate empty fields — don't overwrite user edits
-        if (!formData?.title && result.data.title) {
-          onChange('title', result.data.title);
-        }
-        if (!formData?.text && result.data.text) {
-          onChange('text', {
-            'content-type': 'text/html',
-            data: `<p>${result.data.text.replace(/\n/g, '<br/>')}</p>`,
-          });
-        }
-        if (!formData?.duration && result.data.duration) {
-          onChange('duration', result.data.duration);
-        }
+        applyVideoMetadataToForm({
+          metadata: result.data,
+          formData: props.formData,
+          onChange,
+        });
       }
     },
     [contextUrl, onChange, props],
@@ -95,7 +99,17 @@ const VideoURLWidget: React.FC<VideoURLWidgetProps> = (props) => {
   };
 
   return (
-    <FormFieldWrapper {...props} className="video-url wide">
+    <FormFieldWrapper
+      {...props}
+      description={
+        <FieldDescription
+          description={props.description}
+          metadata={metadata}
+          isLoading={isLoading}
+        />
+      }
+      className="video-url wide"
+    >
       <div className="wrapper">
         <Input
           id={inputId}
@@ -126,7 +140,7 @@ const VideoURLWidget: React.FC<VideoURLWidgetProps> = (props) => {
                 clear();
               }}
             >
-              <Icon name={clearSVG} size="18px" color="#e40166" />
+              <Icon name={clearSVG} size="18px" />
             </Button>
             <Button
               type="button"
@@ -155,7 +169,7 @@ const VideoURLWidget: React.FC<VideoURLWidgetProps> = (props) => {
                 clear();
               }}
             >
-              <Icon name={clearSVG} size="18px" color="#e40166" />
+              <Icon name={clearSVG} size="18px" />
             </Button>
           </Button.Group>
         )}
@@ -169,33 +183,6 @@ const VideoURLWidget: React.FC<VideoURLWidgetProps> = (props) => {
         <Message negative size="tiny">
           <p>{fetchError}</p>
         </Message>
-      )}
-
-      {metadata && !isLoading && (
-        <div className="video-metadata-preview">
-          {metadata.thumbnail_url && (
-            <img
-              src={metadata.thumbnail_url}
-              alt={metadata.title}
-              className="video-thumbnail"
-              style={{ maxWidth: '320px', marginTop: '0.5em' }}
-            />
-          )}
-          <div className="video-metadata-info" style={{ marginTop: '0.5em' }}>
-            {metadata.title && (
-              <strong className="video-title">{metadata.title}</strong>
-            )}
-            {metadata.channel && (
-              <span className="video-channel"> — {metadata.channel}</span>
-            )}
-            {metadata.duration > 0 && (
-              <span className="video-duration">
-                {' '}
-                ({formatDuration(metadata.duration)})
-              </span>
-            )}
-          </div>
-        </div>
       )}
     </FormFieldWrapper>
   );

@@ -1,0 +1,1 @@
+VideoURLWidget now collapses line breaks and extra whitespace when populating the description field from fetched metadata, and truncates long descriptions to 150 characters with an ellipsis.
