@@ -3,26 +3,8 @@
 from dataclasses import dataclass
 from sc.videos.integration.base import VideoMetadata
 from sc.videos.interfaces import IVideoMetadataProvider
+from sc.videos.utils import get_video_services
 from zope.component import queryUtility
-
-import re
-
-
-# Registry of supported services and their URL patterns.
-# Each pattern must have a single capturing group for the video ID.
-_SERVICE_PATTERNS: list[tuple[str, re.Pattern]] = [
-    (
-        "youtube",
-        re.compile(
-            r"(?:youtu\.be/|youtube\.com/(?:watch\?.*v=|embed/|v/|shorts/|live/))"
-            r"([A-Za-z0-9_-]{11})"
-        ),
-    ),
-    (
-        "vimeo",
-        re.compile(r"(?:vimeo\.com|player\.vimeo\.com/video)/(\d+)"),
-    ),
-]
 
 
 @dataclass(frozen=True)
@@ -34,22 +16,28 @@ class VideoReference:
 
 
 def resolve_url(url: str) -> VideoReference | None:
-    """Given a video URL, identify the hosting service and extract the video ID.
+    """Identify the hosting service and extract the video ID from a URL.
 
-    Returns a VideoReference if the URL matches a known service, or None.
+    Iterates over all registered :class:`IVideoMetadataProvider` utilities
+    and tests each provider's :attr:`url_pattern` against *url*.
+
+    :param url: Absolute video URL to resolve.
+    :returns: A :class:`VideoReference` if *url* matches a known provider,
+        or ``None``.
     """
-    for service, pattern in _SERVICE_PATTERNS:
-        match = pattern.search(url)
+    for provider in get_video_services():
+        match = provider.url_pattern.search(url)
         if match:
-            return VideoReference(service=service, video_id=match.group(1))
+            return VideoReference(service=provider.id, video_id=match.group(1))
     return None
 
 
 def fetch_metadata(ref: VideoReference) -> VideoMetadata:
-    """Fetch video metadata using the registered provider for the service.
+    """Fetch video metadata using the registered provider for *ref.service*.
 
-    Looks up a named IVideoMetadataProvider utility matching ref.service.
-    Raises LookupError if no provider is registered for the service.
+    :param ref: Resolved video reference.
+    :returns: Metadata retrieved from the provider.
+    :raises LookupError: If no provider is registered for the service.
     """
     provider = queryUtility(IVideoMetadataProvider, name=ref.service)
     if provider is None:

@@ -1,9 +1,18 @@
-"""Tests for sc.videos.integration.resolve_url."""
+"""Tests for sc.videos.integration.resolve_url.
+
+resolve_url iterates over registered IVideoMetadataProvider utilities,
+so these tests require the integration layer to have ZCML loaded.
+"""
 
 from sc.videos.integration import resolve_url
 from sc.videos.integration import VideoReference
 
 import pytest
+
+
+@pytest.fixture(autouse=True)
+def _with_integration(integration):
+    """Ensure the Zope component registry is available."""
 
 
 class TestResolveYouTubeURLs:
