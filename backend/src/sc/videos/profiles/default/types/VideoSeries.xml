@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
         meta_type="Dexterity FTI"
-        name="Series"
+        name="VideoSeries"
         i18n:domain="sc.videos"
 >
 
@@ -14,7 +14,7 @@
   >A series of video episodes</property>
 
   <property name="allow_discussion">True</property>
-  <property name="factory">Series</property>
+  <property name="factory">VideoSeries</property>
 
   <!-- Hierarchy control -->
   <property name="filter_content_types">False</property>
@@ -22,9 +22,9 @@
   <property name="global_allow">True</property>
 
   <!-- Schema, class and security -->
-  <property name="add_permission">sc.videos.series.add</property>
-  <property name="klass">sc.videos.content.series.Series</property>
-  <property name="schema">sc.videos.content.series.ISeries</property>
+  <property name="add_permission">sc.videos.videoseries.add</property>
+  <property name="klass">sc.videos.content.video_series.VideoSeries</property>
+  <property name="schema">sc.videos.content.video_series.IVideoSeries</property>
 
   <!-- Enabled behaviors -->
   <property name="behaviors"
@@ -40,7 +40,7 @@
   </property>
 
   <!-- View information -->
-  <property name="add_view_expr">string:${folder_url}/++add++Series</property>
+  <property name="add_view_expr">string:${folder_url}/++add++VideoSeries</property>
   <property name="immediate_view">view</property>
   <property name="default_view">view</property>
   <property name="default_view_fallback">False</property>

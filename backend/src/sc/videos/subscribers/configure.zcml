@@ -14,7 +14,7 @@
 
   <!-- Series -->
   <subscriber
-      for="sc.videos.content.series.ISeries
+      for="sc.videos.content.video_series.IVideoSeries
            zope.lifecycleevent.IObjectAddedEvent"
       handler=".series.added"
       />

@@ -3,7 +3,7 @@ from sc.videos.content.episode import Episode
 import pytest
 
 
-SERIES_ADD_PERMISSION = "sc.videos: Add Series"
+SERIES_ADD_PERMISSION = "sc.videos: Add VideoSeries"
 DEFAULT_ROLES = ["Manager", "Site Administrator", "Editor", "Contributor"]
 
 
@@ -33,7 +33,7 @@ def series(content_factory, portal, enable_series):
     return content_factory(
         portal,
         {
-            "type": "Series",
+            "type": "VideoSeries",
             "id": "my-series",
             "title": "My Series",
         },

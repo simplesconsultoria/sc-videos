@@ -6,7 +6,7 @@
           name="Episode"
   />
   <object meta_type="Dexterity FTI"
-          name="Series"
+          name="VideoSeries"
   />
   <object meta_type="Dexterity FTI"
           name="Video"

@@ -11,4 +11,4 @@ class IEpisode(Schema):
 
 @implementer(IEpisode)
 class Episode(Container):
-    """Dexterity container that represents a single episode within a Series."""
+    """Dexterity container that represents a single episode within a VideoSeries."""

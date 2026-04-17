@@ -1,26 +1,26 @@
-"""Indexers for Series-related catalog queries."""
+"""Indexers for VideoSeries-related catalog queries."""
 
 from plone import api
 from plone.indexer.decorator import indexer
 from sc.videos.content.episode import Episode
 from sc.videos.content.episode import IEpisode
-from sc.videos.content.series import ISeries
+from sc.videos.content.video_series import IVideoSeries
 
 
 @indexer(IEpisode)
 def series(obj: Episode) -> str:
-    """Return the UUID of the nearest parent Series.
+    """Return the UUID of the nearest parent VideoSeries.
 
     Traverses up the content hierarchy until it finds an object
-    providing ISeries. Returns the Series UUID or raises
-    AttributeError if no parent Series is found.
+    providing IVideoSeries. Returns the VideoSeries UUID or raises
+    AttributeError if no parent VideoSeries is found.
 
     :param obj: Any content object.
-    :returns: UUID of the nearest parent Series.
+    :returns: UUID of the nearest parent VideoSeries.
     """
     portal = api.portal.get()
-    series = api.content.iter_ancestors(obj, interface=ISeries, stop_at=portal)
-    for serie in series:
-        uuid = api.content.get_uuid(serie)
+    ancestors = api.content.iter_ancestors(obj, interface=IVideoSeries, stop_at=portal)
+    for ancestor in ancestors:
+        uuid = api.content.get_uuid(ancestor)
         return uuid
     return ""
