@@ -1,12 +1,12 @@
 import type { Content } from '@plone/types';
+import type { IRemoteVideo } from '@simplesconsultoria/volto-videos/types/content';
 
 interface RestrictProps {
   properties: Content;
 }
 
 export const videoPlayerRestrict = ({ properties }: RestrictProps): boolean => {
-  const contentType = properties?.['@type'];
-  return contentType !== 'Video';
+  return !(properties as unknown as IRemoteVideo)?.has_video;
 };
 
 export const videoRestrict = ({ properties }: RestrictProps): boolean => {

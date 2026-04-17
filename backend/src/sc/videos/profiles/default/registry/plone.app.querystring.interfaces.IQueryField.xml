@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="sc.videos"
+>
+
+  <!-- Querystring: duration (sortable, integer operations) -->
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.duration"
+  >
+    <value key="title"
+           i18n:translate=""
+    >Video duration</value>
+    <value key="description"
+           i18n:translate=""
+    >Duration of the video in seconds</value>
+    <value key="enabled">True</value>
+    <value key="sortable">True</value>
+    <value key="operations">
+      <element>plone.app.querystring.operation.int.is</element>
+      <element>plone.app.querystring.operation.int.lessThan</element>
+      <element>plone.app.querystring.operation.int.largerThan</element>
+    </value>
+    <value key="group"
+           i18n:translate=""
+    >Video</value>
+  </records>
+
+  <!-- Querystring: duration_range (vocabulary selection) -->
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.duration_range"
+  >
+    <value key="title"
+           i18n:translate=""
+    >Video duration range</value>
+    <value key="description"
+           i18n:translate=""
+    >Filter by video duration range</value>
+    <value key="enabled">True</value>
+    <value key="sortable">False</value>
+    <value key="operations">
+      <element>plone.app.querystring.operation.selection.any</element>
+      <element>plone.app.querystring.operation.selection.none</element>
+    </value>
+    <value key="vocabulary">sc.videos.vocabulary.duration_ranges</value>
+    <value key="group"
+           i18n:translate=""
+    >Video</value>
+  </records>
+
+  <!-- Querystring: has_video (boolean) -->
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.has_video"
+  >
+    <value key="title"
+           i18n:translate=""
+    >Has video</value>
+    <value key="description"
+           i18n:translate=""
+    >Whether the content has a video attached</value>
+    <value key="enabled">True</value>
+    <value key="sortable">False</value>
+    <value key="operations">
+      <element>plone.app.querystring.operation.boolean.isTrue</element>
+      <element>plone.app.querystring.operation.boolean.isFalse</element>
+    </value>
+    <value key="group"
+           i18n:translate=""
+    >Video</value>
+  </records>
+
+</registry>

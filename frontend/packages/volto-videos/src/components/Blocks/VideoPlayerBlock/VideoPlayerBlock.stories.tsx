@@ -4,7 +4,7 @@ import Wrapper from '@plone/volto/storybook';
 
 import { VideoPlayerBlockView } from './View';
 import type { VideoPlayerBlockData } from './index';
-import type { Video as VideoContent } from '@simplesconsultoria/volto-videos/types/content';
+import type { IRemoteVideo as VideoContent } from '@simplesconsultoria/volto-videos/types/content';
 
 const makeContent = (overrides: Partial<VideoContent> = {}): VideoContent =>
   ({

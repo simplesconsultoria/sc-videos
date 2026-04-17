@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-04-16 02:10+0000\n"
+"POT-Creation-Date: 2026-04-17 16:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,6 +14,22 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
+#: sc/videos/vocabularies/duration_ranges.py:12
+msgid "0-10 minutes"
+msgstr ""
+
+#: sc/videos/vocabularies/duration_ranges.py:13
+msgid "11-30 minutes"
+msgstr ""
+
+#: sc/videos/vocabularies/duration_ranges.py:14
+msgid "31-60 minutes"
+msgstr ""
+
+#: sc/videos/vocabularies/duration_ranges.py:15
+msgid "> 60 minutes"
+msgstr ""
+
 #: sc/videos/profiles.zcml:13
 msgid "A Plone add-on providing a Video content type that supports external video sources"
 msgstr ""
@@ -24,6 +40,10 @@ msgstr ""
 
 #: sc/videos/profiles.zcml:22
 msgid "Create example content to showcase this addon."
+msgstr ""
+
+#: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
+msgid "Duration of the video in seconds"
 msgstr ""
 
 #: sc/videos/controlpanels/interfaces.py:12
@@ -46,6 +66,14 @@ msgstr ""
 msgid "Fields for external video content"
 msgstr ""
 
+#: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
+msgid "Filter by video duration range"
+msgstr ""
+
+#: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
+msgid "Has video"
+msgstr ""
+
 #: sc/videos/behaviors/configure.zcml:20
 msgid "Remote Video Behavior"
 msgstr ""
@@ -58,6 +86,7 @@ msgstr ""
 msgid "Uninstall Video Support for Plone setup."
 msgstr ""
 
+#: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 #: sc/videos/profiles/default/types/Video.xml
 msgid "Video"
 msgstr ""
@@ -84,6 +113,18 @@ msgstr ""
 
 #: sc/videos/behaviors/video.py:17
 msgid "Video URL"
+msgstr ""
+
+#: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
+msgid "Video duration"
+msgstr ""
+
+#: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
+msgid "Video duration range"
+msgstr ""
+
+#: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
+msgid "Whether the content has a video attached"
 msgstr ""
 
 #: sc/videos/controlpanels/interfaces.py:19

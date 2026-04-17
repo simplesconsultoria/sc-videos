@@ -5,6 +5,15 @@
       factory=".video.video_url"
       name="videoUrl"
       />
-  <!-- -*- extra stuff goes here -*- -->
+
+  <adapter
+      factory=".video.duration"
+      name="duration"
+      />
+
+  <adapter
+      factory=".video.has_video"
+      name="has_video"
+      />
 
 </configure>
