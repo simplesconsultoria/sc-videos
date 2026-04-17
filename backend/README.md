@@ -1,87 +1,72 @@
-# sc.videos
+# 🎬 sc.videos
 
-A Plone add-on providing a Video content type that supports external video sources
+[![PyPI](https://img.shields.io/pypi/v/sc.videos)](https://pypi.org/project/sc.videos/)
+[![CI](https://github.com/simplesconsultoria/sc-videos/actions/workflows/main.yml/badge.svg)](https://github.com/simplesconsultoria/sc-videos/actions/workflows/main.yml)
 
-## Features
+**sc.videos** is the backend Python package for the [sc-videos](https://github.com/simplesconsultoria/sc-videos) Plone add-on.
+It provides a Video content type with automatic metadata fetching from YouTube and Vimeo.
 
-TODO: List our awesome features
+> **This package requires the frontend companion add-on [`@simplesconsultoria/volto-videos`](https://www.npmjs.com/package/@simplesconsultoria/volto-videos) to be installed in your Volto frontend.**
+> Both packages are developed and released together from the [sc-videos monorepo](https://github.com/simplesconsultoria/sc-videos).
 
-## Installation
+## ✨ Features
 
-Install sc.videos with uv.
+- 📄 **Video content type** — a Dexterity container with the `IRemoteVideo` behavior for external video URLs, automatic metadata population, and preview image downloads.
+- 🔌 **Extensible provider system** — YouTube (Data API v3 + public oEmbed fallback) and Vimeo out of the box. Add new providers by registering a named `IVideoMetadataProvider` utility.
+- 🌐 **`@video-metadata` REST API** — POST a video URL, receive structured metadata (title, description, duration, thumbnail, channel, tags).
+- ⚙️ **Video Settings control panel** — configure the YouTube API key and toggle between API and oEmbed modes.
+- 📇 **Catalog metadata** — `videoUrl` is exposed as a catalog column for efficient search result rendering.
+- 🔐 **Custom field validation** — the `VideoURL` field validates URLs against registered providers at the schema level.
 
-```shell
-uv add sc.videos
+## 📦 Installation
+
+Add `sc.videos` to your project's backend policy package's `pyproject.toml`:
+
+```toml
+[project]
+dependencies = [
+    "Products.CMFPlone",
+    "sc.videos",
+]
 ```
 
-Create the Plone site.
+Load the ZCML configuration in your package's `dependencies.zcml` or `configure.zcml`:
 
-```shell
-make create-site
+```xml
+<include package="sc.videos" />
 ```
 
-## Contribute
+Then install:
+
+```shell
+make install
+```
+
+After starting the site, activate **Video Support for Plone** in **Site Setup → Add-ons**.
+
+## 📚 Documentation
+
+Full documentation (tutorials, how-to guides, concepts, and reference) is available at:
+
+**[simplesconsultoria.github.io/sc-videos](https://simplesconsultoria.github.io/sc-videos/)**
+
+## 🤝 Contribute
+
+For development setup and contribution guidelines, see the [monorepo README](https://github.com/simplesconsultoria/sc-videos) and the [contribution guide](https://simplesconsultoria.github.io/sc-videos/how-to-guides/contribute.html).
 
 - [Issue tracker](https://github.com/simplesconsultoria/sc-videos/issues)
 - [Source code](https://github.com/simplesconsultoria/sc-videos/)
 
-### Prerequisites ✅
+## 📜 License
 
--   An [operating system](https://6.docs.plone.org/install/create-project-cookieplone.html#prerequisites-for-installation) that runs all the requirements mentioned.
--   [uv](https://6.docs.plone.org/install/create-project-cookieplone.html#uv)
--   [Make](https://6.docs.plone.org/install/create-project-cookieplone.html#make)
--   [Git](https://6.docs.plone.org/install/create-project-cookieplone.html#git)
--   [Docker](https://docs.docker.com/get-started/get-docker/) (optional)
+GPLv2
 
-### Installation 🔧
+## 🙏 Credits
 
-1.  Clone this repository.
+The development of this add-on was supported by:
 
-    ```shell
-    git clone git@github.com:simplesconsultoria/sc-videos.git
-    cd sc-videos/backend
-    ```
-
-2.  Install this code base.
-
-    ```shell
-    make install
-    ```
-
-
-### Add features using `plonecli` or `bobtemplates.plone`
-
-This package provides markers as strings (`<!-- extra stuff goes here -->`) that are compatible with [`plonecli`](https://github.com/plone/plonecli) and [`bobtemplates.plone`](https://github.com/plone/bobtemplates.plone).
-These markers act as hooks to add all kinds of features through subtemplates, including behaviors, control panels, upgrade steps, or other subtemplates from `bobtemplates.plone`.
-`plonecli` is a command line client for `bobtemplates.plone`, adding autocompletion and other features.
-
-To add a feature as a subtemplate to your package, use the following command pattern.
-
-```shell
-make add <template_name>
-```
-
-For example, you can add a content type to your package with the following command.
-
-```shell
-make add content_type
-```
-
-You can add a behavior with the following command.
-
-```shell
-make add behavior
-```
-
-```{seealso}
-You can check the list of available subtemplates in the [`bobtemplates.plone` `README.md` file](https://github.com/plone/bobtemplates.plone/?tab=readme-ov-file#provided-subtemplates).
-See also the documentation of [Mockup and Patternslib](https://6.docs.plone.org/classic-ui/mockup.html) for how to build the UI toolkit for Classic UI.
-```
-
-## License
-
-The project is licensed under GPLv2.
-
-## Credits and acknowledgements 🙏
+- [Simples Consultoria](https://www.simplesconsultoria.com.br/)
+- [IFPB — Instituto Federal da Paraíba](https://www.ifpb.edu.br/)
+- [Openlegis](https://www.openlegis.com.br/)
 
 Generated using [Cookieplone (2.0.0a1)](https://github.com/plone/cookieplone) and [cookieplone-templates (c0e9ef0)](https://github.com/plone/cookieplone-templates/commit/c0e9ef026f714e960832e00129c0ac2bcd0385f5) on 2026-04-10 16:04:11.973530. A special thanks to all contributors and supporters!

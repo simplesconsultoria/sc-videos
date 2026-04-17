@@ -1,182 +1,98 @@
-# Video Support for Plone 🚀
+# 🎬 Video Support for Plone
 
 [![Built with Cookieplone](https://img.shields.io/badge/built%20with-Cookieplone-0083be.svg?logo=cookiecutter)](https://github.com/plone/cookieplone-templates/)
-[![Black code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![CI](https://github.com/simplesconsultoria/sc-videos/actions/workflows/main.yml/badge.svg)](https://github.com/simplesconsultoria/sc-videos/actions/workflows/main.yml)
+[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://simplesconsultoria.github.io/sc-videos/)
+[![Storybook](https://img.shields.io/badge/-Storybook-ff4785?logo=Storybook&logoColor=white&style=flat-square)](https://simplesconsultoria.github.io/sc-videos/storybook/)
 
-A Plone add-on providing a Video content type that supports external video sources
+**sc-videos** is a monorepo Plone add-on that brings first-class video support to your Plone 6.1+ site.
 
-## Quick Start 🏁
+It ships two packages that are always released and installed together:
+
+| Package | Registry | Description |
+|---|---|---|
+| [`sc.videos`](./backend) | [PyPI](https://pypi.org/project/sc.videos/) | Backend: content type, behavior, REST API, provider integrations |
+| [`@simplesconsultoria/volto-videos`](./frontend) | [npm](https://www.npmjs.com/package/@simplesconsultoria/volto-videos) | Frontend: Volto blocks, widgets, player component |
+
+## ✨ Features
+
+- 📄 **Video content type** — a Dexterity container for external videos with automatic metadata fetching, preview images, and categorization.
+- 🔌 **Extensible provider system** — YouTube (API + public oEmbed) and Vimeo out of the box; add your own with a single named utility.
+- 🌐 **`@video-metadata` REST API** — paste a URL, get structured metadata (title, description, duration, thumbnail, channel, tags).
+- 🧱 **Two Volto blocks**:
+  - **Video Player block** — for Video content pages; embeds the player with an in-block URL entry form.
+  - **Video block** — for any page; pick an existing Video from the site via the object browser.
+- 🎨 **Themeable player** — click-to-play with preview images, CSS custom properties for easy restyling.
+- 📖 **Storybook** — interactive component demos for all widgets and blocks.
+
+## 📚 Documentation
+
+Full documentation is available at **[simplesconsultoria.github.io/sc-videos](https://simplesconsultoria.github.io/sc-videos/)**.
+
+- [📦 Installation tutorial](https://simplesconsultoria.github.io/sc-videos/tutorials/install.html)
+- [🎬 Create your first Video](https://simplesconsultoria.github.io/sc-videos/tutorials/create-a-video.html)
+- [🔑 Configure YouTube API](https://simplesconsultoria.github.io/sc-videos/how-to-guides/configure-youtube-api.html)
+- [🔌 Add a new video provider](https://simplesconsultoria.github.io/sc-videos/how-to-guides/add-a-video-provider.html)
+- [📋 Full reference](https://simplesconsultoria.github.io/sc-videos/reference/)
+
+## 🏁 Quick start (development)
 
 ### Prerequisites ✅
 
--   An [operating system](https://6.docs.plone.org/install/create-project-cookieplone.html#prerequisites-for-installation) that runs all the requirements mentioned.
--   [uv](https://6.docs.plone.org/install/create-project-cookieplone.html#uv)
--   [nvm](https://6.docs.plone.org/install/create-project-cookieplone.html#nvm)
--   [Node.js and pnpm](https://6.docs.plone.org/install/create-project.html#node-js) 24
--   [Make](https://6.docs.plone.org/install/create-project-cookieplone.html#make)
--   [Git](https://6.docs.plone.org/install/create-project-cookieplone.html#git)
--   [Docker](https://docs.docker.com/get-started/get-docker/) (optional)
-
+- [uv](https://6.docs.plone.org/install/create-project-cookieplone.html#uv)
+- [Node.js 20+ and pnpm](https://6.docs.plone.org/install/create-project.html#node-js)
+- [Make](https://6.docs.plone.org/install/create-project-cookieplone.html#make)
+- [Git](https://6.docs.plone.org/install/create-project-cookieplone.html#git)
+- [Docker](https://docs.docker.com/get-started/get-docker/) (optional)
 
 ### Installation 🔧
 
-1.  Clone this repository, then change your working directory.
+```shell
+git clone git@github.com:simplesconsultoria/sc-videos.git
+cd sc-videos
+make install
+```
 
-    ```shell
-    git clone git@github.com:simplesconsultoria/sc-videos.git
-    cd sc-videos
-    ```
-
-2.  Install this code base.
-
-    ```shell
-    make install
-    ```
-
-
-### Fire Up the Servers 🔥
-
-1.  Create a new Plone site on your first run.
-
-    ```shell
-    make backend-create-site
-    ```
-
-2.  Start the backend at http://localhost:8080/.
-
-    ```shell
-    make backend-start
-    ```
-
-3.  In a new shell session, start the frontend at http://localhost:3000/.
-
-    ```shell
-    make frontend-start
-    ```
-
-Voila! Your Plone site should be live and kicking! 🎉
-
-### Local Stack Deployment 📦
-
-Deploy a local Docker Compose environment that includes the following.
-
-- Docker images for Backend and Frontend 🖼️
-- A stack with a Traefik router and a PostgreSQL database 🗃️
-- Accessible at [http://sc-videos.localhost](http://sc-videos.localhost) 🌐
-
-Run the following commands in a shell session.
+### Fire up the servers 🔥
 
 ```shell
-make stack-create-site
-make stack-start
+make backend-create-site
+make backend-start
 ```
 
-And... you're all set! Your Plone site is up and running locally! 🚀
-
-## YouTube Integration 🎬
-
-This add-on uses the **YouTube Data API v3** to fetch video metadata (title, description, duration, thumbnails).
-You will need an API key to enable this feature.
-
-### Setting Up Your YouTube API Key
-
-1. Go to [Google Cloud Console](https://console.cloud.google.com) and create a new project (or use an existing one).
-
-2. Enable the YouTube Data API:
-   - Navigate to **APIs & Services → Library**.
-   - Search for **YouTube Data API v3** and click **Enable**.
-
-3. Create an API key:
-   - Go to **APIs & Services → Credentials**.
-   - Click **Create Credentials → API Key**.
-   - Copy the generated key.
-
-4. Restrict the key (recommended for production):
-   - Click the key to open its details.
-   - Under **API restrictions**, select **Restrict key** and pick only **YouTube Data API v3**.
-   - Optionally set **Application restrictions** (HTTP referrer or IP) for your environment.
-   - Click **Save**.
-
-5. In your Plone site, go to **Site Setup → Video Settings** and paste the key into the **YouTube API Key** field.
-
-### Quotas
-
-The YouTube Data API provides a free daily quota of **10,000 units**.
-Fetching metadata for a single video costs **1 unit**, so the free tier is more than sufficient for typical usage.
-You can monitor your usage in the Google Cloud Console under **APIs & Services → Quotas**.
-
-> **Note:** No OAuth or billing setup is required — a plain API key is enough for reading public video metadata.
-
-## Project structure 🏗️
-
-This monorepo consists of the following distinct sections:
-
-- **backend**: Houses the API and Plone installation, utilizing pip instead of buildout, and includes a policy package named sc.videos.
-- **frontend**: Contains the React (Volto) package.
-- **devops**: Encompasses Docker stack, Ansible playbooks, and cache settings.
-- **docs**: Scaffold for writing documentation for your project.
-
-### Why this structure? 🤔
-
-- All necessary codebases to run the site are contained within the repository (excluding existing add-ons for Plone and React).
-- Specific GitHub Workflows are triggered based on changes in each codebase (refer to .github/workflows).
-- Simplifies the creation of Docker images for each codebase.
-- Demonstrates Plone installation/setup without buildout.
-
-## Code quality assurance 🧐
-
-To check your code against quality standards, run the following shell command.
+In a new terminal:
 
 ```shell
-make check
+make frontend-start
 ```
 
-### Format the codebase
+Your Plone site is live at http://localhost:3000/ 🎉
 
-To format and rewrite the code base, ensuring it adheres to quality standards, run the following shell command.
+## 🏗️ Project structure
+
+```text
+sc-videos/
+├── backend/      # Python / Plone backend (sc.videos)
+├── frontend/     # Volto / React frontend (@simplesconsultoria/volto-videos)
+├── devops/       # Docker Compose, Traefik
+└── docs/         # Sphinx documentation
+```
+
+## 🧐 Code quality
 
 ```shell
-make format
+make format    # Auto-fix formatting (backend + frontend)
+make lint      # Check code quality (backend + frontend)
+make test      # Run all tests (backend + frontend)
+make i18n      # Generate translation files
 ```
 
-| Section | Tool | Description | Configuration |
-| --- | --- | --- | --- |
-| backend | Ruff | Python code formatting, imports sorting  | [`backend/pyproject.toml`](./backend/pyproject.toml) |
-| backend | `zpretty` | XML and ZCML formatting  | -- |
-| frontend | ESLint | Fixes most common frontend issues | [`frontend/.eslintrc.js`](.frontend/.eslintrc.js) |
-| frontend | prettier | Format JS and Typescript code  | [`frontend/.prettierrc`](.frontend/.prettierrc) |
-| frontend | Stylelint | Format Styles (css, less, sass)  | [`frontend/.stylelintrc`](.frontend/.stylelintrc) |
+## 🙏 Credits
 
-Formatters can also be run within the `backend` or `frontend` folders.
+The development of this add-on was supported by:
 
-### Linting the codebase
-or `lint`:
-
- ```shell
-make lint
-```
-
-| Section | Tool | Description | Configuration |
-| --- | --- | --- | --- |
-| backend | Ruff | Checks code formatting, imports sorting  | [`backend/pyproject.toml`](./backend/pyproject.toml) |
-| backend | Pyroma | Checks Python package metadata  | -- |
-| backend | check-python-versions | Checks Python version information  | -- |
-| backend | `zpretty` | Checks XML and ZCML formatting  | -- |
-| frontend | ESLint | Checks JS / Typescript lint | [`frontend/.eslintrc.js`](.frontend/.eslintrc.js) |
-| frontend | prettier | Check JS / Typescript formatting  | [`frontend/.prettierrc`](.frontend/.prettierrc) |
-| frontend | Stylelint | Check Styles (css, less, sass) formatting  | [`frontend/.stylelintrc`](.frontend/.stylelintrc) |
-
-Linters can be run individually within the `backend` or `frontend` folders.
-
-## Internationalization 🌐
-
-Generate translation files for Plone and Volto with ease:
-
-```shell
-make i18n
-```
-
-## Credits and acknowledgements 🙏
+- [Simples Consultoria](https://www.simplesconsultoria.com.br/)
+- [IFPB — Instituto Federal da Paraíba](https://www.ifpb.edu.br/)
+- [Openlegis](https://www.openlegis.com.br/)
 
 Generated using [Cookieplone (2.0.0a1)](https://github.com/plone/cookieplone) and [cookieplone-templates (c0e9ef0)](https://github.com/plone/cookieplone-templates/commit/c0e9ef026f714e960832e00129c0ac2bcd0385f5) on 2026-04-10 16:04:11.973530. A special thanks to all contributors and supporters!
