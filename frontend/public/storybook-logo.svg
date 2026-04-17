@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 48" width="260" height="48">
+  <defs>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f48222"/>
+      <stop offset="100%" stop-color="#f9a825"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Videocamera icon -->
+  <g transform="translate(2, 6)">
+    <rect x="0" y="0" width="28" height="26" rx="3" fill="url(#accent)"/>
+    <polygon points="31,4 31,22 42,26 42,0" fill="url(#accent)"/>
+    <polygon points="9,5 9,21 22,13" fill="#1a1a1a" opacity="0.45"/>
+  </g>
+
+  <!-- SC Videos text -->
+  <text x="52" y="32" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="26" font-weight="800" fill="currentColor">
+    <tspan fill="#f48222">SC</tspan><tspan dx="5">Videos</tspan>
+  </text>
+</svg>
