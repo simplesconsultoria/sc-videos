@@ -1,8 +1,8 @@
 ---
 myst:
   html_meta:
-    "description": "Reference for Volto widgets — VideoURLWidget, VideoMetadataWidget, VideoInput"
-    "property=og:description": "Reference for Volto widgets — VideoURLWidget, VideoMetadataWidget, VideoInput"
+    "description": "Reference for Volto widgets. VideoURLWidget, VideoMetadataWidget, VideoInput"
+    "property=og:description": "Reference for Volto widgets. VideoURLWidget, VideoMetadataWidget, VideoInput"
     "property=og:title": "🔧 Volto widgets"
     "keywords": "Plone, Volto, widgets, VideoURLWidget, VideoInput, sc-videos"
 ---
@@ -24,7 +24,7 @@ Used both in the content type's sidebar form and inside the Video Player block's
 
 | Prop | Type | Required | Description |
 |---|---|---|---|
-| `id` | `string` | Yes | Field name (e.g. `videoUrl`). |
+| `id` | `string` | Yes | Field name (for example, `videoUrl`). |
 | `title` | `string` | Yes | Field label. |
 | `description` | `string` | No | Help text shown below the field. |
 | `value` | `string` | No | Current URL value. |
@@ -39,11 +39,11 @@ Used both in the content type's sidebar form and inside the Video Player block's
 
 ### Behavior
 
-1. **Typing** — updates the field value on every keystroke via `onChange`.
-2. **Arrow button** (→) — triggers `fetchVideoMetadata()`, which calls the {doc}`rest-api` and then runs `applyVideoMetadataToForm()` to populate sibling fields (title, description, duration, etc.).
-3. **Clear button** (✕) — resets the URL and clears `_metadata`.
-4. **Metadata preview** — when `_metadata` is populated, shows a thumbnail, channel, and duration below the input.
-5. **Multi-instance sync** — a `useEffect` re-syncs local state with `props.value` so multiple instances of the widget (e.g. in-block EditForm + content sidebar) stay consistent.
+1. **Typing**: updates the field value on every keystroke via `onChange`.
+2. **Arrow button** (→). triggers `fetchVideoMetadata()`, which calls the {doc}`rest-api` and then runs `applyVideoMetadataToForm()` to populate sibling fields (title, description, duration, etc.).
+3. **Clear button** (✕). resets the URL and clears `_metadata`.
+4. **Metadata preview**: when `_metadata` is populated, shows a thumbnail, channel, and duration below the input.
+5. **Multi-instance sync**: a `useEffect` re-syncs local state with `props.value` so multiple instances of the widget (for example, in-block EditForm + content sidebar) stay consistent.
 
 ### Metadata population
 
@@ -51,13 +51,13 @@ When the arrow button is clicked and metadata is fetched successfully, `applyVid
 
 | Form field | Metadata source | Transform |
 |---|---|---|
-| `title` | `metadata.title` | — |
+| `title` | `metadata.title` |. |
 | `description` | `metadata.text` | Truncated to 150 chars |
-| `duration` | `metadata.duration` | — |
-| `channel` | `metadata.channel` | — |
-| `subjects` | `metadata.subjects` | — |
-| `video_id` | `metadata.video_id` | — |
-| `service` | `metadata.service` | — |
+| `duration` | `metadata.duration` |. |
+| `channel` | `metadata.channel` |. |
+| `subjects` | `metadata.subjects` |. |
+| `video_id` | `metadata.video_id` |. |
+| `service` | `metadata.service` |. |
 | `_metadata` | full metadata object | Always written |
 
 ## 👁️ VideoURLWidgetView (view)
@@ -79,7 +79,7 @@ Read-only display of a video URL as a clickable link.
 ## 🔒 VideoMetadataWidget (edit)
 
 A hidden widget that stores the raw metadata JSON in form state.
-Renders no visible UI — purely a data-storage mechanism.
+Renders no visible UI. purely a data-storage mechanism.
 
 **Registration:** `config.widgets.widget.VideoMetadata`
 **Module:** `components/Widgets/VideoMetadataWidget.tsx`
@@ -88,7 +88,7 @@ Renders no visible UI — purely a data-storage mechanism.
 ## 👁️ VideoMetadataWidgetView (view)
 
 View-mode counterpart of VideoMetadataWidget.
-Also renders nothing — consumed programmatically.
+Also renders nothing. consumed programmatically.
 
 **Registration:** `config.widgets.views.widget.VideoMetadata`
 
@@ -124,6 +124,6 @@ Used by the Video block when no video is selected.
 Wrapped with the `withObjectBrowser` HOC so it manages its own object browser popup state.
 
 :::{seealso}
-- {doc}`blocks` — How these widgets are used within the blocks.
-- {doc}`/concepts/blocks-and-widgets` — Architectural overview of the widget/block relationship.
+- {doc}`blocks`. How these widgets are used within the blocks.
+- {doc}`/concepts/blocks-and-widgets`. Architectural overview of the widget/block relationship.
 :::

@@ -13,7 +13,7 @@ The video player uses CSS custom properties (variables) so you can restyle it fr
 
 ## 🎯 Override CSS variables
 
-Add the following to your project's SCSS (e.g. in your policy package's theme file):
+Add the following to your project's SCSS (for example, in your policy package's theme file):
 
 ```scss
 :root {
@@ -68,7 +68,7 @@ The Video block and Video Player block support three size options through the si
 | Medium | `.medium` | 50% |
 | Small | `.small` | 25% |
 
-Sizes respond to breakpoints — on mobile, all sizes render at 100%.
+Sizes respond to breakpoints. on mobile, all sizes render at 100%.
 
 ## 🎨 Theme variants
 
@@ -85,6 +85,6 @@ To style a custom theme, add rules in your SCSS:
 ```
 
 :::{seealso}
-- {doc}`/reference/css-variables` — Complete reference for all CSS custom properties.
-- {doc}`/reference/blocks` — Block schema including size and alignment options.
+- {doc}`/reference/css-variables`. Complete reference for all CSS custom properties.
+- {doc}`/reference/blocks`. Block schema including size and alignment options.
 :::

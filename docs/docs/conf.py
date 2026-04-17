@@ -87,6 +87,9 @@ linkcheck_ignore = [
     r"^/_static/",
     # Ignore pages that require authentication
     r"https://github.com/simplesconsultoria/sc-videos/issues/new",  # requires auth
+    # Ignore npm/PyPI links for packages not yet published
+    r"https://www.npmjs.com/package/@simplesconsultoria/volto-videos",
+    r"https://pypi.org/project/sc.videos/",
     # Ignore github.com pages with anchors
     r"https://github.com/.*#.*",
     # Ignore other specific anchors

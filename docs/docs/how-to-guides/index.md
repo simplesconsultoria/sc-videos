@@ -9,30 +9,30 @@ myst:
 
 # 📖 How-to guides
 
-How-to guides are **goal-oriented** — they take you through the steps required to solve a real-world problem.
+How-to guides are **goal-oriented**: they take you through the steps required to solve a real-world problem.
 
 > A how-to guide addresses a specific question or problem.
-> — [Diátaxis](https://diataxis.fr/how-to-guides/)
+>. [Diátaxis](https://diataxis.fr/how-to-guides/)
 
 ## 🔧 Configuration
 
-- {doc}`configure-youtube-api` — Set up a YouTube Data API key for richer metadata.
+- {doc}`configure-youtube-api`. Set up a YouTube Data API key for richer metadata.
 
 ## 🔌 Extending
 
-- {doc}`add-a-video-provider` — Implement a new video provider (backend + frontend).
+- {doc}`add-a-video-provider`. Implement a new video provider (backend + frontend).
 
 ## 🎨 Theming
 
-- {doc}`customize-player-theme` — Restyle the video player with CSS custom properties.
+- {doc}`customize-player-theme`. Restyle the video player with CSS custom properties.
 
 ## 🧩 Layout
 
-- {doc}`use-video-block-in-grid` — Place videos in multi-column Grid layouts.
+- {doc}`use-video-block-in-grid`. Place videos in multi-column Grid layouts.
 
 ## 🤝 Contributing
 
-- {doc}`contribute` — Development setup, testing, and pull request workflow.
+- {doc}`contribute`. Development setup, testing, and pull request workflow.
 
 ```{toctree}
 :hidden: true

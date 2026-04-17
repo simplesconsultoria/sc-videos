@@ -1,8 +1,8 @@
 ---
 myst:
   html_meta:
-    "description": "Reference for the IRemoteVideo behavior — fields, schema, and usage"
-    "property=og:description": "Reference for the IRemoteVideo behavior — fields, schema, and usage"
+    "description": "Reference for the IRemoteVideo behavior. fields, schema, and usage"
+    "property=og:description": "Reference for the IRemoteVideo behavior. fields, schema, and usage"
     "property=og:title": "📋 IRemoteVideo behavior"
     "keywords": "Plone, behavior, IRemoteVideo, schema, fields, sc-videos"
 ---
@@ -19,19 +19,19 @@ It is registered as `sc.videos.remotevideo` and applied by default to the {doc}`
 
 | Field | Type | Required | Default | Widget | Description |
 |---|---|---|---|---|---|
-| `videoUrl` | `VideoURL` | Yes | — | `VideoURL` | External video URL (YouTube, Vimeo). Validated against registered providers. |
-| `duration` | `Int` | No | — | — | Video duration in seconds. Populated automatically from metadata. |
-| `service` | `Choice` | No | — | — | Video hosting service. Values from the `sc.videos.vocabulary.video_services` vocabulary. |
-| `channel` | `TextLine` | No | `""` | — | Channel or author name of the video. |
-| `video_id` | `ASCIILine` | No | `""` | — | Provider-specific video identifier (e.g. YouTube's 11-character ID). |
+| `videoUrl` | `VideoURL` | Yes |. | `VideoURL` | External video URL (YouTube, Vimeo). Validated against registered providers. |
+| `duration` | `Int` | No |. |. | Video duration in seconds. Populated automatically from metadata. |
+| `service` | `Choice` | No |. |. | Video hosting service. Values from the `sc.videos.vocabulary.video_services` vocabulary. |
+| `channel` | `TextLine` | No | `""` |. | Channel or author name of the video. |
+| `video_id` | `ASCIILine` | No | `""` |. | Provider-specific video identifier (for example, YouTube's 11-character ID). |
 | `_metadata` | `JSONField` | No | `{}` | `VideoMetadata` | Raw metadata JSON returned by the provider. Used internally to populate other fields. |
 
-## 📂 Fieldsets
+## 📂 Field organization
 
 The behavior organizes its fields into two fieldsets:
 
-1. **Default** — contains `videoUrl` (ordered before all other fields via `directives.order_before`).
-2. **Video Metadata** — contains `duration`, `service`, `channel`, `video_id`, and `_metadata`. These fields are populated automatically by the metadata fetching pipeline and are typically not edited by hand.
+1. **Default**: contains `videoUrl` (ordered before all other fields via `directives.order_before`).
+2. **Video Metadata**: contains `duration`, `service`, `channel`, `video_id`, and `_metadata`. These fields are populated automatically by the metadata fetching pipeline and are typically not edited by hand.
 
 ## 🔗 The `VideoURL` field
 
@@ -41,14 +41,14 @@ The behavior organizes its fields into two fieldsets:
 - Calls `resolve_url()` to check the URL against all registered {doc}`/concepts/provider-system` patterns.
 - Raises `InvalidVideoURL` if the URL doesn't match any known provider.
 
-On the frontend, it renders as the `VideoURLWidget` — see {doc}`widgets`.
+On the frontend, it renders as the `VideoURLWidget`. see {doc}`widgets`.
 
 ## ⚡ Event-driven metadata population
 
 When a Video content item is created or modified, event subscribers automatically populate the behavior fields from the `_metadata` JSON:
 
-- `sc.videos.subscribers.video.added` — fires on `IObjectAddedEvent`.
-- `sc.videos.subscribers.video.modified` — fires on `IObjectModifiedEvent`.
+- `sc.videos.subscribers.video.added`. fires on `IObjectAddedEvent`.
+- `sc.videos.subscribers.video.modified`. fires on `IObjectModifiedEvent`.
 
 Both call `_update_video_metadata()`, which:
 
@@ -73,7 +73,7 @@ add-on installed for the `VideoURLWidget` and metadata fetching to work in the
 Volto editor.
 
 :::{seealso}
-- {doc}`content-type` — The default Video content type that uses this behavior.
-- {doc}`/concepts/video-metadata-pipeline` — How metadata flows from URL to content fields.
-- {doc}`rest-api` — The `@video-metadata` endpoint that powers the metadata fetching.
+- {doc}`content-type`. The default Video content type that uses this behavior.
+- {doc}`/concepts/video-metadata-pipeline`. How metadata flows from URL to content fields.
+- {doc}`rest-api`. The `@video-metadata` endpoint that powers the metadata fetching.
 :::

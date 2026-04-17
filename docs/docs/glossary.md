@@ -38,7 +38,7 @@ content type
     sc-videos provides the Video content type for external videos.
 
 data adapter
-    A function registered on a Volto block configuration that transforms raw data (e.g. from the object browser) into the block's data shape.
+    A function registered on a Volto block configuration that transforms raw data (for example, from the object browser) into the block's data shape.
     The Video block uses a data adapter to map catalog items to `VideoHref`.
 
 Dexterity
@@ -93,7 +93,7 @@ Video Player block
 
 VideoURLWidget
     A Volto edit widget for entering video URLs.
-    Includes a fetch button that calls the `@video-metadata` REST API and auto-populates content fields.
+    Includes a fetch button that calls the `@video-metadata` REST API and autopopulates content fields.
 
 Volto
     [Volto](https://github.com/plone/volto) is the React-based frontend for Plone 6.

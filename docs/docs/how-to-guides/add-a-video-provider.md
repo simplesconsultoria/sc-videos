@@ -10,11 +10,11 @@ myst:
 # 🔌 Add a new video provider
 
 sc-videos is designed to be extensible.
-This guide walks you through adding support for a new video hosting service — from backend provider to frontend embed support.
+This guide walks you through adding support for a new video hosting service. from backend provider to frontend embed support.
 
 We'll use **Dailymotion** as an example.
 
-## 🔧 Backend: implement the provider
+## 🔧 Backend: Implement the provider
 
 ### 1. Create the client
 
@@ -83,7 +83,7 @@ class DailymotionMetadataProvider(MetadataProvider):
 That's it for the backend.
 The URL will now be recognized by `resolve_url()`, the vocabulary will include "dailymotion", and the `@video-metadata` service will fetch Dailymotion metadata.
 
-## 🎨 Frontend: add embed support
+## 🎨 Frontend: Add embed support
 
 ### 4. Add the video source pattern
 
@@ -127,10 +127,10 @@ Add mock metadata for your provider in `src/mocks/videoMetadata.ts` so stories c
 
 1. Restart the backend (ZCML changes require a restart).
 2. Create a Video and paste a Dailymotion URL.
-3. Click the fetch button — metadata should populate.
-4. Save — the player should embed the Dailymotion video.
+3. Click the fetch button. metadata should populate.
+4. Save. the player should embed the Dailymotion video.
 
 :::{seealso}
-- {doc}`/concepts/provider-system` — Architecture of the provider system.
-- {doc}`/reference/rest-api` — The `@video-metadata` endpoint.
+- {doc}`/concepts/provider-system`. Architecture of the provider system.
+- {doc}`/reference/rest-api`. The `@video-metadata` endpoint.
 :::

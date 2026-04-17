@@ -15,7 +15,7 @@ The **Video block** is registered as an allowed block inside Volto's Grid block,
 
 1. Open any page in edit mode.
 2. Add a new block and select **Grid**.
-3. Choose the number of columns (e.g. 2 or 3).
+3. Choose the number of columns (for example, 2 or 3).
 
 ## 2️⃣ Add a Video block in a column
 
@@ -34,9 +34,9 @@ For example:
 
 ## 💡 Tips
 
-- The Video block inside a grid respects the column width — the `size` setting in the sidebar is relative to the column, not the full page.
+- The Video block inside a grid respects the column width. the `size` setting in the sidebar is relative to the column, not the full page.
 - The `align` setting is typically not used inside grids since the grid controls horizontal placement.
-- The Video Player block is **not** available in grids — it's restricted to Video content pages.
+- The Video Player block is **not** available in grids. it's restricted to Video content pages.
 
 :::{note}
 The Grid block registration is configured automatically when sc-videos is installed.
@@ -44,6 +44,6 @@ No extra configuration is needed.
 :::
 
 :::{seealso}
-- {doc}`/tutorials/embed-video-in-page` — Tutorial for embedding videos outside of grids.
-- {doc}`/reference/blocks` — Full block reference.
+- {doc}`/tutorials/embed-video-in-page`. Tutorial for embedding videos outside of grids.
+- {doc}`/reference/blocks`. Full block reference.
 :::

@@ -3,14 +3,14 @@ myst:
   html_meta:
     "description": "Reference for the @video-metadata REST API endpoint"
     "property=og:description": "Reference for the @video-metadata REST API endpoint"
-    "property=og:title": "🌐 REST API — @video-metadata"
+    "property=og:title": "🌐 REST API. @video-metadata"
     "keywords": "Plone, REST API, video-metadata, endpoint, sc-videos"
 ---
 
-# 🌐 REST API — `@video-metadata`
+# 🌐 REST API. `@video-metadata`
 
 The `@video-metadata` service fetches metadata for an external video URL.
-It is used by the frontend `VideoURLWidget` to auto-populate content fields when an editor pastes a video URL.
+It is used by the frontend `VideoURLWidget` to autopopulate content fields when an editor pastes a video URL.
 
 **Module:** `sc.videos.services.metadata.post`
 **Permission:** `sc.videos.video.add` (Add Video)
@@ -37,7 +37,7 @@ Accept: application/json
 
 ## 📥 Response
 
-### Success — `200 OK`
+### Success. `200 OK`
 
 ```json
 {
@@ -58,12 +58,12 @@ Accept: application/json
 | `video_id` | `string` | Provider-specific video ID. |
 | `title` | `string` | Video title. |
 | `text` | `string` | Video description. |
-| `duration` | `integer` | Duration in seconds. May be `0` if the provider doesn't expose it (e.g. YouTube public oEmbed). |
+| `duration` | `integer` | Duration in seconds. May be `0` if the provider doesn't expose it (for example, YouTube public oEmbed). |
 | `thumbnail_url` | `string` | URL of the best available thumbnail. |
 | `channel` | `string` | Channel or author name. |
 | `subjects` | `string[]` | Tags/keywords associated with the video. |
 
-### Error — `400 Bad Request`
+### Error. `400 Bad Request`
 
 Returned when the URL is not recognized by any registered provider.
 
@@ -73,7 +73,7 @@ Returned when the URL is not recognized by any registered provider.
 }
 ```
 
-### Error — `502 Bad Gateway`
+### Error. `502 Bad Gateway`
 
 Returned when the provider's API is unreachable or returns an unexpected response.
 
@@ -109,16 +109,16 @@ Each provider declares a `url_pattern` regex that the service uses to match inco
 
 The service supports two modes for YouTube:
 
-- **YouTube Data API v3** — richer metadata (description, duration, tags). Requires a Google API key configured in the {doc}`control-panel`.
-- **Public oEmbed** — no API key needed, but returns limited data (no duration, description, or tags).
+- **YouTube Data API v3**: richer metadata (description, duration, tags). Requires a Google API key configured in the {doc}`control-panel`.
+- **Public oEmbed**: no API key needed, but returns limited data (no duration, description, or tags).
 
 The mode is controlled by the `youtube_api_enabled` setting in the Video Settings control panel.
 See {doc}`/how-to-guides/configure-youtube-api` for setup instructions.
 
-Vimeo always uses the public oEmbed endpoint — no API key required.
+Vimeo always uses the public oEmbed endpoint. no API key required.
 
 :::{seealso}
-- {doc}`/concepts/video-metadata-pipeline` — End-to-end flow from URL to content fields.
-- {doc}`/concepts/provider-system` — How providers are registered and resolved.
-- {doc}`control-panel` — Video Settings control panel configuration.
+- {doc}`/concepts/video-metadata-pipeline`. End-to-end flow from URL to content fields.
+- {doc}`/concepts/provider-system`. How providers are registered and resolved.
+- {doc}`control-panel`. Video Settings control panel configuration.
 :::

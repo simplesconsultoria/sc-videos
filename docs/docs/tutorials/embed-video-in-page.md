@@ -9,7 +9,7 @@ myst:
 
 # 📺 Embed a Video in a page
 
-The **Video block** lets you embed an existing Video content item in any page — a Document, a News Item, or any content type that supports Volto blocks.
+The **Video block** lets you embed an existing Video content item in any page. a Document, a News Item, or any content type that supports Volto blocks.
 
 This is different from the Video Player block (which is restricted to Video content pages).
 The Video block references a Video via the object browser, so the same video can be embedded in multiple pages.
@@ -55,7 +55,7 @@ The player loads the video from the external provider (YouTube, Vimeo) when clic
 
 :::{tip}
 You can embed the same Video in multiple pages.
-If the Video's metadata changes (e.g. title or thumbnail), all embedded instances reflect the update because they reference the same content object.
+If the Video's metadata changes (for example, title or thumbnail), all embedded instances reflect the update because they reference the same content object.
 :::
 
 ## 🧩 Using in a Grid
@@ -65,5 +65,5 @@ See {doc}`/how-to-guides/use-video-block-in-grid` for examples.
 
 ## ⏭️ Next steps
 
-- {doc}`/how-to-guides/customize-player-theme` — Customize the player's appearance with CSS custom properties.
-- {doc}`/reference/blocks` — Full reference for both block types.
+- {doc}`/how-to-guides/customize-player-theme`. Customize the player's appearance with CSS custom properties.
+- {doc}`/reference/blocks`. Full reference for both block types.

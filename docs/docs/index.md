@@ -1,8 +1,8 @@
 ---
 myst:
   html_meta:
-    "description": "sc-videos — A Plone add-on providing a Video content type with YouTube and Vimeo support"
-    "property=og:description": "sc-videos — A Plone add-on providing a Video content type with YouTube and Vimeo support"
+    "description": "sc-videos: A Plone add-on providing a Video content type with YouTube and Vimeo support"
+    "property=og:description": "sc-videos: A Plone add-on providing a Video content type with YouTube and Vimeo support"
     "property=og:title": "Video Support for Plone"
     "keywords": "Plone, Volto, video, YouTube, Vimeo, content type, add-on, sc-videos"
 ---
@@ -10,18 +10,18 @@ myst:
 # 🎬 Video Support for Plone
 
 **sc-videos** is a monorepo Plone add-on that brings first-class video support to your Plone 6.1+ site.
-It ships two packages — a backend Python add-on (`sc.videos`) and a frontend Volto add-on (`@simplesconsultoria/volto-videos`) — that are always released and installed together.
+It ships two packages, a backend Python add-on (`sc.videos`) and a frontend Volto add-on (`@simplesconsultoria/volto-videos`), that are always released and installed together.
 
 ## ✨ Key features
 
-- 📄 **Video content type** — a dedicated Dexterity container for external videos, with automatic metadata fetching, preview images, and categorization.
-- 🔌 **Extensible provider system** — YouTube (API + public oEmbed) and Vimeo supported out of the box; add your own with a single named utility.
-- 🌐 **`@video-metadata` REST API** — paste a URL, get structured metadata (title, description, duration, thumbnail, channel, tags).
+- 📄 **Video content type**: a dedicated Dexterity container for external videos, with automatic metadata fetching, preview images, and categorization.
+- 🔌 **Extensible provider system**: YouTube (API + public oEmbed) and Vimeo supported out of the box; add your own with a single named utility.
+- 🌐 **`@video-metadata` REST API**: paste a URL, get structured metadata (title, description, duration, thumbnail, channel, tags).
 - 🧱 **Two Volto blocks**:
-  - **Video Player block** — for Video content pages; embeds the player with an in-block URL entry form.
-  - **Video block** — for any page; pick an existing Video from the site via the object browser.
-- 🎨 **Themeable player** — click-to-play with preview images, CSS custom properties for easy restyling.
-- 📖 **Storybook coverage** — interactive component demos published alongside this documentation.
+  - **Video Player block**: for Video content pages; embeds the player with an in-block URL entry form.
+  - **Video block**: for any page; pick an existing Video from the site via the object browser.
+- 🎨 **Themeable player**: click-to-play with preview images, CSS custom properties for easy restyling.
+- 📖 **Storybook coverage**: interactive component demos published alongside this documentation.
 
 ## 🚀 Quick start
 
@@ -81,14 +81,14 @@ See {doc}`tutorials/install` for the full step-by-step guide.
 :link: tutorials/index
 :link-type: doc
 
-Step-by-step lessons to get you up and running — install the add-on, create your first Video, and embed it in a page.
+Step-by-step lessons to get you up and running: install the add-on, create your first Video, and embed it in a page.
 ::::
 
 ::::{grid-item-card} 📖 How-to guides
 :link: how-to-guides/index
 :link-type: doc
 
-Goal-oriented recipes for common tasks — configure the YouTube API, add a new video provider, customize the player.
+Goal-oriented recipes for common tasks: configure the YouTube API, add a new video provider, customize the player.
 ::::
 
 ::::{grid-item-card} 💡 Concepts
@@ -102,7 +102,7 @@ Explanations of the architecture, the metadata pipeline, and how blocks and widg
 :link: reference/index
 :link-type: doc
 
-Technical details — behavior fields, REST API, block schemas, widget props, CSS variables, and configuration.
+Technical details: behavior fields, REST API, block schemas, widget props, CSS variables, and configuration.
 ::::
 
 :::::
@@ -111,8 +111,8 @@ Technical details — behavior fields, REST API, block schemas, widget props, CS
 
 - [GitHub repository](https://github.com/simplesconsultoria/sc-videos)
 - <a href="https://simplesconsultoria.github.io/sc-videos/">Storybook (component demos)</a>
-- [PyPI — sc.videos](https://pypi.org/project/sc.videos/)
-- [npm — @simplesconsultoria/volto-videos](https://www.npmjs.com/package/@simplesconsultoria/volto-videos)
+- [PyPI: sc.videos](https://pypi.org/project/sc.videos/)
+- [npm: `@simplesconsultoria/volto-videos`](https://www.npmjs.com/package/@simplesconsultoria/volto-videos)
 
 
 ## 🙏 Credits

@@ -42,6 +42,6 @@ Override these in your project's SCSS or CSS:
 Variables are defined in `frontend/packages/volto-videos/src/theme/_root.scss`.
 
 :::{seealso}
-- {doc}`/how-to-guides/customize-player-theme` — Step-by-step theming guide.
-- {doc}`blocks` — Block sizing and alignment options.
+- {doc}`/how-to-guides/customize-player-theme`. Step-by-step theming guide.
+- {doc}`blocks`. Block sizing and alignment options.
 :::

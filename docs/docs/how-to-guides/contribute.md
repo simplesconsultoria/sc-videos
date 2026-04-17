@@ -1,8 +1,8 @@
 ---
 myst:
   html_meta:
-    "description": "How to contribute to sc-videos — development setup, testing, pull requests"
-    "property=og:description": "How to contribute to sc-videos — development setup, testing, pull requests"
+    "description": "How to contribute to sc-videos. development setup, testing, pull requests"
+    "property=og:description": "How to contribute to sc-videos. development setup, testing, pull requests"
     "property=og:title": "🤝 Contribute to sc-videos"
     "keywords": "Plone, contribute, development, testing, sc-videos"
 ---
@@ -85,7 +85,7 @@ This runs:
 make format
 ```
 
-Applies auto-fixes for both backend and frontend.
+Applies automatic fixes for both backend and frontend.
 
 ## 📖 Storybook
 
@@ -123,7 +123,7 @@ echo "Fixed metadata preview alignment." > frontend/packages/volto-videos/news/+
 Fragment types: `feature`, `bugfix`, `breaking`, `internal`, `documentation`, `tests`.
 
 :::{note}
-Unnumbered fragments must be prefixed with `+` (e.g. `+1.feature`, not `1.feature`).
+Unnumbered fragments must be prefixed with `+` (for example, `+1.feature`, not `1.feature`).
 :::
 
 ## 🌿 Branch naming
@@ -143,6 +143,6 @@ issue-42-add-dailymotion-support
 4. Push and open a pull request against `main`.
 
 :::{seealso}
-- {doc}`/concepts/architecture` — Repository structure and component overview.
-- {doc}`/how-to-guides/add-a-video-provider` — Example of a substantial contribution.
+- {doc}`/concepts/architecture`. Repository structure and component overview.
+- {doc}`/how-to-guides/add-a-video-provider`. Example of a substantial contribution.
 :::

@@ -9,7 +9,7 @@ myst:
 
 # 🔑 Configure the YouTube Data API
 
-By default, sc-videos uses YouTube's **public oEmbed endpoint** to fetch metadata — no API key required.
+By default, sc-videos uses YouTube's **public oEmbed endpoint** to fetch metadata. no API key required.
 However, oEmbed returns limited data: only the title and thumbnail, but no description, duration, or tags.
 
 To get the full metadata, you can enable the **YouTube Data API v3** and configure an API key.
@@ -59,9 +59,9 @@ For production use, restrict the API key:
 ## ⚠️ Fallback behavior
 
 If the YouTube API is enabled but the API key is invalid or the quota is exceeded, the service returns a `502 Bad Gateway` error.
-It does **not** fall back to oEmbed automatically — this is by design, so administrators notice and fix the configuration rather than silently serving degraded metadata.
+It does **not** fall back to oEmbed automatically. this is by design, so administrators notice and fix the configuration rather than silently serving degraded metadata.
 
 :::{seealso}
-- {doc}`/reference/control-panel` — Video Settings control panel reference.
-- {doc}`/concepts/provider-system` — How YouTube client selection works.
+- {doc}`/reference/control-panel`. Video Settings control panel reference.
+- {doc}`/concepts/provider-system`. How YouTube client selection works.
 :::

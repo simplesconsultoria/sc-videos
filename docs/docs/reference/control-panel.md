@@ -52,6 +52,6 @@ Accept: application/json
 ```
 
 :::{seealso}
-- {doc}`/how-to-guides/configure-youtube-api` — Step-by-step setup guide.
-- {doc}`/concepts/provider-system` — How the setting affects client selection.
+- {doc}`/how-to-guides/configure-youtube-api`. Step-by-step setup guide.
+- {doc}`/concepts/provider-system`. How the setting affects client selection.
 :::

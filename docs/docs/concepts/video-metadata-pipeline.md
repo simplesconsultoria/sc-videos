@@ -1,8 +1,8 @@
 ---
 myst:
   html_meta:
-    "description": "How the video metadata pipeline works — from URL to content fields"
-    "property=og:description": "How the video metadata pipeline works — from URL to content fields"
+    "description": "How the video metadata pipeline works. from URL to content fields"
+    "property=og:description": "How the video metadata pipeline works. from URL to content fields"
     "property=og:title": "🔄 The video metadata pipeline"
     "keywords": "Plone, metadata, pipeline, video, sc-videos, YouTube, Vimeo"
 ---
@@ -32,7 +32,7 @@ flowchart LR
 
 ## 1️⃣ URL entry (frontend)
 
-The editor pastes a URL into the `VideoURLWidget` — either in the content type's sidebar form or in the Video Player block's in-block edit form.
+The editor pastes a URL into the `VideoURLWidget`. either in the content type's sidebar form or in the Video Player block's in-block edit form.
 
 The widget does **not** validate the URL against providers on the frontend.
 It sends the URL as-is to the backend when the editor clicks the arrow (→) button.
@@ -54,9 +54,9 @@ With the `VideoReference` in hand, the service looks up the named utility for th
 
 Each provider uses an HTTP client to call the external API:
 
-- **YouTube API client** — calls the YouTube Data API v3 (requires an API key).
-- **YouTube public client** — calls the oEmbed endpoint (no key, limited data).
-- **Vimeo public client** — calls the Vimeo oEmbed endpoint.
+- **YouTube API client**: calls the YouTube Data API v3 (requires an API key).
+- **YouTube public client**: calls the oEmbed endpoint (no key, limited data).
+- **Vimeo public client**: calls the Vimeo oEmbed endpoint.
 
 The client returns a `VideoMetadata` dataclass:
 
@@ -82,7 +82,7 @@ The response is documented in {doc}`/reference/rest-api`.
 The `VideoURLWidget` receives the JSON response and calls `applyVideoMetadataToForm()`:
 
 1. Writes the full metadata object to `_metadata` (always).
-2. For each mapped field (`title`, `description`, `duration`, `channel`, `subjects`, `video_id`, `service`), writes the value **only if the field is currently empty** on the form — so editor customizations are never overwritten.
+2. For each mapped field (`title`, `description`, `duration`, `channel`, `subjects`, `video_id`, `service`), writes the value **only if the field is currently empty** on the form, so editor customizations are never overwritten.
 
 ## 6️⃣ Content save → event subscribers (backend)
 
@@ -101,11 +101,11 @@ This ensures the content object's fields are always in sync with the stored meta
 |---|---|---|
 | URL doesn't match any provider | `400 Bad Request` | Error message below the input |
 | Provider API unreachable | `502 Bad Gateway` | Error message below the input |
-| Network failure (fetch to backend) | — | "Failed to connect" message |
+| Network failure (fetch to backend) |. | "Failed to connect" message |
 | Thumbnail download fails (on save) | Logged as warning | Content saved without preview image |
 
 :::{seealso}
-- {doc}`provider-system` — How providers are registered and how to add new ones.
-- {doc}`/reference/rest-api` — Full API reference for the `@video-metadata` endpoint.
-- {doc}`/reference/behavior` — The `IRemoteVideo` behavior fields that receive the metadata.
+- {doc}`provider-system`. How providers are registered and how to add new ones.
+- {doc}`/reference/rest-api`. Full API reference for the `@video-metadata` endpoint.
+- {doc}`/reference/behavior`. The `IRemoteVideo` behavior fields that receive the metadata.
 :::

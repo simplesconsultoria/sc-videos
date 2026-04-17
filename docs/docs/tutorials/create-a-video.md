@@ -23,7 +23,7 @@ In this tutorial you will create a Video content item, paste a YouTube or Vimeo 
 3. Select **Video** from the content type list.
 
 You will see the Video edit form with a **Video Player** block in the main area.
-The block shows an icon and an input field — this is the in-block edit form.
+The block shows an icon and an input field. this is the in-block edit form.
 
 ## 2️⃣ Paste a video URL
 
@@ -50,16 +50,16 @@ The add-on will:
 Once the fetch succeeds, you will see:
 
 - The **Video Player** block switches from the input form to the embedded player with a preview image.
-- The content's **title** and **description** are auto-populated from the video metadata (if they were empty).
+- The content's **title** and **description** are autopopulated from the video metadata (if they were empty).
 - A **metadata preview** appears in the sidebar showing the thumbnail, channel name, and duration.
 
 ## 4️⃣ Review and save
 
-1. Check the title and description — edit them if you want to customize them.
+1. Check the title and description. edit them if you want to customize them.
 2. Adjust the player settings in the sidebar:
-   - **Auto Play** — start the video automatically when the page loads.
-   - **Size** — small, medium, or large.
-   - **Alignment** — left, right, center, wide, or full width.
+   - **Auto Play**: start the video automatically when the page loads.
+   - **Size**: small, medium, or large.
+   - **Alignment**: left, right, center, wide, or full width.
 3. Click {guilabel}`Save`.
 
 ## 5️⃣ View the result
@@ -74,5 +74,5 @@ This image is used as the player's poster frame and in listing views across the 
 
 ## ⏭️ Next steps
 
-- {doc}`embed-video-in-page` — Embed an existing Video in any page using the Video block.
-- {doc}`/how-to-guides/configure-youtube-api` — Get richer metadata (duration, description, tags) by setting up a YouTube API key.
+- {doc}`embed-video-in-page`. Embed an existing Video in any page using the Video block.
+- {doc}`/how-to-guides/configure-youtube-api`. Get richer metadata (duration, description, tags) by setting up a YouTube API key.

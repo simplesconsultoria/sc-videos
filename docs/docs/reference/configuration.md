@@ -70,7 +70,7 @@ sc-videos depends on the following packages (loaded via `dependencies.zcml`):
 - `plone.volto`
 
 :::{seealso}
-- {doc}`control-panel` — The Video Settings control panel.
-- {doc}`content-type` — The Video content type definition.
-- {doc}`behavior` — The IRemoteVideo behavior.
+- {doc}`control-panel`. The Video Settings control panel.
+- {doc}`content-type`. The Video content type definition.
+- {doc}`behavior`. The IRemoteVideo behavior.
 :::

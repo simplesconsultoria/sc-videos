@@ -1,8 +1,8 @@
 ---
 myst:
   html_meta:
-    "description": "Reference for the Volto blocks — Video Player block and Video block"
-    "property=og:description": "Reference for the Volto blocks — Video Player block and Video block"
+    "description": "Reference for the Volto blocks. Video Player block and Video block"
+    "property=og:description": "Reference for the Volto blocks. Video Player block and Video block"
     "property=og:title": "🧱 Volto blocks"
     "keywords": "Plone, Volto, blocks, Video Player, Video block, sc-videos"
 ---
@@ -38,7 +38,7 @@ It reads the video URL directly from the parent content's `videoUrl` field (set 
 
 When the parent Video content has **no `videoUrl` yet**:
 
-1. The block renders an **EditForm** — an in-block placeholder that embeds the `VideoURLWidget`.
+1. The block renders an **EditForm**: an in-block placeholder that embeds the `VideoURLWidget`.
 2. The editor pastes a URL and clicks the arrow button to fetch metadata.
 3. After a successful metadata fetch (`_metadata` is populated), the block transitions to the player view.
 
@@ -60,7 +60,7 @@ EditForm → VideoURLWidget → onChangeField('videoUrl', url)
 
 ## 📺 Video block
 
-The Video block is for embedding an **existing Video content item** in any page — Documents, News Items, or any content type with Volto blocks support.
+The Video block is for embedding an **existing Video content item** in any page. Documents, News Items, or any content type with Volto blocks support.
 
 | Property | Value |
 |---|---|
@@ -76,10 +76,10 @@ The Video block is for embedding an **existing Video content item** in any page 
 
 | Field | Widget | Default | Description |
 |---|---|---|---|
-| `href` | `object_browser` (mode: `link`) | — | Reference to a Video content item. Fetches `Title`, `Description`, `hasPreviewImage`, `videoUrl` as selected attributes. |
+| `href` | `object_browser` (mode: `link`) |. | Reference to a Video content item. Fetches `Title`, `Description`, `hasPreviewImage`, `videoUrl` as selected attributes. |
 | `autoPlay` | Boolean | `false` | Start the video automatically. |
 | `size` | `image_size` | `l` | Player width. |
-| `align` | `align` | — | Horizontal alignment. |
+| `align` | `align` |. | Horizontal alignment. |
 
 ### Data adapter
 
@@ -120,7 +120,7 @@ The available alignment options are: `left`, `right`, `center`, `wide`, `full`.
 The `defaultStylingSchema` from `@kitconcept/volto-light-theme` is also composed in, providing theme selection support.
 
 :::{seealso}
-- {doc}`widgets` — The widgets used by these blocks (VideoURLWidget, VideoInput).
-- {doc}`/concepts/blocks-and-widgets` — When to use each block.
-- {doc}`css-variables` — CSS custom properties for player theming.
+- {doc}`widgets`. The widgets used by these blocks (VideoURLWidget, VideoInput).
+- {doc}`/concepts/blocks-and-widgets`. When to use each block.
+- {doc}`css-variables`. CSS custom properties for player theming.
 :::

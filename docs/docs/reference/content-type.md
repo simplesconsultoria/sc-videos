@@ -1,8 +1,8 @@
 ---
 myst:
   html_meta:
-    "description": "Reference for the Video content type — FTI, behaviors, permissions"
-    "property=og:description": "Reference for the Video content type — FTI, behaviors, permissions"
+    "description": "Reference for the Video content type. FTI, behaviors, permissions"
+    "property=og:description": "Reference for the Video content type. FTI, behaviors, permissions"
     "property=og:title": "📄 Video content type"
     "keywords": "Plone, content type, Video, Dexterity, FTI, sc-videos"
 ---
@@ -36,9 +36,9 @@ The Video content type includes the following behaviors:
 |---|---|
 | `plone.basic` | Title and description fields. |
 | `sc.videos.remotevideo` | Video URL, metadata, and provider fields. See {doc}`behavior`. |
-| `plone.namefromtitle` | Auto-generate the content ID from the title. |
+| `plone.namefromtitle` | Automatically generate the content ID from the title. |
 | `volto.blocks` | Volto blocks support for the content area. |
-| `volto.preview_image` | Preview image field (auto-populated from video thumbnail). |
+| `volto.preview_image` | Preview image field (autopopulated from video thumbnail). |
 | `plone.categorization` | Subject/tags and related items. |
 | `volto.navtitle` | Navigation title override. |
 | `plone.versioning` | Content versioning. |
@@ -49,10 +49,10 @@ The Video content type includes the following behaviors:
 
 When a new Video is created, it starts with the following blocks:
 
-1. **Title block** — displays the content title.
-2. **Description block** — displays the content description.
-3. **Video Player block** — shows the in-block edit form for entering a video URL; switches to the embedded player after metadata is fetched.
-4. **Slate block** — an empty rich text block for additional content.
+1. **Title block**: displays the content title.
+2. **Description block**: displays the content description.
+3. **Video Player block**: shows the in-block edit form for entering a video URL; switches to the embedded player after metadata is fetched.
+4. **Slate block**: an empty rich text block for additional content.
 
 This layout is configured in `config/blocks.ts`:
 
@@ -82,7 +82,7 @@ The Video content type exposes the following metadata column in the portal catal
 This column is used by the {doc}`blocks` (Video block) to display the video URL from catalog search results.
 
 :::{seealso}
-- {doc}`behavior` — The `IRemoteVideo` behavior and its fields.
-- {doc}`blocks` — The Video Player and Video blocks.
-- {doc}`/concepts/architecture` — How the content type fits into the overall system.
+- {doc}`behavior`. The `IRemoteVideo` behavior and its fields.
+- {doc}`blocks`. The Video Player and Video blocks.
+- {doc}`/concepts/architecture`. How the content type fits into the overall system.
 :::

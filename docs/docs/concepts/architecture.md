@@ -1,8 +1,8 @@
 ---
 myst:
   html_meta:
-    "description": "Architecture overview of sc-videos — monorepo layout, backend/frontend data flow"
-    "property=og:description": "Architecture overview of sc-videos — monorepo layout, backend/frontend data flow"
+    "description": "Architecture overview of sc-videos. monorepo layout, backend/frontend data flow"
+    "property=og:description": "Architecture overview of sc-videos. monorepo layout, backend/frontend data flow"
     "property=og:title": "🏗️ Architecture overview"
     "keywords": "Plone, architecture, monorepo, sc-videos, backend, frontend, Volto"
 ---
@@ -64,16 +64,16 @@ sequenceDiagram
 
 ## 🧩 Backend components
 
-The backend is a standard Plone add-on built with Dexterity and plone.restapi:
+The backend is a standard Plone add-on built with Dexterity and `plone.restapi`:
 
-- **Content type** (`Video`) — a Dexterity container with the `IRemoteVideo` behavior.
-- **Behavior** (`IRemoteVideo`) — provides `videoUrl`, `duration`, `service`, `channel`, `video_id`, and `_metadata` fields.
-- **Custom field** (`VideoURL`) — a URI field that validates against registered providers.
-- **REST service** (`@video-metadata`) — accepts a URL, resolves the provider, fetches metadata, and returns JSON.
-- **Integration layer** — extensible provider system with YouTube and Vimeo implementations.
-- **Event subscribers** — auto-populate content fields from `_metadata` on create/modify.
-- **Control panel** — settings for the YouTube Data API key.
-- **Indexer** — exposes `videoUrl` as a catalog metadata column for search results.
+- **Content type** (`Video`): a Dexterity container with the `IRemoteVideo` behavior.
+- **Behavior** (`IRemoteVideo`): provides `videoUrl`, `duration`, `service`, `channel`, `video_id`, and `_metadata` fields.
+- **Custom field** (`VideoURL`): a URI field that validates against registered providers.
+- **REST service** (`@video-metadata`): accepts a URL, resolves the provider, fetches metadata, and returns JSON.
+- **Integration layer**: extensible provider system with YouTube and Vimeo implementations.
+- **Event subscribers**: autopopulate content fields from `_metadata` on create/modify.
+- **Control panel**: settings for the YouTube Data API key.
+- **Indexer**: exposes `videoUrl` as a catalog metadata column for search results.
 
 See the {doc}`/reference/index` section for detailed specifications.
 
@@ -82,25 +82,25 @@ See the {doc}`/reference/index` section for detailed specifications.
 The frontend is a Volto add-on that registers content type configuration, blocks, and widgets:
 
 - **Two blocks**:
-  - **Video Player block** — restricted to Video content; reads `videoUrl` from the parent content and renders an embedded player.
-  - **Video block** — available on any content type; lets the editor pick an existing Video via the object browser.
+  - **Video Player block**: restricted to Video content; reads `videoUrl` from the parent content and renders an embedded player.
+  - **Video block**: available on any content type; lets the editor pick an existing Video via the object browser.
 - **Widgets**:
-  - **VideoURLWidget** — URL input with a "fetch metadata" button and inline preview.
-  - **VideoMetadataWidget** — hidden widget that stores the raw metadata JSON.
-  - **VideoInput** — in-block placeholder that opens the object browser filtered to Video content.
-- **VideoPlayer component** — click-to-play player with preview image, YouTube and Vimeo embed support.
-- **EditForm** — in-block edit placeholder that embeds `VideoURLWidget` directly in the block area.
+  - **VideoURLWidget**: URL input with a "fetch metadata" button and inline preview.
+  - **VideoMetadataWidget**: hidden widget that stores the raw metadata JSON.
+  - **VideoInput**: in-block placeholder that opens the object browser filtered to Video content.
+- **VideoPlayer component**: click-to-play player with preview image, YouTube and Vimeo embed support.
+- **EditForm**: in-block edit placeholder that embeds `VideoURLWidget` directly in the block area.
 
 ## 🔗 How backend and frontend connect
 
 The two packages communicate through Plone's standard REST API:
 
-1. **Content CRUD** — Volto reads and writes Video content via `plone.restapi`'s standard endpoints. The `VideoURL` field's JSON schema provider tells Volto to render the `VideoURLWidget`.
-2. **Metadata fetching** — the `@video-metadata` service is a custom REST endpoint the frontend calls when an editor clicks the "fetch" button in the `VideoURLWidget`.
-3. **Catalog metadata** — the `videoUrl` catalog column is included in search results, allowing the Video block to display the URL without fetching the full content object.
+1. **Content CRUD**: Volto reads and writes Video content via `plone.restapi`'s standard endpoints. The `VideoURL` field's JSON schema provider tells Volto to render the `VideoURLWidget`.
+2. **Metadata fetching**: the `@video-metadata` service is a custom REST endpoint the frontend calls when an editor clicks the "fetch" button in the `VideoURLWidget`.
+3. **Catalog metadata**: the `videoUrl` catalog column is included in search results, allowing the Video block to display the URL without fetching the full content object.
 
 :::{seealso}
-- {doc}`video-metadata-pipeline` — Detailed walk-through of the metadata flow.
-- {doc}`provider-system` — How video providers are registered and resolved.
-- {doc}`blocks-and-widgets` — When to use each block and widget.
+- {doc}`video-metadata-pipeline`. Detailed walk-through of the metadata flow.
+- {doc}`provider-system`. How video providers are registered and resolved.
+- {doc}`blocks-and-widgets`. When to use each block and widget.
 :::

@@ -1,8 +1,8 @@
 ---
 myst:
   html_meta:
-    "description": "The extensible video provider system — IVideoMetadataProvider, utilities, clients"
-    "property=og:description": "The extensible video provider system — IVideoMetadataProvider, utilities, clients"
+    "description": "The extensible video provider system. IVideoMetadataProvider, utilities, clients"
+    "property=og:description": "The extensible video provider system. IVideoMetadataProvider, utilities, clients"
     "property=og:title": "🔌 The provider system"
     "keywords": "Plone, provider, IVideoMetadataProvider, YouTube, Vimeo, extensible, sc-videos"
 ---
@@ -28,7 +28,7 @@ class IVideoMetadataProvider(Interface):
         """Fetch metadata for a video by its provider-specific ID."""
 ```
 
-Each provider carries a `url_pattern` — a compiled regular expression with a capture group that extracts the video ID from a URL.
+Each provider carries a `url_pattern`. a compiled regular expression with a capture group that extracts the video ID from a URL.
 This makes `resolve_url()` fully extensible: adding a new provider is just registering a new named utility.
 
 ## 🏭 Built-in providers
@@ -77,7 +77,7 @@ When `resolve_url(url)` is called:
 
 1. `get_video_services()` queries the component registry for all `IVideoMetadataProvider` utilities.
 2. For each provider, the URL is tested against `provider.url_pattern`.
-3. The first match wins — the regex's capture group extracts the `video_id`.
+3. The first match wins. the regex's capture group extracts the `video_id`.
 4. Returns a `VideoReference(service=provider.id, video_id=video_id)`.
 
 ```{mermaid}
@@ -93,7 +93,7 @@ flowchart TD
 
 The `sc.videos.vocabulary.video_services` vocabulary is automatically generated from the registered providers.
 It's used by the `service` field on the `IRemoteVideo` behavior.
-Adding a new provider utility automatically adds it to the vocabulary — no extra registration needed.
+Adding a new provider utility automatically adds it to the vocabulary. no extra registration needed.
 
 ## 🧱 Class hierarchy
 
@@ -113,7 +113,7 @@ BaseClient (HTTP wrapper)
 `BaseClient` provides a shared `get(path, params)` method using `httpx`.
 
 :::{seealso}
-- {doc}`/how-to-guides/add-a-video-provider` — Step-by-step guide to implementing a new provider.
-- {doc}`video-metadata-pipeline` — How the provider fits into the overall metadata flow.
-- {doc}`/reference/rest-api` — The REST endpoint that invokes the provider.
+- {doc}`/how-to-guides/add-a-video-provider`. Step-by-step guide to implementing a new provider.
+- {doc}`video-metadata-pipeline`. How the provider fits into the overall metadata flow.
+- {doc}`/reference/rest-api`. The REST endpoint that invokes the provider.
 :::

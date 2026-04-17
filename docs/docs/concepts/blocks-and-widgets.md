@@ -1,8 +1,8 @@
 ---
 myst:
   html_meta:
-    "description": "Understanding blocks and widgets in sc-videos — when to use which"
-    "property=og:description": "Understanding blocks and widgets in sc-videos — when to use which"
+    "description": "Understanding blocks and widgets in sc-videos. when to use which"
+    "property=og:description": "Understanding blocks and widgets in sc-videos. when to use which"
     "property=og:title": "🧱 Blocks and widgets"
     "keywords": "Plone, Volto, blocks, widgets, VideoBlock, VideoPlayerBlock, sc-videos"
 ---
@@ -26,7 +26,7 @@ This page explains the differences and when to use each.
 ### When to use the Video Player block
 
 Use the Video Player block when you're editing a **Video content item** and want to display its video.
-This block is pre-configured in the Video content type's default layout — you don't need to add it manually.
+This block is pre-configured in the Video content type's default layout. you don't need to add it manually.
 
 The block reads the video URL from the content's `videoUrl` field (via the `IRemoteVideo` behavior) and renders the player.
 Changes to the URL update the content, not block data.
@@ -46,8 +46,8 @@ The same Video can be embedded on multiple pages.
 The **main editing widget** for the `videoUrl` field.
 Appears in two places:
 
-1. **Content type sidebar** — Volto's form engine renders it automatically for the `videoUrl` field (because the backend's JSON schema provider returns `widget: "VideoURL"`).
-2. **In-block EditForm** — the Video Player block's edit mode embeds it directly in the block area for a more prominent editing experience.
+1. **Content type sidebar**: Volto's form engine renders it automatically for the `videoUrl` field (because the backend's JSON schema provider returns `widget: "VideoURL"`).
+2. **In-block EditForm**: the Video Player block's edit mode embeds it directly in the block area for a more prominent editing experience.
 
 Both instances bind to the same content field (`properties.videoUrl`) via `onChangeField`, so they stay in sync.
 
@@ -55,7 +55,7 @@ Both instances bind to the same content field (`properties.videoUrl`) via `onCha
 
 A **hidden widget** for the `_metadata` JSON field.
 It stores the raw metadata returned by the provider.
-Renders no visible UI — it's purely a data carrier used by the event subscribers and the metadata preview.
+Renders no visible UI. it's purely a data carrier used by the event subscribers and the metadata preview.
 
 ### VideoInput
 
@@ -92,8 +92,8 @@ flowchart TD
 ```
 
 :::{seealso}
-- {doc}`/reference/blocks` — Full technical reference for both blocks.
-- {doc}`/reference/widgets` — Props and behavior for all widgets.
-- {doc}`/tutorials/create-a-video` — Hands-on tutorial for the Video Player block.
-- {doc}`/tutorials/embed-video-in-page` — Hands-on tutorial for the Video block.
+- {doc}`/reference/blocks`. Full technical reference for both blocks.
+- {doc}`/reference/widgets`. Props and behavior for all widgets.
+- {doc}`/tutorials/create-a-video`. Hands-on tutorial for the Video Player block.
+- {doc}`/tutorials/embed-video-in-page`. Hands-on tutorial for the Video block.
 :::

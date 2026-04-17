@@ -41,7 +41,7 @@ If your project has a Python package with custom code, add the following line to
 
 ## 2️⃣ Install the frontend
 
-Add the Volto add-on to your project's **policy package** — the package under `frontend/packages/` that represents your site.
+Add the Volto add-on to your project's **policy package**: the package under `frontend/packages/` that represents your site.
 
 :::{note}
 Always edit the policy package's `package.json`, not the top-level `frontend/package.json`.
@@ -89,5 +89,5 @@ If you don't see the Video content type, make sure both the backend and frontend
 
 ## ⏭️ Next steps
 
-- {doc}`create-a-video` — Create your first Video content and fetch metadata from YouTube or Vimeo.
-- {doc}`/how-to-guides/configure-youtube-api` — Set up a YouTube API key for richer metadata.
+- {doc}`create-a-video`. Create your first Video content and fetch metadata from YouTube or Vimeo.
+- {doc}`/how-to-guides/configure-youtube-api`. Set up a YouTube API key for richer metadata.
