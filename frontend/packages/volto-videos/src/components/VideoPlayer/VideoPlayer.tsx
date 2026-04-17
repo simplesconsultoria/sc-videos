@@ -36,8 +36,12 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
     return null;
   }
 
-  const placeholder = previewImage || getDefaultThumbnail(videoInfo);
+  const placeholder = previewImage || getDefaultThumbnail(videoInfo) || '';
   const embedUrl = getEmbedUrl(videoInfo, isActive || autoplay);
+
+  if (!embedUrl) {
+    return null;
+  }
 
   return (
     <div

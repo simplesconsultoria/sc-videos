@@ -83,41 +83,59 @@ class DailymotionMetadataProvider(MetadataProvider):
 That's it for the backend.
 The URL will now be recognized by `resolve_url()`, the vocabulary will include "dailymotion", and the `@video-metadata` service will fetch Dailymotion metadata.
 
-## 🎨 Frontend: Add embed support
+## 🎨 Frontend: Register the provider
 
-### 4. Add the video source pattern
+The frontend uses `@plone/registry` utilities, so you don't need to modify any sc-videos source files.
 
-Open `frontend/packages/volto-videos/src/helpers/video.ts` and add the new source:
+### 4. Create the provider object
+
+In your add-on, create a provider that implements the `VideoProvider` interface:
 
 ```typescript
-export const VIDEO_SOURCES: Record<string, RegExp> = {
-  youtube: /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
-  vimeo: /(?:vimeo\.com|player\.vimeo\.com\/video)\/(\d+)/,
-  // Add your provider:
-  dailymotion: /(?:dailymotion\.com\/video\/|dai\.ly\/)([a-zA-Z0-9]+)/,
+// src/providers/dailymotion.ts
+import type { VideoProvider } from '@simplesconsultoria/volto-videos/types/videoPlayer';
+
+const dailymotionProvider: VideoProvider = {
+  id: 'dailymotion',
+  name: 'Dailymotion',
+  urlPattern: /(?:dailymotion\.com\/video\/|dai\.ly\/)([a-zA-Z0-9]+)/,
+
+  getDefaultThumbnail(videoId: string): string {
+    return `https://www.dailymotion.com/thumbnail/video/${videoId}`;
+  },
+
+  getEmbedUrl(videoId: string, autoplay: boolean): string {
+    const ap = autoplay ? 1 : 0;
+    return `https://www.dailymotion.com/embed/video/${videoId}?autoplay=${ap}`;
+  },
 };
+
+export default dailymotionProvider;
 ```
 
-### 5. Add embed URL and thumbnail builders
+### 5. Register the provider utility
 
-In the same file, update `getEmbedUrl()` and `getDefaultThumbnail()`:
+In your add-on's `applyConfig`, register the provider:
 
 ```typescript
-export function getEmbedUrl(info: VideoInfo, autoplay = false): string {
-  const ap = autoplay ? 1 : 0;
-  switch (info.source) {
-    case 'youtube':
-      return `https://www.youtube.com/embed/${info.videoId}?autoplay=${ap}`;
-    case 'vimeo':
-      return `https://player.vimeo.com/video/${info.videoId}?autoplay=${ap}`;
-    // Add your provider:
-    case 'dailymotion':
-      return `https://www.dailymotion.com/embed/video/${info.videoId}?autoplay=${ap}`;
-    default:
-      return '';
-  }
+// src/index.ts
+import type { ConfigType } from '@plone/registry';
+import dailymotionProvider from './providers/dailymotion';
+
+function applyConfig(config: ConfigType) {
+  config.registerUtility({
+    name: 'dailymotion',
+    type: 'videoProvider',
+    method: () => dailymotionProvider,
+  });
+
+  return config;
 }
+
+export default applyConfig;
 ```
+
+That's it. The `resolveVideo()`, `getDefaultThumbnail()`, and `getEmbedUrl()` helpers automatically discover your provider from the registry at runtime.
 
 ### 6. Add Storybook MSW handlers (optional)
 

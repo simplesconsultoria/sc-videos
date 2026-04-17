@@ -1,16 +1,23 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeAll } from 'vitest';
+import config from '@plone/registry';
+import installProviders from '@simplesconsultoria/volto-videos/config/providers';
 import {
+  getVideoProviders,
   resolveVideo,
   getDefaultThumbnail,
   getEmbedUrl,
-  VIDEO_SOURCES,
 } from './video';
 
-describe('VIDEO_SOURCES', () => {
-  it('has youtube and vimeo entries', () => {
-    const names = VIDEO_SOURCES.map((s) => s.source);
-    expect(names).toContain('youtube');
-    expect(names).toContain('vimeo');
+// Register the built-in providers before all tests
+beforeAll(() => {
+  installProviders(config);
+});
+
+describe('getVideoProviders', () => {
+  it('returns youtube and vimeo providers', () => {
+    const ids = getVideoProviders().map((p) => p.id);
+    expect(ids).toContain('youtube');
+    expect(ids).toContain('vimeo');
   });
 });
 
@@ -67,11 +74,17 @@ describe('getDefaultThumbnail', () => {
       'https://vumbnail.com/999.jpg',
     );
   });
+
+  it('returns null for unknown provider', () => {
+    expect(
+      getDefaultThumbnail({ source: 'unknown', videoId: '123' }),
+    ).toBeNull();
+  });
 });
 
 describe('getEmbedUrl', () => {
   describe('YouTube', () => {
-    const info = { source: 'youtube' as const, videoId: 'abc123' };
+    const info = { source: 'youtube', videoId: 'abc123' };
 
     it('builds embed URL without autoplay', () => {
       const url = getEmbedUrl(info, false);
@@ -90,7 +103,7 @@ describe('getEmbedUrl', () => {
   });
 
   describe('Vimeo', () => {
-    const info = { source: 'vimeo' as const, videoId: '999' };
+    const info = { source: 'vimeo', videoId: '999' };
 
     it('builds embed URL without autoplay', () => {
       const url = getEmbedUrl(info, false);
@@ -107,5 +120,11 @@ describe('getEmbedUrl', () => {
       expect(url).toContain('autoplay=1');
       expect(url).toContain('muted=1');
     });
+  });
+
+  it('returns null for unknown provider', () => {
+    expect(
+      getEmbedUrl({ source: 'unknown', videoId: '123' }, false),
+    ).toBeNull();
   });
 });
