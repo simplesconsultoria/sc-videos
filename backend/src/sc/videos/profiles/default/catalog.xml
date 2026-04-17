@@ -11,6 +11,11 @@
   >
     <indexed_attr value="has_video" />
   </index>
+  <index meta_type="FieldIndex"
+         name="series"
+  >
+    <indexed_attr value="series" />
+  </index>
 
   <!-- Metadata -->
   <column value="videoUrl" />

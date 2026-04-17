@@ -2,6 +2,16 @@
 
   <!-- -*- extra stuff goes here -*- -->
   <permission
+      id="sc.videos.episode.add"
+      title="sc.videos: Add Episode"
+      />
+
+  <permission
+      id="sc.videos.series.add"
+      title="sc.videos: Add Series"
+      />
+
+  <permission
       id="sc.videos.video.add"
       title="sc.videos: Add Video"
       />

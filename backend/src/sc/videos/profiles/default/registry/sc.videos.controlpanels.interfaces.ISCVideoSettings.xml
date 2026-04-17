@@ -3,6 +3,7 @@
   <records interface="sc.videos.controlpanels.interfaces.ISCVideoSettings"
            prefix="sc.videos"
   >
+    <value key="enable_series">False</value>
     <value key="youtube_api_enabled">False</value>
     <value key="youtube_api_key" />
   </records>

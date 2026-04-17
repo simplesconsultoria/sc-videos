@@ -3,6 +3,12 @@
         name="portal_types"
 >
   <object meta_type="Dexterity FTI"
+          name="Episode"
+  />
+  <object meta_type="Dexterity FTI"
+          name="Series"
+  />
+  <object meta_type="Dexterity FTI"
           name="Video"
   />
 </object>

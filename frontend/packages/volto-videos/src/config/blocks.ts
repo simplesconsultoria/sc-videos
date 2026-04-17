@@ -56,5 +56,24 @@ export default function install(config: ConfigType) {
     },
     { '@type': 'slate' },
   ];
+
+  config.blocks.initialBlocks.Series = [
+    { '@type': 'title' },
+    { '@type': 'description' },
+    { '@type': 'slate' },
+  ];
+
+  config.blocks.initialBlocks.Episode = [
+    { '@type': 'title' },
+    { '@type': 'description' },
+    {
+      '@type': 'playerBlock',
+      autoPlay: false,
+      size: 'l',
+      theme: 'grey',
+      align: 'wider',
+    },
+    { '@type': 'slate' },
+  ];
   return config;
 }

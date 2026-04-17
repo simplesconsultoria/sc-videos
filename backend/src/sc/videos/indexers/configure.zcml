@@ -16,4 +16,9 @@
       name="has_video"
       />
 
+  <adapter
+      factory=".series.series"
+      name="series"
+      />
+
 </configure>

@@ -1,15 +1,32 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
   <subscriber
-      for="sc.videos.content.video.IVideo
+      for="sc.videos.behaviors.video.IRemoteVideo
            zope.lifecycleevent.IObjectAddedEvent"
       handler=".video.added"
       />
 
   <subscriber
-      for="sc.videos.content.video.IVideo
+      for="sc.videos.behaviors.video.IRemoteVideo
            zope.lifecycleevent.IObjectModifiedEvent"
       handler=".video.modified"
+      />
+
+  <!-- Series -->
+  <subscriber
+      for="sc.videos.content.series.ISeries
+           zope.lifecycleevent.IObjectAddedEvent"
+      handler=".series.added"
+      />
+
+  <!-- Settings -->
+  <subscriber
+      for="plone.registry.interfaces.IRecordAddedEvent"
+      handler=".settings.added"
+      />
+  <subscriber
+      for="plone.registry.interfaces.IRecordModifiedEvent"
+      handler=".settings.modified"
       />
 
 </configure>

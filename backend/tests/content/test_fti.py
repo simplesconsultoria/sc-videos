@@ -18,6 +18,42 @@ class TestContentTypeFTI:
     @pytest.mark.parametrize(
         "portal_type,attr,expected",
         [
+            ("Episode", "title", "Episode"),
+            ("Episode", "description", "A video episode within a series"),
+            ("Episode", "global_allow", True),
+            ("Episode", "filter_content_types", True),
+            ("Episode", "allowed_content_types", ("Image",)),
+            (
+                "Episode",
+                "behaviors",
+                (
+                    "plone.basic",
+                    "sc.videos.remotevideo",
+                    "plone.namefromtitle",
+                    "volto.blocks",
+                    "volto.preview_image",
+                    "plone.categorization",
+                    "plone.shortname",
+                    "plone.versioning",
+                ),
+            ),
+            ("Series", "title", "Series"),
+            ("Series", "description", "A series of video episodes"),
+            ("Series", "global_allow", True),
+            ("Series", "filter_content_types", False),
+            (
+                "Series",
+                "behaviors",
+                (
+                    "plone.basic",
+                    "plone.namefromtitle",
+                    "volto.blocks",
+                    "volto.preview_image",
+                    "plone.categorization",
+                    "plone.shortname",
+                    "plone.excludefromnavigation",
+                ),
+            ),
             ("Video", "title", "Video"),
             ("Video", "description", "A video content"),
             ("Video", "global_allow", True),
@@ -51,6 +87,8 @@ class TestContentTypeFTI:
     @pytest.mark.parametrize(
         "portal_type",
         [
+            "Episode",
+            "Series",
             "Video",
         ],
     )

@@ -2,6 +2,15 @@
 <rolemap>
   <permissions>
     <!-- -*- extra stuff goes here -*- -->
+    <permission acquire="False"
+                name="sc.videos: Add Episode"
+    />
+
+    <!-- Series -->
+    <permission acquire="False"
+                name="sc.videos: Add Series"
+    />
+
     <!-- Video -->
     <permission acquire="False"
                 name="sc.videos: Add Video"
