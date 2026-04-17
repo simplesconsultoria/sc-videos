@@ -10,6 +10,11 @@
       component=".duration_ranges.DurationRangesVocabulary"
       />
 
+  <utility
+      name="sc.videos.vocabulary.series"
+      component=".series.series_catalog_vocabulary"
+      />
+
   <!-- -*- extra stuff goes here -*- -->
 
 </configure>

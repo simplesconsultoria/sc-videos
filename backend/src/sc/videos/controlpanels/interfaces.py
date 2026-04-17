@@ -8,6 +8,16 @@ from zope.interface import Interface
 class ISCVideoSettings(Interface):
     """Video integration settings."""
 
+    enable_series = schema.Bool(
+        title=_("Enable Series and Episodes"),
+        description=_(
+            "Enable the Series and Episode content types. "
+            "When enabled, Series becomes globally addable."
+        ),
+        required=False,
+        default=False,
+    )
+
     youtube_api_enabled = schema.Bool(
         title=_("Enable YouTube API (Authenticated)"),
         description=_("Enable or disable YouTube API integration."),

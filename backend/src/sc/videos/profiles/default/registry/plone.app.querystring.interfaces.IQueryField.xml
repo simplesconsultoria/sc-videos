@@ -68,4 +68,26 @@
     >Video</value>
   </records>
 
+  <!-- Querystring: series (string match on Series UUID) -->
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.series"
+  >
+    <value key="title"
+           i18n:translate=""
+    >Series</value>
+    <value key="description"
+           i18n:translate=""
+    >The series an episode belongs to</value>
+    <value key="enabled">True</value>
+    <value key="sortable">False</value>
+    <value key="operations">
+      <element>plone.app.querystring.operation.selection.any</element>
+      <element>plone.app.querystring.operation.selection.none</element>
+    </value>
+    <value key="vocabulary">sc.videos.vocabulary.series</value>
+    <value key="group"
+           i18n:translate=""
+    >Video</value>
+  </records>
+
 </registry>
