@@ -95,18 +95,66 @@ The `sc.videos.vocabulary.video_services` vocabulary is automatically generated 
 It's used by the `service` field on the `IRemoteVideo` behavior.
 Adding a new provider utility automatically adds it to the vocabulary. no extra registration needed.
 
+## 🖥️ Frontend provider registry
+
+The frontend mirrors the backend's extensible pattern using `@plone/registry` utilities.
+
+### The `VideoProvider` interface
+
+**Module:** `@simplesconsultoria/volto-videos/types/videoPlayer`
+
+```typescript
+export interface VideoProvider {
+  id: string;          // matches backend IVideoMetadataProvider.id
+  name: string;        // human-readable display name
+  urlPattern: RegExp;  // regex with capture group for video ID
+  getDefaultThumbnail(videoId: string): string;
+  getEmbedUrl(videoId: string, autoplay: boolean): string;
+}
+```
+
+### Registration
+
+Providers are registered as `videoProvider` utilities in `applyConfig`:
+
+```typescript
+import config from '@plone/registry';
+
+config.registerUtility({
+  name: 'youtube',
+  type: 'videoProvider',
+  method: () => youtubeProvider,
+});
+```
+
+### Resolution
+
+The helpers in `@simplesconsultoria/volto-videos/helpers/video` query the registry at runtime:
+
+1. `getVideoProviders()` calls `config.getUtilities({ type: 'videoProvider' })` and maps each result through its `method()`.
+2. `resolveVideo(url)` iterates all providers, testing the URL against each `urlPattern`.
+3. `getDefaultThumbnail(info)` and `getEmbedUrl(info, autoplay)` find the matching provider by `id`.
+
+Third-party add-ons register new providers without patching any sc-videos module.
+
 ## 🧱 Class hierarchy
 
 ```text
-IVideoMetadataProvider (interface)
-└── MetadataProvider (base class)
-    ├── YouTubeMetadataProvider
-    └── VimeoMetadataProvider
+Backend:
+  IVideoMetadataProvider (interface)
+  └── MetadataProvider (base class)
+      ├── YouTubeMetadataProvider
+      └── VimeoMetadataProvider
 
-BaseClient (HTTP wrapper)
-├── YouTubeAPIClient
-├── YouTubePublicClient
-└── VimeoPublicClient
+  BaseClient (HTTP wrapper)
+  ├── YouTubeAPIClient
+  ├── YouTubePublicClient
+  └── VimeoPublicClient
+
+Frontend:
+  VideoProvider (interface)
+  ├── youtubeProvider
+  └── vimeoProvider
 ```
 
 `MetadataProvider` handles common logic (url_pattern matching, client instantiation).
