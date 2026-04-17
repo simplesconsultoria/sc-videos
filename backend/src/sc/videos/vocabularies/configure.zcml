@@ -5,6 +5,11 @@
       component=".video_services.VideoServicesVocabulary"
       />
 
+  <utility
+      name="sc.videos.vocabulary.duration_ranges"
+      component=".duration_ranges.DurationRangesVocabulary"
+      />
+
   <!-- -*- extra stuff goes here -*- -->
 
 </configure>

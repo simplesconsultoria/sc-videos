@@ -30,6 +30,16 @@ msgstr ""
 msgid "Auto Play"
 msgstr ""
 
+#. Default: "Browse the site for a video to embed"
+#: components/Widgets/VideoInput
+msgid "Browse the site for a video to embed"
+msgstr ""
+
+#. Default: "External Video"
+#: components/Blocks/VideoPlayerBlock/Edit
+msgid "External Video"
+msgstr ""
+
 #. Default: "Link to"
 #: components/Blocks/VideoBlock/schema
 msgid "Link to"
@@ -41,8 +51,18 @@ msgstr ""
 msgid "Player Block"
 msgstr ""
 
+#. Default: "Please, inform the url of a video from Youtube, Vimeo."
+#: components/Blocks/VideoPlayerBlock/Edit
+msgid "Please, inform the url of a video from Youtube, Vimeo."
+msgstr ""
+
 #. Default: "Video size"
 #: components/Blocks/VideoBlock/schema
 #: components/Blocks/VideoPlayerBlock/schema
 msgid "Video size"
+msgstr ""
+
+#. Default: "Pick an existing video"
+#: components/Widgets/VideoInput
+msgid "pickAVideo"
 msgstr ""

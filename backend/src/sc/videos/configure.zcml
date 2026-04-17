@@ -24,6 +24,7 @@
   <include package=".integration" />
   <include package=".services" />
   <include package=".subscribers" />
+  <include package=".querystring" />
 
   <!-- -*- extra stuff goes here -*- -->
 

@@ -30,19 +30,54 @@ It can be customized via Plone's role/permission management.
 
 ## 📇 Catalog configuration
 
+### Indexes
+
+| Index | Type | Adapter | Description |
+|---|---|---|---|
+| `duration` | `FieldIndex` | `sc.videos.indexers.video.duration` | Video duration in seconds. Supports range queries. |
+| `has_video` | `BooleanIndex` | `sc.videos.indexers.video.has_video` | `True` for any content providing `IRemoteVideo`. Works across all content types. |
+
 ### Metadata columns
 
 | Column | Source |
 |---|---|
 | `videoUrl` | `IRemoteVideo.videoUrl` (via indexer adapter) |
+| `duration` | `IRemoteVideo.duration` (via indexer adapter) |
+| `has_video` | `True` when content provides `IRemoteVideo` |
 
-The `videoUrl` column is available in catalog search results, used by the Video block to display the video without fetching the full content object.
+These columns are available in catalog search results (brain attributes), allowing templates and blocks to display video information without waking the full content object.
 
-### Indexer
+### Indexer adapters
 
 | Adapter name | Module | Description |
 |---|---|---|
-| `videoUrl` | `sc.videos.indexers.video.video_url` | Field indexer for the `videoUrl` field of `IRemoteVideo`. |
+| `videoUrl` | `sc.videos.indexers.video.video_url` | Returns the `videoUrl` field value. |
+| `duration` | `sc.videos.indexers.video.duration` | Returns video duration in seconds. |
+| `has_video` | `sc.videos.indexers.video.has_video` | Returns `True` if the object provides `IRemoteVideo`. Registered for `Interface`, so it indexes all content types. |
+
+## 🔍 Querystring fields
+
+sc-videos registers querystring fields so that Collection and Listing blocks can filter by video attributes.
+All fields appear in the **Video** group in the querystring editor.
+
+| Field | Index | Operations | Description |
+|---|---|---|---|
+| Video duration | `duration` | Equals, Less than, Larger than | Filter by exact duration in seconds. Sortable. |
+| Video duration range | `duration_range` | Matches any of, Matches none of | Filter by duration bucket using the `sc.videos.vocabulary.duration_ranges` vocabulary. |
+| Has video | `has_video` | Yes, No | Filter content by whether it has a video attached. |
+
+### Duration range vocabulary
+
+The `sc.videos.vocabulary.duration_ranges` vocabulary provides human-readable duration buckets for the **Video duration range** querystring field:
+
+| Token | Label | Duration (seconds) |
+|---|---|---|
+| `0-10` | 0-10 minutes | 0 -- 600 |
+| `11-30` | 11-30 minutes | 601 -- 1,800 |
+| `31-60` | 31-60 minutes | 1,801 -- 3,600 |
+| `60+` | > 60 minutes | 3,601+ |
+
+When a user selects a duration range, the `duration_modifier` (`IParsedQueryIndexModifier`) translates it into a catalog range query against the `duration` index.
 
 ## 🌐 Registry settings
 

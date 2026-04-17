@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2026-04-16T01:43:58.752Z\n"
+"POT-Creation-Date: 2026-04-17T16:16:52.287Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -25,6 +25,16 @@ msgstr ""
 msgid "Auto Play"
 msgstr ""
 
+#. Default: "Browse the site for a video to embed"
+#: components/Widgets/VideoInput
+msgid "Browse the site for a video to embed"
+msgstr ""
+
+#. Default: "External Video"
+#: components/Blocks/VideoPlayerBlock/Edit
+msgid "External Video"
+msgstr ""
+
 #. Default: "Link to"
 #: components/Blocks/VideoBlock/schema
 msgid "Link to"
@@ -36,8 +46,18 @@ msgstr ""
 msgid "Player Block"
 msgstr ""
 
+#. Default: "Please, inform the url of a video from Youtube, Vimeo."
+#: components/Blocks/VideoPlayerBlock/Edit
+msgid "Please, inform the url of a video from Youtube, Vimeo."
+msgstr ""
+
 #. Default: "Video size"
 #: components/Blocks/VideoBlock/schema
 #: components/Blocks/VideoPlayerBlock/schema
 msgid "Video size"
+msgstr ""
+
+#. Default: "Pick an existing video"
+#: components/Widgets/VideoInput
+msgid "pickAVideo"
 msgstr ""

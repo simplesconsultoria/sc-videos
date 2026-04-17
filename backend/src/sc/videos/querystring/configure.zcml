@@ -1,0 +1,10 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <utility
+      factory=".duration_range.duration_modifier"
+      provides="plone.app.querystring.interfaces.IParsedQueryIndexModifier"
+      name="duration_range"
+      />
+
+
+</configure>

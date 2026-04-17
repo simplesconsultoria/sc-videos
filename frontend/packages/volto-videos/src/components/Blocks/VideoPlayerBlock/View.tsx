@@ -1,7 +1,7 @@
 import React from 'react';
 import withBlockExtensions from '@plone/volto/helpers/Extensions/withBlockExtensions';
 import type { VideoPlayerBlockData } from './index';
-import type { Video as VideoContent } from '@simplesconsultoria/volto-videos/types/content';
+import type { IRemoteVideo as VideoContent } from '@simplesconsultoria/volto-videos/types/content';
 import VideoPlayerBlock from '@simplesconsultoria/volto-videos/components/VideoPlayer/BlockWrapper';
 
 interface VideoPlayerBlockViewProps {

@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <object name="portal_catalog">
-  <!-- Index -->
+  <!-- Indexes -->
+  <index meta_type="FieldIndex"
+         name="duration"
+  >
+    <indexed_attr value="duration" />
+  </index>
+  <index meta_type="BooleanIndex"
+         name="has_video"
+  >
+    <indexed_attr value="has_video" />
+  </index>
+
   <!-- Metadata -->
   <column value="videoUrl" />
+  <column value="duration" />
+  <column value="has_video" />
 
 </object>

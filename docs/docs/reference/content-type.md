@@ -73,13 +73,16 @@ config.blocks.initialBlocks.Video = [
 
 ## 📇 Catalog metadata
 
-The Video content type exposes the following metadata column in the portal catalog:
+The Video content type exposes the following columns and indexes in the portal catalog:
 
 | Column | Source | Description |
 |---|---|---|
 | `videoUrl` | `IRemoteVideo.videoUrl` | The external video URL. Available in search results without fetching the full object. |
+| `duration` | `IRemoteVideo.duration` | Video duration in seconds. Also available as a `FieldIndex` for range queries. |
+| `has_video` | `IRemoteVideo` presence | `True` for any content providing `IRemoteVideo`. Also available as a `BooleanIndex`. |
 
-This column is used by the {doc}`blocks` (Video block) to display the video URL from catalog search results.
+These columns are used by blocks to display video information from catalog search results.
+See {doc}`configuration` for the full list of indexes, querystring fields, and the duration range vocabulary.
 
 :::{seealso}
 - {doc}`behavior`. The `IRemoteVideo` behavior and its fields.

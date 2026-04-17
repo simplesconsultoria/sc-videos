@@ -1,8 +1,9 @@
 import type { Content, Image } from '@plone/types';
 
-export interface Video extends Content {
+export interface IRemoteVideo extends Content {
   videoUrl: string;
   duration: number;
+  has_video: boolean;
   text: object;
   preview_image?: Image;
 }
