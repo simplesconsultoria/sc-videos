@@ -1,30 +1,46 @@
 ---
 myst:
   html_meta:
-    "description": "Video Support for Plone how-to guides"
-    "property=og:description": "Video Support for Plone how-to guides"
-    "property=og:title": "Video Support for Plone how-to guides"
-    "keywords": "Plone, Video Support for Plone, how-to, guides"
+    "description": "How-to guides for common sc-videos tasks"
+    "property=og:description": "How-to guides for common sc-videos tasks"
+    "property=og:title": "📖 How-to guides"
+    "keywords": "Plone, how-to, guides, sc-videos"
 ---
 
-# How-to guides
+# 📖 How-to guides
 
-This part of the documentation contains how-to guides, including installation and usage.
+How-to guides are **goal-oriented** — they take you through the steps required to solve a real-world problem.
 
-> How-to guides are directions that guide the reader through a problem or towards a result.
-> How-to guides are goal-oriented.
+> A how-to guide addresses a specific question or problem.
+> — [Diátaxis](https://diataxis.fr/how-to-guides/)
 
-```{seealso}
-https://diataxis.fr/how-to-guides/
+## 🔧 Configuration
+
+- {doc}`configure-youtube-api` — Set up a YouTube Data API key for richer metadata.
+
+## 🔌 Extending
+
+- {doc}`add-a-video-provider` — Implement a new video provider (backend + frontend).
+
+## 🎨 Theming
+
+- {doc}`customize-player-theme` — Restyle the video player with CSS custom properties.
+
+## 🧩 Layout
+
+- {doc}`use-video-block-in-grid` — Place videos in multi-column Grid layouts.
+
+## 🤝 Contributing
+
+- {doc}`contribute` — Development setup, testing, and pull request workflow.
+
+```{toctree}
+:hidden: true
+:maxdepth: 1
+
+configure-youtube-api
+add-a-video-provider
+customize-player-theme
+use-video-block-in-grid
+contribute
 ```
-
-
-## Authors
-
--   {doc}`plone:contributing/documentation/myst-reference`
--   {doc}`plone:contributing/documentation/authors`
-
-
-## Designers
-
--   [Contribute to Plone Sphinx Theme](https://plone-sphinx-theme.readthedocs.io/guides/contribute.html)
