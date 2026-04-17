@@ -99,25 +99,13 @@ Plone Sphinx Theme is configured to use these files when rendering documentation
 If you rename `logo.svg`, you must update `conf.py`, under the `html_logo`, `ogp_image`, and `latex_logo` keys.
 
 
-## Read the Docs
+## Publishing
 
-Now that you've built your documentation, how do you publish it?
-And how do you get collaborators to easily review your changes to your documentation?
+Documentation and Storybook are published to **GitHub Pages** via the CI pipeline.
+Every push to `main` that touches `docs/` or `frontend/` rebuilds and deploys the combined site at:
 
-Thankfully, [Read the Docs](https://about.readthedocs.com/) provides both hosting of documentation and pull request previews.
-For public repositories, this service is free.
-However, the Plone Foundation donates to Read the Docs for their unwavering support to open source software, and encourages you to do the same.
-
-Your documentation scaffold is partially configured to use Read the Docs.
-In several files, search for the string `MY_READTHEDOCS_PROJECT_SLUG`.
-You'll need to replace that string with the slug that Read the Docs creates for you when you import your project.
-
-For complete documentation of this process, see the Plone 6 Documentation [Pull request preview builds](https://6.docs.plone.org/contributing/documentation/admins.html#pull-request-preview-builds).
-
-See also Read the Docs documentation:
-
--   [Pull request previews](https://docs.readthedocs.com/platform/stable/pull-requests.html)
--   [Build process overview](https://docs.readthedocs.com/platform/stable/builds.html)
+- **Docs**: [simplesconsultoria.github.io/sc-videos](https://simplesconsultoria.github.io/sc-videos/)
+- **Storybook**: [simplesconsultoria.github.io/sc-videos/storybook](https://simplesconsultoria.github.io/sc-videos/storybook/)
 
 ## Credits and acknowledgements 🙏
 

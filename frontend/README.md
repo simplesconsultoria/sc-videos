@@ -1,148 +1,84 @@
-# Video Support for Plone (@simplesconsultoria/volto-videos)
-
-A Plone add-on providing a Video content type that supports external video sources
+# 🎬 @simplesconsultoria/volto-videos
 
 [![npm](https://img.shields.io/npm/v/@simplesconsultoria/volto-videos)](https://www.npmjs.com/package/@simplesconsultoria/volto-videos)
-[![](https://img.shields.io/badge/-Storybook-ff4785?logo=Storybook&logoColor=white&style=flat-square)](https://simplesconsultoria.github.io/volto-videos/)
+[![Storybook](https://img.shields.io/badge/-Storybook-ff4785?logo=Storybook&logoColor=white&style=flat-square)](https://simplesconsultoria.github.io/sc-videos/storybook/)
 [![CI](https://github.com/simplesconsultoria/sc-videos/actions/workflows/main.yml/badge.svg)](https://github.com/simplesconsultoria/sc-videos/actions/workflows/main.yml)
 
+**@simplesconsultoria/volto-videos** is the frontend Volto add-on for the [sc-videos](https://github.com/simplesconsultoria/sc-videos) Plone project.
+It provides video blocks, widgets, and a player component for Plone sites using the Volto frontend.
 
-## Features
+> **This package requires the backend companion add-on [`sc.videos`](https://pypi.org/project/sc.videos/) to be installed in your Plone backend.**
+> Both packages are developed and released together from the [sc-videos monorepo](https://github.com/simplesconsultoria/sc-videos).
 
-<!-- List your awesome features here -->
+## ✨ Features
 
-## Installation
+- 🧱 **Video Player block** — for Video content pages; shows an in-block URL entry form with metadata fetching, then switches to the embedded player.
+- 📺 **Video block** — for any page; pick an existing Video from the site via the object browser. Also works inside Grid blocks.
+- ✏️ **VideoURLWidget** — URL input with a "fetch metadata" button that auto-populates title, description, duration, and preview image from YouTube or Vimeo.
+- 🎬 **VideoPlayer component** — click-to-play player with preview images, YouTube and Vimeo embed support.
+- 🎨 **Themeable** — CSS custom properties for easy restyling without modifying the add-on source.
+- 📖 **Storybook** — interactive demos for all components and widgets.
 
-To install your project, you must choose the method appropriate to your version of Volto.
+## 📦 Installation
 
+Add this add-on to your project's **policy package** — the package under `frontend/packages/` that represents your site.
 
-### Volto 18 and later
-
-Add `@simplesconsultoria/volto-videos` to your `package.json`.
+In your policy package's `package.json`, add the dependency and register it in the `addons` array:
 
 ```json
-"dependencies": {
-    "@simplesconsultoria/volto-videos": "*"
+{
+  "dependencies": {
+    "@simplesconsultoria/volto-videos": "workspace:*"
+  },
+  "addons": [
+    "@simplesconsultoria/volto-videos"
+  ]
 }
 ```
 
-## Test installation
-
-Visit http://localhost:3000/ in a browser, login, and check the awesome new features.
-
-
-## Development
-
-The development of this add-on is done in isolation using pnpm workspaces, the latest `mrs-developer`, and other Volto core improvements.
-For these reasons, it only works with pnpm and Volto 18.
-
-
-### Prerequisites ✅
-
--   An [operating system](https://6.docs.plone.org/install/create-project-cookieplone.html#prerequisites-for-installation) that runs all the requirements mentioned.
--   [nvm](https://6.docs.plone.org/install/create-project-cookieplone.html#nvm)
--   [Node.js and pnpm](https://6.docs.plone.org/install/create-project.html#node-js) 24
--   [Make](https://6.docs.plone.org/install/create-project-cookieplone.html#make)
--   [Git](https://6.docs.plone.org/install/create-project-cookieplone.html#git)
--   [Docker](https://docs.docker.com/get-started/get-docker/) (optional)
-
-### Installation 🔧
-
-1.  Clone this repository, then change your working directory.
-
-    ```shell
-    git clone git@github.com:simplesconsultoria/sc-videos.git
-    cd sc-videos/frontend
-    ```
-
-2.  Install this code base.
-
-    ```shell
-    make install
-    ```
-
-
-### Make convenience commands
-
-Run `make help` to list the available Make commands.
-
-
-### Set up development environment
-
-Install package requirements.
+Then install:
 
 ```shell
 make install
 ```
 
-### Start developing
+## 📚 Documentation
 
-Start the backend.
+Full documentation (tutorials, how-to guides, concepts, and reference) is available at:
 
-```shell
-make backend-docker-start
-```
+**[simplesconsultoria.github.io/sc-videos](https://simplesconsultoria.github.io/sc-videos/)**
 
-In a separate terminal session, start the frontend.
+Interactive component demos are available in the **[Storybook](https://simplesconsultoria.github.io/sc-videos/storybook/)**.
 
-```shell
-make start
-```
+## 🤝 Contribute
 
-### Lint code
+For development setup and contribution guidelines, see the [monorepo README](https://github.com/simplesconsultoria/sc-videos) and the [contribution guide](https://simplesconsultoria.github.io/sc-videos/how-to-guides/contribute.html).
 
-Run ESlint, Prettier, and Stylelint in analyze mode.
+### Development quick start
 
 ```shell
-make lint
+git clone git@github.com:simplesconsultoria/sc-videos.git
+cd sc-videos/frontend
+make install
+make start           # Volto dev server on http://localhost:3000
+make storybook-start # Storybook on http://localhost:6006
+make test            # vitest
+make lint            # eslint + prettier + stylelint
 ```
 
-### Format code
+- [Issue tracker](https://github.com/simplesconsultoria/sc-videos/issues)
+- [Source code](https://github.com/simplesconsultoria/sc-videos/)
 
-Run ESlint, Prettier, and Stylelint in fix mode.
+## 📜 License
 
-```shell
-make format
-```
+MIT
 
-### i18n
+## 🙏 Credits
 
-Extract the i18n messages to locales.
+The development of this add-on was supported by:
 
-```shell
-make i18n
-```
+- [Simples Consultoria](https://www.simplesconsultoria.com.br/)
+- [IFPB — Instituto Federal da Paraíba](https://www.ifpb.edu.br/)
+- [Openlegis](https://www.openlegis.com.br/)
 
-### Unit tests
-
-Run unit tests.
-
-```shell
-make test
-```
-
-### Run Cypress tests
-
-Run each of these steps in separate terminal sessions.
-
-In the first session, start the frontend in development mode.
-
-```shell
-make acceptance-frontend-dev-start
-```
-
-In the second session, start the backend acceptance server.
-
-```shell
-make acceptance-backend-start
-```
-
-In the third session, start the Cypress interactive test runner.
-
-```shell
-make acceptance-test
-```
-
-## License
-
-The project is licensed under the MIT license.
+Generated using [Cookieplone (2.0.0a1)](https://github.com/plone/cookieplone) and [cookieplone-templates (c0e9ef0)](https://github.com/plone/cookieplone-templates/commit/c0e9ef026f714e960832e00129c0ac2bcd0385f5) on 2026-04-10 16:04:11.973530. A special thanks to all contributors and supporters!

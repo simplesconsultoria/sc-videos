@@ -7,15 +7,7 @@
 from datetime import datetime
 
 from packaging.version import Version
-from plone_sphinx_theme import __version__
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath("../src/plone_sphinx_theme"))
+from sc.videos import __version__
 
 # -- Project information -----------------------------------------------------
 
@@ -24,7 +16,6 @@ author = "Simples Consultoria"
 trademark_name = "simplesconsultoria"
 now = datetime.now()
 year = str(now.year)
-copyright = year
 
 
 # The version info for the project you're documenting, acts as replacement for
@@ -95,14 +86,15 @@ linkcheck_ignore = [
     # Ignore file downloads
     r"^/_static/",
     # Ignore pages that require authentication
-    r"https://github.com/simplesconsultoria/videosupportforplone/issues/new",  # requires auth
+    r"https://github.com/simplesconsultoria/sc-videos/issues/new",  # requires auth
+    # Ignore npm/PyPI links for packages not yet published
+    r"https://www.npmjs.com/package/@simplesconsultoria/volto-videos",
+    r"https://pypi.org/project/sc.videos/",
     # Ignore github.com pages with anchors
     r"https://github.com/.*#.*",
     # Ignore other specific anchors
 ]
-linkcheck_allowed_redirects = {  # TODO: Confirm usage of linkcheck_allowed_redirects
-    # All HTTP redirections from the source URI to the canonical URI will be treated as "working".
-}
+linkcheck_allowed_redirects: dict = {}
 linkcheck_anchors = True
 linkcheck_timeout = 5
 linkcheck_retries = 1
@@ -119,9 +111,9 @@ master_doc = "index"
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
+exclude_patterns: list[str] = []
 
-suppress_warnings = []
+suppress_warnings: list[str] = []
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -130,7 +122,7 @@ suppress_warnings = []
 # a list of builtin themes.
 html_theme = "plone_sphinx_theme"  # This can be configured
 html_logo = "_static/logo.svg"
-html_favicon = "_static/favicon.ico"
+html_favicon = "_static/favicon.svg"
 # The default value includes icon-links, so override it with that one omitted, and add it to html_theme_options[footer_content_items].
 html_sidebars = {
     "**": [
@@ -141,8 +133,6 @@ html_sidebars = {
 }
 html_theme_options = {
     "article_header_start": ["toggle-primary-sidebar"],
-    # "extra_footer": """<p>Example `extra_footer` content. License info. Trademark info and usage.</p>
-    # <p>Pull request previews by <a href="https://readthedocs.org/">Read the Docs</a>.</p>""",
     "footer_content_items": [
         "author",
         "copyright",
@@ -155,7 +145,7 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/simplesconsultoria/videosupportforplone",
+            "url": "https://github.com/simplesconsultoria/sc-videos",
             "icon": "fa-brands fa-square-github",
             "type": "fontawesome",
             "attributes": {
@@ -164,17 +154,6 @@ html_theme_options = {
                 "class": "nav-link custom-fancy-css",
             },
         },
-        # {
-        #   "name": "Mastodon",
-        #   "url": "https://MY_MASTODON_SERVER/@MY_MASTODON_USER",
-        #   "icon": "fa-brands fa-mastodon",
-        #   "type": "fontawesome",
-        #   "attributes": {
-        #       "target": "_blank",
-        #       "rel": "noopener me",
-        #       "class": "nav-link custom-fancy-css",
-        #    },
-        # },
     ],
     "logo": {
         "text": "Video Support for Plone",
@@ -182,22 +161,17 @@ html_theme_options = {
     "navigation_with_keys": True,
     "path_to_docs": "docs/docs",
     "repository_branch": "main",
-    "repository_url": "https://github.com/simplesconsultoria/videosupportforplone",
+    "repository_url": "https://github.com/simplesconsultoria/sc-videos",
     "search_bar_text": "Search",
     "show_toc_level": 2,
     "use_edit_page_button": True,
     "use_issues_button": True,
     "use_repository_button": True,
 }
-# suggest edit link
-# remark:  is mandatory in "edit_page_url_template"
-# html_context = {
-#     "edit_page_url_template": "https://github.com/simplesconsultoria/videosupportforplone/edit/main/docs/",
-# }
 
 # Announce that we have an opensearch plugin
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_use_opensearch
-html_use_opensearch = "https://MY_READTHEDOCS_PROJECT_SLUG.readthedocs.io"
+html_use_opensearch = "simplesconsultoria.github.io/sc-videos"
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -235,7 +209,7 @@ autodoc_class_signature = "separated"
 # -- Options for sphinx_sitemap to html -----------------------------
 
 # Used by sphinx_sitemap to generate a sitemap
-html_baseurl = "https://MY_READTHEDOCS_PROJECT_SLUG.readthedocs.io/"
+html_baseurl = "simplesconsultoria.github.io/sc-videos/"
 # https://sphinx-sitemap.readthedocs.io/en/latest/advanced-configuration.html#customizing-the-url-scheme
 sitemap_url_scheme = "{link}"
 sitemap_filename = "sitemap-custom.xml"
@@ -255,7 +229,7 @@ myst_enable_extensions = [
     "substitution",  # Use Jinja2 for substitutions. https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#substitutions-with-jinja2
 ]
 
-myst_substitutions = {}
+myst_substitutions: dict = {}
 
 # -- Intersphinx configuration ----------------------------------
 
@@ -283,10 +257,10 @@ mermaid_version = "11.2.0"
 
 
 # -- OpenGraph configuration ----------------------------------
-ogp_site_url = "https://MY_READTHEDOCS_PROJECT_SLUG.readthedocs.io/"
+ogp_site_url = "simplesconsultoria.github.io/sc-videos/"
 ogp_description_length = 200
-ogp_image = "https://MY_READTHEDOCS_PROJECT_SLUG/_static/MY_LOGO.svg"
-ogp_site_name = "Video Support for Plone Documentation"
+ogp_image = "simplesconsultoria.github.io/sc-videos/_static/MY_LOGO.svg"
+ogp_site_name = "Video Support for Plone (Docs)"
 ogp_type = "website"
 ogp_custom_meta_tags = [
     '<meta property="og:locale" content="en_US" />',
@@ -305,7 +279,7 @@ notfound_template = "404.html"
 
 # -- sphinx-reredirects configuration ----------------------------------
 # https://documatt.com/sphinx-reredirects/usage.html
-redirects = {}
+redirects: dict = {}
 
 
 # -- sphinx-tippy configuration ----------------------------------

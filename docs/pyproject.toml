@@ -1,5 +1,5 @@
 [project]
-name = "Video_Support_for_Plone_Documentation"
+name = "sc.videos_docs"
 description = "A Plone add-on providing a Video content type that supports external video sources"
 keywords = [
     "Video Support for Plone",
@@ -9,8 +9,8 @@ keywords = [
 ]
 version="1.0.0"
 readme = "README.md"
-requires-python = ">=3.10,<3.14"
-license = { file = "LICENSE" }
+requires-python = ">=3.12"
+license = { file = "../backend/LICENSE.md" }
 maintainers = [
     { name = "Simples Consultoria", email = "comercial@simplesconsultoria.com.br" },
 ]
@@ -22,8 +22,6 @@ classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
 ]
@@ -31,10 +29,10 @@ classifiers = [
 [dependency-groups]
 dev = [
     "graphviz",
+    "sc.videos",
     "linkify-it-py",
     "myst-parser",
     "plone-sphinx-theme>=1.4.1",  # Use the latest stable version or a minimum
-    "setuptools",  # required by sphinxcontrib.httpexample, remove when it migrates to importlib. See https://github.com/collective/sphinxcontrib-httpexample/issues/106
     "sphinx-autobuild",
     "sphinx-copybutton",
     "sphinx-design",
@@ -53,9 +51,15 @@ dev = [
 ]
 
 [project.urls]
-Repository = "https://github.com/simplesconsultoria/videosupportforplone"
-Documentation = "https://MY_READTHEDOCS_PROJECT_SLUG.readthedocs.io/"
+Repository = "https://github.com/simplesconsultoria/sc-videos"
+Documentation = "https://simplesconsultoria.github.io/sc-videos"
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+sc-videos = { path = "../backend", editable = true }
 
 [build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
