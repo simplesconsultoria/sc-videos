@@ -1,0 +1,89 @@
+{
+  "@id": "/series/mao-na-massa",
+  "@type": "VideoSeries",
+  "UID": "6f1a1db4ac81462e8e45f8e64032c8d0",
+  "allow_discussion": null,
+  "blocks": {
+    "2596ad1b-34ee-4290-a1ff-2625e82a86b1": {
+      "@type": "slate"
+    },
+    "c0666538-1cd0-474e-932a-73b2ebde1d97": {
+      "@type": "title"
+    },
+    "f5454b2b-62b1-401a-bc9d-37fa40603cbd": {
+      "@type": "description"
+    },
+    "f9e5d474-1d5b-4569-8663-ca34ea2f34f3": {
+      "@type": "listing",
+      "headlineTag": "h2",
+      "querystring": {
+        "query": [
+          {
+            "i": "portal_type",
+            "o": "plone.app.querystring.operation.selection.any",
+            "v": [
+              "Episode"
+            ]
+          },
+          {
+            "i": "path",
+            "o": "plone.app.querystring.operation.string.relativePath",
+            "v": "./"
+          }
+        ],
+        "sort_on": "start",
+        "sort_order": "descending",
+        "sort_order_boolean": true
+      },
+      "styles": {},
+      "theme": "grey",
+      "variation": "grid"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "c0666538-1cd0-474e-932a-73b2ebde1d97",
+      "f5454b2b-62b1-401a-bc9d-37fa40603cbd",
+      "f9e5d474-1d5b-4569-8663-ca34ea2f34f3",
+      "2596ad1b-34ee-4290-a1ff-2625e82a86b1"
+    ]
+  },
+  "created": "2026-04-18T01:02:57+00:00",
+  "description": "S\u00e9rie de lives da comunidade PloneGov-BR que ensina como tirar o m\u00e1ximo do Plone",
+  "exclude_from_nav": false,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "plone-m\u00e3o-na-massa",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-04-18T01:03:02+00:00",
+  "preview_caption": null,
+  "preview_image": null,
+  "review_state": "published",
+  "subjects": [],
+  "title": "Plone M\u00e3o na Massa",
+  "type_title": "Series",
+  "version": "current",
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": null,
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-04-18T01:02:57+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": null,
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-04-18T01:02:57+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

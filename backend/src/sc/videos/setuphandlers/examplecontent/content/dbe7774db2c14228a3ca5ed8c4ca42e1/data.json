@@ -1,0 +1,99 @@
+{
+  "@id": "/series/mao-na-massa/mao-na-massa-migracoes-de-conteudo-e-versoes",
+  "@type": "Episode",
+  "UID": "dbe7774db2c14228a3ca5ed8c4ca42e1",
+  "_metadata": {
+    "channel": "Plone",
+    "description": "Neste episodio do \"M\u00e3o  na Massa\" discutiremos como realizar migra\u00e7\u00f5es de conteudo e de vers\u00f5es do Plone e Portal Padr\u00e3o.",
+    "duration": 3914,
+    "service": "youtube",
+    "tags": [
+      "Plone",
+      "CMS",
+      "Portal Padr\u00e3o",
+      "Migra\u00e7\u00e3o de Conte\u00fado"
+    ],
+    "thumbnail_url": "https://i.ytimg.com/vi/E799Q2TmXY4/maxresdefault.jpg",
+    "title": "M\u00e3o na Massa: Migra\u00e7\u00f5es de conte\u00fado e vers\u00f5es",
+    "video_id": "E799Q2TmXY4"
+  },
+  "allow_discussion": null,
+  "blocks": {
+    "37a9f663-7e9e-4807-a581-61e76cf690e5": {
+      "@type": "description"
+    },
+    "387a7e4a-ef26-40c2-89af-fe7b70fdca33": {
+      "@type": "playerBlock",
+      "align": "wider",
+      "autoPlay": false,
+      "size": "l",
+      "theme": "grey"
+    },
+    "41331168-9ce0-44b7-831b-e5b4f12b6890": {
+      "@type": "slate"
+    },
+    "548b08e3-a50d-4c60-8be0-fd2fdf0b5d15": {
+      "@type": "title"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "548b08e3-a50d-4c60-8be0-fd2fdf0b5d15",
+      "37a9f663-7e9e-4807-a581-61e76cf690e5",
+      "387a7e4a-ef26-40c2-89af-fe7b70fdca33",
+      "41331168-9ce0-44b7-831b-e5b4f12b6890"
+    ]
+  },
+  "changeNote": "",
+  "channel": "Plone",
+  "created": "2026-04-18T01:03:00+00:00",
+  "description": "",
+  "duration": 3914,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "mao-na-massa-migracoes-de-conteudo-e-versoes",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-04-18T01:03:01+00:00",
+  "preview_caption": null,
+  "preview_image": {
+    "blob_path": "dbe7774db2c14228a3ca5ed8c4ca42e1/preview_image/maxresdefault.jpg",
+    "content-type": "image/jpeg",
+    "filename": "maxresdefault.jpg",
+    "height": 720,
+    "size": 110363,
+    "width": 1280
+  },
+  "review_state": "published",
+  "service": "youtube",
+  "start": "2022-09-14T18:00:12+00:00",
+  "subjects": [],
+  "title": "M\u00e3o na Massa: Migra\u00e7\u00f5es de conte\u00fado e vers\u00f5es",
+  "type_title": "Episode",
+  "version": "current",
+  "versioning_enabled": true,
+  "videoUrl": "https://www.youtube.com/watch?v=E799Q2TmXY4",
+  "video_id": "E799Q2TmXY4",
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": null,
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-04-18T01:03:00+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": null,
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-04-18T01:03:01+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

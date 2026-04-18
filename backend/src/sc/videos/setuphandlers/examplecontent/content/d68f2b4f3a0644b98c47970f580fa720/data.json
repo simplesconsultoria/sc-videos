@@ -1,0 +1,94 @@
+{
+  "@id": "/series/plone-hands-on/how-to-translate-plone-and-your-add-ons",
+  "@type": "Episode",
+  "UID": "d68f2b4f3a0644b98c47970f580fa720",
+  "_metadata": {
+    "channel": "Plone",
+    "description": "In this session, Mikel Larreategi\u2014Plone\u2019s internationalization (i18n) expert\u2014will guide you through the process of translating Plone and its add-ons into your own language.\n\nWhat you\u2019ll learn:\n\n\u2022 What are i18n (internationalization) and l10n (localization)\n\u2022 How to translate Plone:\n  \u2022 Using Weblate\n  \u2022 Working directly with .po files\n\u2022 How to translate Plone add-ons\n\u2022 How to prepare your own add-on to support translations\n\nRELATED LINKS: \nhttps://plone.org/  \n\nCONNECT: \nWebsite: https://plone.org/  \nX:  https://twitter.com/plone \nLinkedIn: https://www.linkedin.com/company/plone-foundation/ \nMastodon: https://plone.social/@plone \nInstagram: https://www.instagram.com/plonecms/ \nFacebook: https://www.facebook.com/plonecms \nBluesky: https://bsky.app/profile/plone.org \n\nhttps://plone.org/community \n\nSign up to the Plone Newsletter \u2013 comes out every two months (and easy to unsubscribe if it\u2019s not useful to you). \nhttps://plone.org/news-and-events/join-the-plone-newsletter \n\nABOUT \nPlone is an open-source content management system that is used to create, edit, and manage digital content, like websites, intranets and custom solutions. It comes with over 20 years of growth, optimisations, and refinements. The result is a system trusted by governments, universities, businesses, and other organisations all over the world.\n\nThe Plone Foundation protects and promotes Plone by furthering the development, marketing, and legal affairs of Plone and the Plone community.\n\nWANT TO WORK WITH PLONE \nTry Plone today https://demo.plone.org/ \n\n\n\ud83c\udf99\ufe0f New to streaming or looking to level up? Check out StreamYard and get $10 discount! \ud83d\ude0d https://streamyard.com/pal/d/5492614671630336",
+    "duration": 3647,
+    "service": "youtube",
+    "tags": [],
+    "thumbnail_url": "https://i.ytimg.com/vi/lAObHW8O1q4/maxresdefault.jpg",
+    "title": "How to translate Plone and your add-ons!",
+    "video_id": "lAObHW8O1q4"
+  },
+  "allow_discussion": null,
+  "blocks": {
+    "099fbdc3-d2af-4a57-98e0-d972ed833f2b": {
+      "@type": "slate"
+    },
+    "43f2192f-f385-4a41-bac1-5da816b29fe0": {
+      "@type": "description"
+    },
+    "44cfceea-b1a0-4bb6-b122-17bb0f048626": {
+      "@type": "playerBlock",
+      "align": "wider",
+      "autoPlay": false,
+      "size": "l",
+      "theme": "grey"
+    },
+    "b13efcb3-b601-4be3-855c-d6d77c9b3e50": {
+      "@type": "title"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "b13efcb3-b601-4be3-855c-d6d77c9b3e50",
+      "43f2192f-f385-4a41-bac1-5da816b29fe0",
+      "44cfceea-b1a0-4bb6-b122-17bb0f048626",
+      "099fbdc3-d2af-4a57-98e0-d972ed833f2b"
+    ]
+  },
+  "changeNote": "",
+  "channel": "Plone",
+  "created": "2026-04-18T01:03:18+00:00",
+  "description": "",
+  "duration": 3647,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "how-to-translate-plone-and-your-add-ons",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-04-18T01:03:19+00:00",
+  "preview_caption": null,
+  "preview_image": {
+    "blob_path": "d68f2b4f3a0644b98c47970f580fa720/preview_image/maxresdefault.jpg",
+    "content-type": "image/jpeg",
+    "filename": "maxresdefault.jpg",
+    "height": 720,
+    "size": 88861,
+    "width": 1280
+  },
+  "review_state": "published",
+  "service": "youtube",
+  "start": "2025-04-16T13:00:14+00:00",
+  "subjects": [],
+  "title": "How to translate Plone and your add-ons!",
+  "type_title": "Episode",
+  "version": "current",
+  "versioning_enabled": true,
+  "videoUrl": "https://www.youtube.com/watch?v=lAObHW8O1q4",
+  "video_id": "lAObHW8O1q4",
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": null,
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-04-18T01:03:18+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": null,
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-04-18T01:03:19+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

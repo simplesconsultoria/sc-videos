@@ -1,0 +1,94 @@
+{
+  "@id": "/series/mao-na-massa/mao-na-massa-tirando-duvidas",
+  "@type": "Episode",
+  "UID": "d27d530d47d34e159d5cf03add1a7932",
+  "_metadata": {
+    "channel": "Plone",
+    "description": "Nesse epis\u00f3dio da s\u00e9rie \"M\u00e3o na Massa\", membros da comunidade PloneGov-BR respondem d\u00favidas sobre desenvolvimento, hospedagem e uso do Plone",
+    "duration": 4007,
+    "service": "youtube",
+    "tags": [],
+    "thumbnail_url": "https://i.ytimg.com/vi/WUZWeu2O1eA/maxresdefault.jpg",
+    "title": "M\u00e3o na Massa: Tirando D\u00favidas",
+    "video_id": "WUZWeu2O1eA"
+  },
+  "allow_discussion": null,
+  "blocks": {
+    "5eac7d1c-be77-4b11-887d-134189098436": {
+      "@type": "description"
+    },
+    "aba4fb81-d351-4675-901b-cdc02bda5862": {
+      "@type": "title"
+    },
+    "c66ef756-93ef-4298-8555-68eb9c2200cd": {
+      "@type": "slate"
+    },
+    "d4f26b5c-debe-441e-a1ab-bf6a357e2a6b": {
+      "@type": "playerBlock",
+      "align": "wider",
+      "autoPlay": false,
+      "size": "l",
+      "theme": "grey"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "aba4fb81-d351-4675-901b-cdc02bda5862",
+      "5eac7d1c-be77-4b11-887d-134189098436",
+      "d4f26b5c-debe-441e-a1ab-bf6a357e2a6b",
+      "c66ef756-93ef-4298-8555-68eb9c2200cd"
+    ]
+  },
+  "changeNote": "",
+  "channel": "Plone",
+  "created": "2026-04-18T01:02:58+00:00",
+  "description": "",
+  "duration": 4007,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "mao-na-massa-tirando-duvidas",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-04-18T01:02:59+00:00",
+  "preview_caption": null,
+  "preview_image": {
+    "blob_path": "d27d530d47d34e159d5cf03add1a7932/preview_image/maxresdefault.jpg",
+    "content-type": "image/jpeg",
+    "filename": "maxresdefault.jpg",
+    "height": 720,
+    "size": 73033,
+    "width": 1280
+  },
+  "review_state": "published",
+  "service": "youtube",
+  "start": "2023-09-27T18:00:13+00:00",
+  "subjects": [],
+  "title": "M\u00e3o na Massa: Tirando D\u00favidas",
+  "type_title": "Episode",
+  "version": "current",
+  "versioning_enabled": true,
+  "videoUrl": "https://www.youtube.com/watch?v=WUZWeu2O1eA",
+  "video_id": "WUZWeu2O1eA",
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": null,
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-04-18T01:02:58+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": null,
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-04-18T01:02:59+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

@@ -1,0 +1,94 @@
+{
+  "@id": "/series/plone-hands-on/plone-single-sign-on-with-keycloak",
+  "@type": "Episode",
+  "UID": "e8f3e3a622e24a34bdb84039ab80ac40",
+  "_metadata": {
+    "channel": "Plone",
+    "description": "\ud83d\udccc What you\u2019ll learn:\n \u2022 An overview of Pluggable Authentication System\n \u2022 Connecting Plone to an existing Keycloak instance\n \u2022 Configuring SSO with pas.plugins.oidc and @plone-collective/volto-authomatic\n\n\ud83c\udf99\ufe0f Presented by:\n\u00c9rico Andrei \u2014 Plone expert and maintainer of pas.plugins.oidc and @plone-collective/volto-authomatic",
+    "duration": 2886,
+    "service": "youtube",
+    "tags": [],
+    "thumbnail_url": "https://i.ytimg.com/vi/T_OKJ47UuXM/maxresdefault.jpg",
+    "title": "Plone Single Sign-On with Keycloak",
+    "video_id": "T_OKJ47UuXM"
+  },
+  "allow_discussion": null,
+  "blocks": {
+    "703d6c43-9481-437d-90ab-2006c40c6ce8": {
+      "@type": "title"
+    },
+    "83d6ff2e-3d8b-4515-b8e6-9509364fa543": {
+      "@type": "description"
+    },
+    "c9f13919-f153-4bd3-919e-9d3cc2a6334c": {
+      "@type": "playerBlock",
+      "align": "wider",
+      "autoPlay": false,
+      "size": "l",
+      "theme": "grey"
+    },
+    "dfb5f3d6-099d-4355-b959-1111a5260960": {
+      "@type": "slate"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "703d6c43-9481-437d-90ab-2006c40c6ce8",
+      "83d6ff2e-3d8b-4515-b8e6-9509364fa543",
+      "c9f13919-f153-4bd3-919e-9d3cc2a6334c",
+      "dfb5f3d6-099d-4355-b959-1111a5260960"
+    ]
+  },
+  "changeNote": "",
+  "channel": "Plone",
+  "created": "2026-04-18T01:03:18+00:00",
+  "description": "",
+  "duration": 2886,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "plone-single-sign-on-with-keycloak",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-04-18T01:03:18+00:00",
+  "preview_caption": null,
+  "preview_image": {
+    "blob_path": "e8f3e3a622e24a34bdb84039ab80ac40/preview_image/maxresdefault.jpg",
+    "content-type": "image/jpeg",
+    "filename": "maxresdefault.jpg",
+    "height": 720,
+    "size": 98654,
+    "width": 1280
+  },
+  "review_state": "published",
+  "service": "youtube",
+  "start": "2025-05-07T13:00:14+00:00",
+  "subjects": [],
+  "title": "Plone Single Sign-On with Keycloak",
+  "type_title": "Episode",
+  "version": "current",
+  "versioning_enabled": true,
+  "videoUrl": "https://www.youtube.com/watch?v=T_OKJ47UuXM",
+  "video_id": "T_OKJ47UuXM",
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": null,
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-04-18T01:03:18+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": null,
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-04-18T01:03:18+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

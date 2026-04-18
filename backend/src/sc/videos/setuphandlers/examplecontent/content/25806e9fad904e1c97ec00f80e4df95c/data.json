@@ -1,0 +1,98 @@
+{
+  "@id": "/series/mao-na-massa/mao-na-massa-blocos-para-plone-6",
+  "@type": "Episode",
+  "UID": "25806e9fad904e1c97ec00f80e4df95c",
+  "_metadata": {
+    "channel": "Plone",
+    "description": "Neste primeiro episodio do \"M\u00e3o na Massa\"  em 2023, voc\u00ea ver\u00e1 como criar novos blocos e disponibiliz\u00e1-los em seus projetos com Plone 6.",
+    "duration": 3540,
+    "service": "youtube",
+    "tags": [
+      "Plone",
+      "CMS",
+      "React"
+    ],
+    "thumbnail_url": "https://i.ytimg.com/vi/FmOPtzaFdtM/maxresdefault.jpg",
+    "title": "M\u00e3o na Massa: Blocos para Plone 6",
+    "video_id": "FmOPtzaFdtM"
+  },
+  "allow_discussion": null,
+  "blocks": {
+    "4598511d-9a37-43aa-b535-0eef17f382b0": {
+      "@type": "playerBlock",
+      "align": "wider",
+      "autoPlay": false,
+      "size": "l",
+      "theme": "grey"
+    },
+    "4a19c6bb-92d3-4d08-9767-0b25d814317f": {
+      "@type": "slate"
+    },
+    "9044c544-a3a6-4984-a00b-07eb097dac4c": {
+      "@type": "title"
+    },
+    "bda1f79f-b0ea-46af-9ac2-c4a550033fc3": {
+      "@type": "description"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "9044c544-a3a6-4984-a00b-07eb097dac4c",
+      "bda1f79f-b0ea-46af-9ac2-c4a550033fc3",
+      "4598511d-9a37-43aa-b535-0eef17f382b0",
+      "4a19c6bb-92d3-4d08-9767-0b25d814317f"
+    ]
+  },
+  "changeNote": "",
+  "channel": "Plone",
+  "created": "2026-04-18T01:03:00+00:00",
+  "description": "",
+  "duration": 3540,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "mao-na-massa-blocos-para-plone-6",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-04-18T01:03:00+00:00",
+  "preview_caption": null,
+  "preview_image": {
+    "blob_path": "25806e9fad904e1c97ec00f80e4df95c/preview_image/maxresdefault.jpg",
+    "content-type": "image/jpeg",
+    "filename": "maxresdefault.jpg",
+    "height": 720,
+    "size": 97796,
+    "width": 1280
+  },
+  "review_state": "published",
+  "service": "youtube",
+  "start": "2023-02-02T18:00:15+00:00",
+  "subjects": [],
+  "title": "M\u00e3o na Massa: Blocos para Plone 6",
+  "type_title": "Episode",
+  "version": "current",
+  "versioning_enabled": true,
+  "videoUrl": "https://www.youtube.com/watch?v=FmOPtzaFdtM",
+  "video_id": "FmOPtzaFdtM",
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": null,
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-04-18T01:03:00+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": null,
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-04-18T01:03:00+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}
