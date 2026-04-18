@@ -42,7 +42,7 @@ test = [
     "pytest",
     "pytest-cov",
     "pytest-plone>=1.0.0a2",
-    "plone-stubs @ git+https://github.com/plone/plone-stubs.git ; python_version >= '3.12'",
+    "plone-stubs ; python_version >= '3.12'",
 ]
 
 [project.urls]
@@ -58,11 +58,11 @@ target = "plone"
 [tool.uv]
 managed = false
 
+[tool.uv.sources]
+plone-stubs = { git = "https://github.com/plone/plone-stubs.git" }
+
 [tool.hatch.version]
 path = "src/sc/videos/__init__.py"
-
-[tool.hatch.metadata]
-allow-direct-references = true
 
 [build-system]
 requires = ["hatchling"]
