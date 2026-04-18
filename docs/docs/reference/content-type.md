@@ -84,8 +84,39 @@ The Video content type exposes the following columns and indexes in the portal c
 These columns are used by blocks to display video information from catalog search results.
 See {doc}`configuration` for the full list of indexes, querystring fields, and the duration range vocabulary.
 
+## 📺 VideoSeries content type
+
+The **VideoSeries** content type is a container for organizing Episodes into a series.
+
+| Property | Value |
+|---|---|
+| Portal type | `VideoSeries` |
+| Title | Series |
+| Global allow | `True` (controlled by `enable_series` setting via permission) |
+| Filter content types | `False` |
+| Add permission | `sc.videos.videoseries.add` |
+
+VideoSeries is not creatable by default. Enable it via the `enable_series` toggle in the {doc}`control-panel`.
+When a VideoSeries is created, a subscriber grants the Episode add permission locally, so Episodes can only be created inside a VideoSeries.
+
+## 🎬 Episode content type
+
+The **Episode** content type represents a single video episode within a VideoSeries.
+
+| Property | Value |
+|---|---|
+| Portal type | `Episode` |
+| Global allow | `True` (but add permission not granted globally) |
+| Filter content types | `True` |
+| Allowed child types | `Image` |
+| Add permission | `sc.videos.episode.add` |
+
+Episode applies the `IRemoteVideo` behavior, so it inherits all video fields (URL, duration, metadata) and the automatic metadata fetching pipeline.
+It also has a `start` field (`Datetime`) for the episode release date.
+
 :::{seealso}
 - {doc}`behavior`. The `IRemoteVideo` behavior and its fields.
 - {doc}`blocks`. The Video Player and Video blocks.
 - {doc}`/concepts/architecture`. How the content type fits into the overall system.
+- {doc}`configuration`. Permissions, registry settings, and catalog indexes.
 :::

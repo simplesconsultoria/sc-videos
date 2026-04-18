@@ -12,9 +12,9 @@
     <indexed_attr value="has_video" />
   </index>
   <index meta_type="FieldIndex"
-         name="series"
+         name="videoseries"
   >
-    <indexed_attr value="series" />
+    <indexed_attr value="videoseries" />
   </index>
 
   <!-- Metadata -->

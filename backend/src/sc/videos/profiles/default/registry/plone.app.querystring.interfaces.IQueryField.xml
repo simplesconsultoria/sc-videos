@@ -68,9 +68,9 @@
     >Video</value>
   </records>
 
-  <!-- Querystring: series (string match on Series UUID) -->
+  <!-- Querystring: videoseries (string match on VideoSeries UUID) -->
   <records interface="plone.app.querystring.interfaces.IQueryField"
-           prefix="plone.app.querystring.field.series"
+           prefix="plone.app.querystring.field.videoseries"
   >
     <value key="title"
            i18n:translate=""

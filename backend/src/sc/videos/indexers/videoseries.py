@@ -8,7 +8,7 @@ from sc.videos.content.video_series import IVideoSeries
 
 
 @indexer(IEpisode)
-def series(obj: Episode) -> str:
+def videoseries(obj: Episode) -> str:
     """Return the UUID of the nearest parent VideoSeries.
 
     Traverses up the content hierarchy until it finds an object
