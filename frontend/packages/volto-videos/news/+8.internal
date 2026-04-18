@@ -1,1 +1,0 @@
-Add tests for `helpers/blocks`, `helpers/applyMetadata`, and the `MetadataPreview` sidebar component, and wire the `@simplesconsultoria/volto-videos` alias into the vitest config so component tests can resolve addon-relative imports.

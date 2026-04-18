@@ -1,1 +1,0 @@
-Move ``get_video_services`` to ``sc.videos.utils`` and reuse it in both the vocabulary and ``resolve_url``.

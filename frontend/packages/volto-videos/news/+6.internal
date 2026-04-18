@@ -1,1 +1,0 @@
-Extract the sidebar metadata preview into a reusable `MetadataPreview` component and move the form-population logic out of `VideoURLWidget` into a tested `applyVideoMetadataToForm` helper.

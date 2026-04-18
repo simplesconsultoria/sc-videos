@@ -1,1 +1,0 @@
-Update VideoBlock to consume the renamed ``videoUrl`` catalog metadata field (previously ``getRemoteUrl``).

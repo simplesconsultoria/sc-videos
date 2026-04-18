@@ -1,1 +1,0 @@
-Move inline JSX styles from `MetadataPreview` and `VideoURLWidget` to dedicated SCSS files under `theme/components/` and `theme/widgets/`.

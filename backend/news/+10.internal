@@ -1,1 +1,0 @@
-Add typing annotations, rST docstrings with ``:param:`` / ``:returns:`` / ``:raises:`` to all modules under ``sc.videos``.

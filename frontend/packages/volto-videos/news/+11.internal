@@ -1,1 +1,0 @@
-Refactor ``applyVideoMetadataToForm`` to use a declarative field-mapping array instead of repeated ``if`` blocks.
