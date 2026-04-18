@@ -1,0 +1,94 @@
+{
+  "@id": "/series/mao-na-massa/mao-na-massa-comecando-um-projeto-com-plone-6",
+  "@type": "Episode",
+  "UID": "0e97fc581cc749379d021268b572e30e",
+  "_metadata": {
+    "channel": "Plone",
+    "description": "O Plone 6 est\u00e1 prestes a ser lan\u00e7ado, mas voc\u00ea j\u00e1 pode us\u00e1-lo em seus projetos j\u00e1!\r\nA comunidade PloneGov-Br vai te contar como, rapidamente, iniciar um novo projeto com Plone 6",
+    "duration": 4452,
+    "service": "youtube",
+    "tags": [],
+    "thumbnail_url": "https://i.ytimg.com/vi/mrGZQsndiFQ/sddefault.jpg",
+    "title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6",
+    "video_id": "mrGZQsndiFQ"
+  },
+  "allow_discussion": null,
+  "blocks": {
+    "114b22ed-135c-4cb8-8125-49580efb6174": {
+      "@type": "playerBlock",
+      "align": "wider",
+      "autoPlay": false,
+      "size": "l",
+      "theme": "grey"
+    },
+    "7c9669f0-71d4-4c58-810c-a4534b615734": {
+      "@type": "title"
+    },
+    "87cf6b8f-3fe7-4205-b544-efed538dc104": {
+      "@type": "description"
+    },
+    "d0bcab3f-9ad8-47ac-90e5-2da56597ef99": {
+      "@type": "slate"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "7c9669f0-71d4-4c58-810c-a4534b615734",
+      "87cf6b8f-3fe7-4205-b544-efed538dc104",
+      "114b22ed-135c-4cb8-8125-49580efb6174",
+      "d0bcab3f-9ad8-47ac-90e5-2da56597ef99"
+    ]
+  },
+  "changeNote": "",
+  "channel": "Plone",
+  "created": "2026-04-18T01:03:01+00:00",
+  "description": "",
+  "duration": 4452,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "mao-na-massa-comecando-um-projeto-com-plone-6",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-04-18T01:03:02+00:00",
+  "preview_caption": null,
+  "preview_image": {
+    "blob_path": "0e97fc581cc749379d021268b572e30e/preview_image/sddefault.jpg",
+    "content-type": "image/jpeg",
+    "filename": "sddefault.jpg",
+    "height": 480,
+    "size": 16228,
+    "width": 640
+  },
+  "review_state": "published",
+  "service": "youtube",
+  "start": "2022-06-07T18:01:02+00:00",
+  "subjects": [],
+  "title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6",
+  "type_title": "Episode",
+  "version": "current",
+  "versioning_enabled": true,
+  "videoUrl": "https://www.youtube.com/watch?v=mrGZQsndiFQ",
+  "video_id": "mrGZQsndiFQ",
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": null,
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-04-18T01:03:01+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": null,
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-04-18T01:03:02+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

@@ -1,0 +1,100 @@
+{
+  "@id": "/series/mao-na-massa/mao-na-massa-criando-um-tipo-de-conteudo-no-plone-6",
+  "@type": "Episode",
+  "UID": "557e3cf9ecfa4745accc134867292766",
+  "_metadata": {
+    "channel": "Plone",
+    "description": "A comunidade PloneGov-Br vai te contar como, criar novos tipos de conte\u00fado no Plone 6.",
+    "duration": 3259,
+    "service": "youtube",
+    "tags": [
+      "Plone",
+      "PloneCMS",
+      "PloneGov-Br",
+      "CMS",
+      "Open Source"
+    ],
+    "thumbnail_url": "https://i.ytimg.com/vi/UPDnzYTdZLM/maxresdefault.jpg",
+    "title": "M\u00e3o na Massa: Criando um tipo de conte\u00fado no Plone 6",
+    "video_id": "UPDnzYTdZLM"
+  },
+  "allow_discussion": null,
+  "blocks": {
+    "05443189-145f-4474-85e2-709f5627a82a": {
+      "@type": "slate"
+    },
+    "2264fb10-fbff-46a4-a9a3-fac52f2991b2": {
+      "@type": "playerBlock",
+      "align": "wider",
+      "autoPlay": false,
+      "size": "l",
+      "theme": "grey"
+    },
+    "7c1c0bec-eea2-4bac-923c-ce1d21adc00b": {
+      "@type": "description"
+    },
+    "a5163678-288f-4775-9204-ef818b6dc824": {
+      "@type": "title"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "a5163678-288f-4775-9204-ef818b6dc824",
+      "7c1c0bec-eea2-4bac-923c-ce1d21adc00b",
+      "2264fb10-fbff-46a4-a9a3-fac52f2991b2",
+      "05443189-145f-4474-85e2-709f5627a82a"
+    ]
+  },
+  "changeNote": "",
+  "channel": "Plone",
+  "created": "2026-04-18T01:03:01+00:00",
+  "description": "",
+  "duration": 3259,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "mao-na-massa-criando-um-tipo-de-conteudo-no-plone-6",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-04-18T01:03:01+00:00",
+  "preview_caption": null,
+  "preview_image": {
+    "blob_path": "557e3cf9ecfa4745accc134867292766/preview_image/maxresdefault.jpg",
+    "content-type": "image/jpeg",
+    "filename": "maxresdefault.jpg",
+    "height": 720,
+    "size": 89967,
+    "width": 1280
+  },
+  "review_state": "published",
+  "service": "youtube",
+  "start": "2022-08-25T17:59:46+00:00",
+  "subjects": [],
+  "title": "M\u00e3o na Massa: Criando um tipo de conte\u00fado no Plone 6",
+  "type_title": "Episode",
+  "version": "current",
+  "versioning_enabled": true,
+  "videoUrl": "https://www.youtube.com/watch?v=UPDnzYTdZLM",
+  "video_id": "UPDnzYTdZLM",
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": null,
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-04-18T01:03:01+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": null,
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-04-18T01:03:01+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

@@ -7,8 +7,8 @@
       />
 
   <permission
-      id="sc.videos.series.add"
-      title="sc.videos: Add Series"
+      id="sc.videos.videoseries.add"
+      title="sc.videos: Add VideoSeries"
       />
 
   <permission

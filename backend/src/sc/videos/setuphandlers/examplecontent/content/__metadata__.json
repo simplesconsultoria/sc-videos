@@ -1,6 +1,18 @@
 {
   "__version__": "1.0.0",
   "_blob_files_": [
+    "e8f3e3a622e24a34bdb84039ab80ac40/preview_image/maxresdefault.jpg",
+    "d68f2b4f3a0644b98c47970f580fa720/preview_image/maxresdefault.jpg",
+    "e6ac709391a645fbbc081bf549f1f9a0/preview_image/maxresdefault.jpg",
+    "63c3a66f53e84260b163ed0a80d55994/preview_image/maxresdefault.jpg",
+    "2d568fc8cef444138e55313ba89fd500/preview_image/maxresdefault.jpg",
+    "1d8ba2bcd084489ba4770e956977ed01/preview_image/maxresdefault.jpg",
+    "d27d530d47d34e159d5cf03add1a7932/preview_image/maxresdefault.jpg",
+    "bb7582b80dc74084927cc60e7d63f52c/preview_image/maxresdefault.jpg",
+    "25806e9fad904e1c97ec00f80e4df95c/preview_image/maxresdefault.jpg",
+    "dbe7774db2c14228a3ca5ed8c4ca42e1/preview_image/maxresdefault.jpg",
+    "557e3cf9ecfa4745accc134867292766/preview_image/maxresdefault.jpg",
+    "0e97fc581cc749379d021268b572e30e/preview_image/sddefault.jpg",
     "a58ccead718140c1baa98d43595fc3e6/image/plone-foundation.png",
     "9becb741ddf041eaba515a0f49c2a975/preview_image/maxresdefault.jpg",
     "a6847c670ff4447d84da47bd384c3d99/preview_image/494898553-7d9ffca85c819d438d3125c608e8cc665a44429ca619f7b2e742149f3e22deb4-d_295x166?region=us",
@@ -10,6 +22,21 @@
     "plone_site_root/data.json",
     "a720393b3c0240e5bd27c43fcd2cfd1e/data.json",
     "a58ccead718140c1baa98d43595fc3e6/data.json",
+    "fa77ab533a774fa18262d1b9292c0fb9/data.json",
+    "0782ddbaca044f7ebe0905a7e52ae64c/data.json",
+    "d68f2b4f3a0644b98c47970f580fa720/data.json",
+    "63c3a66f53e84260b163ed0a80d55994/data.json",
+    "e6ac709391a645fbbc081bf549f1f9a0/data.json",
+    "e8f3e3a622e24a34bdb84039ab80ac40/data.json",
+    "6f1a1db4ac81462e8e45f8e64032c8d0/data.json",
+    "25806e9fad904e1c97ec00f80e4df95c/data.json",
+    "0e97fc581cc749379d021268b572e30e/data.json",
+    "2d568fc8cef444138e55313ba89fd500/data.json",
+    "bb7582b80dc74084927cc60e7d63f52c/data.json",
+    "1d8ba2bcd084489ba4770e956977ed01/data.json",
+    "557e3cf9ecfa4745accc134867292766/data.json",
+    "dbe7774db2c14228a3ca5ed8c4ca42e1/data.json",
+    "d27d530d47d34e159d5cf03add1a7932/data.json",
     "5224dc4e52754cb08d8d0ba0f2e9f662/data.json",
     "9becb741ddf041eaba515a0f49c2a975/data.json",
     "a6847c670ff4447d84da47bd384c3d99/data.json",
@@ -17,12 +44,69 @@
   ],
   "default_page": {},
   "local_permissions": {
+    "0782ddbaca044f7ebe0905a7e52ae64c": {
+      "sc.videos: Add Episode": {
+        "acquire": false,
+        "roles": [
+          "Manager",
+          "Site Administrator",
+          "Editor",
+          "Contributor"
+        ]
+      },
+      "sc.videos: Add VideoSeries": {
+        "acquire": false,
+        "roles": []
+      }
+    },
+    "0e97fc581cc749379d021268b572e30e": {},
+    "1d8ba2bcd084489ba4770e956977ed01": {},
+    "25806e9fad904e1c97ec00f80e4df95c": {},
+    "2d568fc8cef444138e55313ba89fd500": {},
     "5224dc4e52754cb08d8d0ba0f2e9f662": {},
+    "557e3cf9ecfa4745accc134867292766": {},
+    "63c3a66f53e84260b163ed0a80d55994": {},
+    "6f1a1db4ac81462e8e45f8e64032c8d0": {
+      "sc.videos: Add Episode": {
+        "acquire": false,
+        "roles": [
+          "Manager",
+          "Site Administrator",
+          "Editor",
+          "Contributor"
+        ]
+      },
+      "sc.videos: Add VideoSeries": {
+        "acquire": false,
+        "roles": []
+      }
+    },
     "9becb741ddf041eaba515a0f49c2a975": {},
     "a58ccead718140c1baa98d43595fc3e6": {},
     "a6847c670ff4447d84da47bd384c3d99": {},
     "a720393b3c0240e5bd27c43fcd2cfd1e": {},
+    "bb7582b80dc74084927cc60e7d63f52c": {},
     "be76b95460784cbcb4252c99abb62b4e": {},
+    "d27d530d47d34e159d5cf03add1a7932": {},
+    "d68f2b4f3a0644b98c47970f580fa720": {},
+    "dbe7774db2c14228a3ca5ed8c4ca42e1": {},
+    "e6ac709391a645fbbc081bf549f1f9a0": {},
+    "e8f3e3a622e24a34bdb84039ab80ac40": {},
+    "fa77ab533a774fa18262d1b9292c0fb9": {
+      "sc.videos: Add Episode": {
+        "acquire": false,
+        "roles": [
+          "Manager",
+          "Site Administrator",
+          "Editor",
+          "Contributor"
+        ]
+      },
+      "sc.videos: Add VideoSeries": {
+        "acquire": false,
+        "roles": []
+      }
+    },
     "plone_site_root": {
       "Add portal member": {
         "acquire": false,
@@ -74,7 +158,20 @@
           "Site Administrator"
         ]
       },
+      "sc.videos: Add Episode": {
+        "acquire": false,
+        "roles": []
+      },
       "sc.videos: Add Video": {
+        "acquire": false,
+        "roles": [
+          "Manager",
+          "Site Administrator",
+          "Editor",
+          "Contributor"
+        ]
+      },
+      "sc.videos: Add VideoSeries": {
         "acquire": false,
         "roles": [
           "Manager",
@@ -128,6 +225,13 @@
         ]
       }
     },
+    "fa77ab533a774fa18262d1b9292c0fb9": {
+      "local_roles": {
+        "admin": [
+          "Owner"
+        ]
+      }
+    },
     "plone_site_root": {
       "local_roles": {
         "admin": [
@@ -137,12 +241,27 @@
     }
   },
   "ordering": {
+    "0782ddbaca044f7ebe0905a7e52ae64c": 1,
+    "0e97fc581cc749379d021268b572e30e": 7,
+    "1d8ba2bcd084489ba4770e956977ed01": 1,
+    "25806e9fad904e1c97ec00f80e4df95c": 4,
+    "2d568fc8cef444138e55313ba89fd500": 0,
     "5224dc4e52754cb08d8d0ba0f2e9f662": 42,
+    "557e3cf9ecfa4745accc134867292766": 6,
+    "63c3a66f53e84260b163ed0a80d55994": 3,
+    "6f1a1db4ac81462e8e45f8e64032c8d0": 0,
     "9becb741ddf041eaba515a0f49c2a975": 0,
     "a58ccead718140c1baa98d43595fc3e6": 0,
     "a6847c670ff4447d84da47bd384c3d99": 2,
     "a720393b3c0240e5bd27c43fcd2cfd1e": 41,
-    "be76b95460784cbcb4252c99abb62b4e": 1
+    "bb7582b80dc74084927cc60e7d63f52c": 3,
+    "be76b95460784cbcb4252c99abb62b4e": 1,
+    "d27d530d47d34e159d5cf03add1a7932": 2,
+    "d68f2b4f3a0644b98c47970f580fa720": 1,
+    "dbe7774db2c14228a3ca5ed8c4ca42e1": 5,
+    "e6ac709391a645fbbc081bf549f1f9a0": 2,
+    "e8f3e3a622e24a34bdb84039ab80ac40": 0,
+    "fa77ab533a774fa18262d1b9292c0fb9": 43
   },
   "relations": []
 }

@@ -37,12 +37,12 @@ class TestContentTypeFTI:
                     "plone.versioning",
                 ),
             ),
-            ("Series", "title", "Series"),
-            ("Series", "description", "A series of video episodes"),
-            ("Series", "global_allow", True),
-            ("Series", "filter_content_types", False),
+            ("VideoSeries", "title", "Series"),
+            ("VideoSeries", "description", "A series of video episodes"),
+            ("VideoSeries", "global_allow", True),
+            ("VideoSeries", "filter_content_types", False),
             (
-                "Series",
+                "VideoSeries",
                 "behaviors",
                 (
                     "plone.basic",
@@ -88,7 +88,7 @@ class TestContentTypeFTI:
         "portal_type",
         [
             "Episode",
-            "Series",
+            "VideoSeries",
             "Video",
         ],
     )

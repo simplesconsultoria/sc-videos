@@ -10,6 +10,6 @@ from zope.schema.interfaces import IVocabularyFactory
 def series_catalog_vocabulary(context: PortalContent | None) -> StaticCatalogVocabulary:
     """Return a vocabulary for series filtering."""
     return StaticCatalogVocabulary({
-        "portal_type": ["Series"],
+        "portal_type": ["VideoSeries"],
         "sort_on": "sortable_title",
     })

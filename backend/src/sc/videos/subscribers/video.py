@@ -1,72 +1,41 @@
-"""Event subscribers for Video content lifecycle events."""
+"""Event subscribers for IRemoteVideo content lifecycle events."""
 
-from Acquisition import aq_inner
-from sc.videos.content.video import Video
-from sc.videos.utils import image_from_url
+from plone.exportimport.interfaces import IExportImportRequestMarker
+from sc.videos.behaviors.video import IRemoteVideo
+from sc.videos.utils import metadata_for_content
 from zope.globalrequest import getRequest
 from zope.lifecycleevent import ObjectAddedEvent
 from zope.lifecycleevent import ObjectModifiedEvent
-from ZPublisher.HTTPRequest import WSGIRequest
+from ZPublisher.HTTPRequest import HTTPRequest
 
 
-_DEFAULT_VALUE = object()
+def _is_import_process(request: HTTPRequest | None) -> bool:
+    """Check if the current request is an import process."""
+    if request is None:
+        return False
+    return IExportImportRequestMarker.providedBy(request)
 
 
-def _update_preview_image(obj: Video, metadata: dict) -> None:
-    """Download and set the preview image from ``thumbnail_url`` if absent.
-
-    :param obj: Video content object.
-    :param metadata: Raw metadata dictionary (from ``_metadata`` field).
-    """
-    thumbnail_url = metadata.get("thumbnail_url")
-    if thumbnail_url and not obj.preview_image:
-        image = image_from_url(thumbnail_url)
-        obj.preview_image = image
+def _update_metadata(content: IRemoteVideo) -> None:
+    """Fetch and apply metadata unless running inside an import."""
+    request: HTTPRequest | None = getRequest()
+    if not _is_import_process(request):
+        metadata_for_content(content)
 
 
-def _update_metadata_attr(obj: Video, metadata: dict, attr_name: str) -> None:
-    """Copy a single metadata value onto *obj* if it differs from the current one.
+def added(content: IRemoteVideo, event: ObjectAddedEvent) -> None:
+    """Post-creation handler: populate metadata fields.
 
-    :param obj: Video content object.
-    :param metadata: Raw metadata dictionary.
-    :param attr_name: Attribute name to update (e.g. ``"duration"``).
-    """
-    value = metadata.get(attr_name)
-    obj = aq_inner(obj)
-    current_value = getattr(obj, attr_name, _DEFAULT_VALUE)
-    if value and current_value is not _DEFAULT_VALUE and value != current_value:
-        setattr(obj, attr_name, value)
-
-
-def _update_video_metadata(obj: Video, request: WSGIRequest) -> None:
-    """Synchronise stored metadata fields and preview image from ``_metadata``.
-
-    :param obj: Video content object.
-    :param request: Current WSGI request (unused, reserved for future use).
-    """
-    metadata = obj._metadata
-    if not metadata:
-        return
-    _update_preview_image(obj, metadata)
-    for attr in ("duration", "service", "channel", "video_id", "subjects"):
-        _update_metadata_attr(obj, metadata, attr)
-
-
-def added(obj: Video, event: ObjectAddedEvent) -> None:
-    """Post-creation handler: populate metadata fields from ``_metadata``.
-
-    :param obj: Newly created Video.
+    :param content: Newly created content with IRemoteVideo behavior.
     :param event: Lifecycle event.
     """
-    request: WSGIRequest = getRequest()
-    _update_video_metadata(obj, request=request)
+    _update_metadata(content)
 
 
-def modified(obj: Video, event: ObjectModifiedEvent) -> None:
-    """Post-modification handler: refresh metadata fields from ``_metadata``.
+def modified(content: IRemoteVideo, event: ObjectModifiedEvent) -> None:
+    """Post-modification handler: refresh metadata fields.
 
-    :param obj: Modified Video.
+    :param content: Modified content with IRemoteVideo behavior.
     :param event: Lifecycle event.
     """
-    request: WSGIRequest = getRequest()
-    _update_video_metadata(obj, request=request)
+    _update_metadata(content)

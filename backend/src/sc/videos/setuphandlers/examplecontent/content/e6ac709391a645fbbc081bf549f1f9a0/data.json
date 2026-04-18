@@ -1,0 +1,94 @@
+{
+  "@id": "/series/plone-hands-on/plone-hands-on-customize-your-site-theme-through-the-web-with-volto",
+  "@type": "Episode",
+  "UID": "e6ac709391a645fbbc081bf549f1f9a0",
+  "_metadata": {
+    "channel": "Plone",
+    "description": "Join us for the second episode of Plone Hands On! In this session, our experts David Ichim and Victor Fern\u00e1ndez de Alba, will show how you can customize the theme of your site, through the web, with the latest Volto.\n\nRELATED LINKS: \nhttps://plone.org/  \n\nCONNECT: \nWebsite: https://plone.org/  \nX:  https://twitter.com/plone \nLinkedIn: https://www.linkedin.com/company/plone-foundation/ \nMastodon: https://plone.social/@plone \nInstagram: https://www.instagram.com/plonecms/ \nFacebook: https://www.facebook.com/plonecms \nBluesky: https://bsky.app/profile/plone.org \n\nhttps://plone.org/community \n\nSign up to the Plone Newsletter \u2013 comes out every two months (and easy to unsubscribe if it\u2019s not useful to you). \nhttps://plone.org/news-and-events/join-the-plone-newsletter \n\nABOUT \nPlone is an open-source content management system that is used to create, edit, and manage digital content, like websites, intranets and custom solutions. It comes with over 20 years of growth, optimisations, and refinements. The result is a system trusted by governments, universities, businesses, and other organisations all over the world.\n\nThe Plone Foundation protects and promotes Plone by furthering the development, marketing, and legal affairs of Plone and the Plone community.\n\nWANT TO WORK WITH PLONE \nTry Plone today https://demo.plone.org/",
+    "duration": 4710,
+    "service": "youtube",
+    "tags": [],
+    "thumbnail_url": "https://i.ytimg.com/vi/in6Qz3oWbao/maxresdefault.jpg",
+    "title": "Plone Hands On: Customize your site theme through the web with Volto!",
+    "video_id": "in6Qz3oWbao"
+  },
+  "allow_discussion": null,
+  "blocks": {
+    "5025155f-010e-41b8-b74a-7b3d50d0bce3": {
+      "@type": "description"
+    },
+    "64764e7e-5779-4e43-8e9e-70aeebb807ed": {
+      "@type": "slate"
+    },
+    "ce04ee11-c756-4559-bad8-493624976e6f": {
+      "@type": "title"
+    },
+    "e9d48aa4-9012-4ede-a20e-564da0b8ae09": {
+      "@type": "playerBlock",
+      "align": "wider",
+      "autoPlay": false,
+      "size": "l",
+      "theme": "grey"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "ce04ee11-c756-4559-bad8-493624976e6f",
+      "5025155f-010e-41b8-b74a-7b3d50d0bce3",
+      "e9d48aa4-9012-4ede-a20e-564da0b8ae09",
+      "64764e7e-5779-4e43-8e9e-70aeebb807ed"
+    ]
+  },
+  "changeNote": "",
+  "channel": "Plone",
+  "created": "2026-04-18T01:03:19+00:00",
+  "description": "",
+  "duration": 4710,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "plone-hands-on-customize-your-site-theme-through-the-web-with-volto",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-04-18T01:03:20+00:00",
+  "preview_caption": null,
+  "preview_image": {
+    "blob_path": "e6ac709391a645fbbc081bf549f1f9a0/preview_image/maxresdefault.jpg",
+    "content-type": "image/jpeg",
+    "filename": "maxresdefault.jpg",
+    "height": 720,
+    "size": 117723,
+    "width": 1280
+  },
+  "review_state": "published",
+  "service": "youtube",
+  "start": "2025-04-02T13:00:15+00:00",
+  "subjects": [],
+  "title": "Plone Hands On: Customize your site theme through the web with Volto!",
+  "type_title": "Episode",
+  "version": "current",
+  "versioning_enabled": true,
+  "videoUrl": "https://www.youtube.com/watch?v=in6Qz3oWbao",
+  "video_id": "in6Qz3oWbao",
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": null,
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-04-18T01:03:19+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": null,
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-04-18T01:03:20+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

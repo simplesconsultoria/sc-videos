@@ -23,10 +23,13 @@ This page documents the GenericSetup profiles, Plone registry settings, and perm
 
 | Permission ID | Title | Default roles |
 |---|---|---|
-| `sc.videos.video.add` | Add Video | Manager, Site Administrator, Contributor |
+| `sc.videos.video.add` | Add Video | Manager, Site Administrator, Editor, Contributor |
+| `sc.videos.videoseries.add` | Add VideoSeries | None (controlled via `enable_series` setting) |
+| `sc.videos.episode.add` | Add Episode | None (granted locally on VideoSeries creation) |
 
-This permission controls who can create Video content items.
-It can be customized via Plone's role/permission management.
+The Video permission controls who can create Video content items.
+The VideoSeries permission is managed by the `enable_series` registry setting: when enabled, the setting grants the permission to default roles on the portal.
+The Episode permission is granted locally inside each VideoSeries container by a creation subscriber.
 
 ## 📇 Catalog configuration
 
@@ -36,6 +39,7 @@ It can be customized via Plone's role/permission management.
 |---|---|---|---|
 | `duration` | `FieldIndex` | `sc.videos.indexers.video.duration` | Video duration in seconds. Supports range queries. |
 | `has_video` | `BooleanIndex` | `sc.videos.indexers.video.has_video` | `True` for any content providing `IRemoteVideo`. Works across all content types. |
+| `videoseries` | `FieldIndex` | `sc.videos.indexers.videoseries.videoseries` | UUID of the nearest parent VideoSeries. Indexed on Episodes only. |
 
 ### Metadata columns
 
@@ -54,6 +58,7 @@ These columns are available in catalog search results (brain attributes), allowi
 | `videoUrl` | `sc.videos.indexers.video.video_url` | Returns the `videoUrl` field value. |
 | `duration` | `sc.videos.indexers.video.duration` | Returns video duration in seconds. |
 | `has_video` | `sc.videos.indexers.video.has_video` | Returns `True` if the object provides `IRemoteVideo`. Registered for `Interface`, so it indexes all content types. |
+| `videoseries` | `sc.videos.indexers.videoseries.videoseries` | Traverses ancestors to return the UUID of the nearest parent VideoSeries. Registered for `IEpisode`. |
 
 ## 🔍 Querystring fields
 
@@ -65,6 +70,7 @@ All fields appear in the **Video** group in the querystring editor.
 | Video duration | `duration` | Equals, Less than, Larger than | Filter by exact duration in seconds. Sortable. |
 | Video duration range | `duration_range` | Matches any of, Matches none of | Filter by duration bucket using the `sc.videos.vocabulary.duration_ranges` vocabulary. |
 | Has video | `has_video` | Yes, No | Filter content by whether it has a video attached. |
+| Series | `videoseries` | Matches any of, Matches none of | Filter Episodes by their parent VideoSeries. Uses the `sc.videos.vocabulary.series` vocabulary. |
 
 ### Duration range vocabulary
 
@@ -85,6 +91,7 @@ Settings are stored in the Plone registry under the `sc.videos` prefix.
 
 | Key | Type | Default | Description |
 |---|---|---|---|
+| `sc.videos.enable_series` | `Bool` | `False` | Enable VideoSeries and Episode content types. When enabled, grants the VideoSeries add permission on the portal. |
 | `sc.videos.youtube_api_enabled` | `Bool` | `False` | Enable YouTube Data API v3. |
 | `sc.videos.youtube_api_key` | `TextLine` | `"default"` | Google API key for YouTube. |
 

@@ -8,7 +8,7 @@
 
     <!-- Series -->
     <permission acquire="False"
-                name="sc.videos: Add Series"
+                name="sc.videos: Add VideoSeries"
     />
 
     <!-- Video -->

@@ -1,0 +1,95 @@
+{
+  "@id": "/series",
+  "@type": "Document",
+  "UID": "fa77ab533a774fa18262d1b9292c0fb9",
+  "allow_discussion": null,
+  "blocks": {
+    "150ae343-5ab8-42bb-ba24-c6dfad8be224": {
+      "@type": "slate"
+    },
+    "3d8f00d2-c214-45f4-965e-2692042d8322": {
+      "@type": "listing",
+      "headlineTag": "h2",
+      "querystring": {
+        "query": [
+          {
+            "i": "portal_type",
+            "o": "plone.app.querystring.operation.selection.any",
+            "v": [
+              "VideoSeries"
+            ]
+          }
+        ],
+        "sort_on": "sortable_title",
+        "sort_order": "ascending"
+      },
+      "styles": {},
+      "theme": "grey",
+      "variation": "grid"
+    },
+    "4d4f33b9-c5c8-4722-abb7-2e17ac6434a1": {
+      "@type": "description"
+    },
+    "a8e0b7aa-9923-4c8a-bc80-71888379c6da": {
+      "@type": "title"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "a8e0b7aa-9923-4c8a-bc80-71888379c6da",
+      "4d4f33b9-c5c8-4722-abb7-2e17ac6434a1",
+      "3d8f00d2-c214-45f4-965e-2692042d8322",
+      "150ae343-5ab8-42bb-ba24-c6dfad8be224"
+    ]
+  },
+  "changeNote": "",
+  "contributors": [],
+  "created": "2026-04-18T00:27:34+00:00",
+  "creators": [
+    "admin"
+  ],
+  "description": "Series",
+  "effective": null,
+  "exclude_from_nav": false,
+  "expires": null,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "series",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {
+    "locked": false,
+    "stealable": true
+  },
+  "modified": "2026-04-18T01:03:17+00:00",
+  "nav_title": null,
+  "preview_caption_link": null,
+  "review_state": "published",
+  "rights": "",
+  "subjects": [],
+  "title": "Series",
+  "type_title": "Page",
+  "version": "current",
+  "versioning_enabled": true,
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": "admin",
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-04-18T00:27:34+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": "admin",
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-04-18T00:28:21+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

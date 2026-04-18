@@ -1,0 +1,99 @@
+{
+  "@id": "/series/mao-na-massa/mao-na-massa-criando-tema-para-plone-6",
+  "@type": "Episode",
+  "UID": "bb7582b80dc74084927cc60e7d63f52c",
+  "_metadata": {
+    "channel": "Plone",
+    "description": "Nesse epis\u00f3dio do Plone M\u00e3o na Massa apresentaremos uma forma de alterar o tema visual do Plone 6",
+    "duration": 3255,
+    "service": "youtube",
+    "tags": [
+      "Plone",
+      "Volto",
+      "React",
+      "eGov"
+    ],
+    "thumbnail_url": "https://i.ytimg.com/vi/H00IraGj6oQ/maxresdefault.jpg",
+    "title": "M\u00e3o na Massa: Criando Tema para Plone 6",
+    "video_id": "H00IraGj6oQ"
+  },
+  "allow_discussion": null,
+  "blocks": {
+    "10799d77-ef29-4a5d-b0c4-6962e927d529": {
+      "@type": "description"
+    },
+    "7fb892b3-7043-4543-99a6-eb47520c8a29": {
+      "@type": "slate"
+    },
+    "bbd6fba5-c0ed-4721-aaf2-20f90ef88af9": {
+      "@type": "playerBlock",
+      "align": "wider",
+      "autoPlay": false,
+      "size": "l",
+      "theme": "grey"
+    },
+    "beb563ab-31b1-495a-a69c-7d3c32d9134a": {
+      "@type": "title"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "beb563ab-31b1-495a-a69c-7d3c32d9134a",
+      "10799d77-ef29-4a5d-b0c4-6962e927d529",
+      "bbd6fba5-c0ed-4721-aaf2-20f90ef88af9",
+      "7fb892b3-7043-4543-99a6-eb47520c8a29"
+    ]
+  },
+  "changeNote": "",
+  "channel": "Plone",
+  "created": "2026-04-18T01:02:59+00:00",
+  "description": "",
+  "duration": 3255,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "mao-na-massa-criando-tema-para-plone-6",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-04-18T01:03:00+00:00",
+  "preview_caption": null,
+  "preview_image": {
+    "blob_path": "bb7582b80dc74084927cc60e7d63f52c/preview_image/maxresdefault.jpg",
+    "content-type": "image/jpeg",
+    "filename": "maxresdefault.jpg",
+    "height": 720,
+    "size": 93528,
+    "width": 1280
+  },
+  "review_state": "published",
+  "service": "youtube",
+  "start": "2023-08-16T18:00:13+00:00",
+  "subjects": [],
+  "title": "M\u00e3o na Massa: Criando Tema para Plone 6",
+  "type_title": "Episode",
+  "version": "current",
+  "versioning_enabled": true,
+  "videoUrl": "https://www.youtube.com/watch?v=H00IraGj6oQ",
+  "video_id": "H00IraGj6oQ",
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": null,
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-04-18T01:02:59+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": null,
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-04-18T01:03:00+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

@@ -1,0 +1,94 @@
+{
+  "@id": "/series/plone-hands-on/plone-hands-on-creating-a-new-plone-project",
+  "@type": "Episode",
+  "UID": "63c3a66f53e84260b163ed0a80d55994",
+  "_metadata": {
+    "channel": "Plone",
+    "description": "Join us for the first episode of Plone Hands On! In this session, Plone expert and Volto release manager, Victor Fern\u00e1ndez de Alba, will guide you through the process of creating a new Plone project. Whether you\u2019re a beginner or looking to sharpen your skills, this hands-on tutorial is the perfect opportunity to deepen your understanding of Plone and kickstart your next project.\n\nRELATED LINKS: \nhttps://plone.org/  \n\nCONNECT: \nWebsite: https://plone.org/  \nX:  https://twitter.com/plone \nLinkedIn: https://www.linkedin.com/company/plone-foundation/ \nMastodon: https://plone.social/@plone \nInstagram: https://www.instagram.com/plonecms/ \nFacebook: https://www.facebook.com/plonecms \nBluesky: https://bsky.app/profile/plone.org \n\nhttps://plone.org/community \n\nSign up to the Plone Newsletter \u2013 comes out every two months (and easy to unsubscribe if it\u2019s not useful to you). \nhttps://plone.org/news-and-events/join-the-plone-newsletter \n\nABOUT \nPlone is an open-source content management system that is used to create, edit, and manage digital content, like websites, intranets and custom solutions. It comes with over 20 years of growth, optimisations, and refinements. The result is a system trusted by governments, universities, businesses, and other organisations all over the world.\n\nThe Plone Foundation protects and promotes Plone by furthering the development, marketing, and legal affairs of Plone and the Plone community.\n\nWANT TO WORK WITH PLONE \nTry Plone today https://demo.plone.org/",
+    "duration": 3379,
+    "service": "youtube",
+    "tags": [],
+    "thumbnail_url": "https://i.ytimg.com/vi/cMJOBrfZGe4/maxresdefault.jpg",
+    "title": "Plone Hands On: Creating a new Plone project",
+    "video_id": "cMJOBrfZGe4"
+  },
+  "allow_discussion": null,
+  "blocks": {
+    "43f4df4c-819b-4a3a-b776-0ced87f6ad8b": {
+      "@type": "slate"
+    },
+    "77e2e22f-7394-4ae2-b815-9d75aaa9ebb5": {
+      "@type": "description"
+    },
+    "9a5c8f3a-b363-4aad-936e-f6f6b9edae01": {
+      "@type": "playerBlock",
+      "align": "wider",
+      "autoPlay": false,
+      "size": "l",
+      "theme": "grey"
+    },
+    "a7cf0ceb-2be4-4b7d-a94b-8c978e419484": {
+      "@type": "title"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "a7cf0ceb-2be4-4b7d-a94b-8c978e419484",
+      "77e2e22f-7394-4ae2-b815-9d75aaa9ebb5",
+      "9a5c8f3a-b363-4aad-936e-f6f6b9edae01",
+      "43f4df4c-819b-4a3a-b776-0ced87f6ad8b"
+    ]
+  },
+  "changeNote": "",
+  "channel": "Plone",
+  "created": "2026-04-18T01:03:20+00:00",
+  "description": "",
+  "duration": 3379,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "plone-hands-on-creating-a-new-plone-project",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-04-18T01:03:20+00:00",
+  "preview_caption": null,
+  "preview_image": {
+    "blob_path": "63c3a66f53e84260b163ed0a80d55994/preview_image/maxresdefault.jpg",
+    "content-type": "image/jpeg",
+    "filename": "maxresdefault.jpg",
+    "height": 720,
+    "size": 84733,
+    "width": 1280
+  },
+  "review_state": "published",
+  "service": "youtube",
+  "start": "2024-12-11T15:00:39+00:00",
+  "subjects": [],
+  "title": "Plone Hands On: Creating a new Plone project",
+  "type_title": "Episode",
+  "version": "current",
+  "versioning_enabled": true,
+  "videoUrl": "https://www.youtube.com/watch?v=cMJOBrfZGe4",
+  "video_id": "cMJOBrfZGe4",
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": null,
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-04-18T01:03:20+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": null,
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-04-18T01:03:20+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

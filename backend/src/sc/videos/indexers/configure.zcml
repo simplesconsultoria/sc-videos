@@ -17,8 +17,8 @@
       />
 
   <adapter
-      factory=".series.series"
-      name="series"
+      factory=".videoseries.videoseries"
+      name="videoseries"
       />
 
 </configure>

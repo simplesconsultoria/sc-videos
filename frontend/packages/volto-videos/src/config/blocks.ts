@@ -57,7 +57,7 @@ export default function install(config: ConfigType) {
     { '@type': 'slate' },
   ];
 
-  config.blocks.initialBlocks.Series = [
+  config.blocks.initialBlocks.VideoSeries = [
     { '@type': 'title' },
     { '@type': 'description' },
     { '@type': 'slate' },

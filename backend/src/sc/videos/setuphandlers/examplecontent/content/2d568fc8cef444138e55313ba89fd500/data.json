@@ -1,0 +1,98 @@
+{
+  "@id": "/series/mao-na-massa/mao-na-massa-comecando-um-projeto-com-plone-6.1",
+  "@type": "Episode",
+  "UID": "2d568fc8cef444138e55313ba89fd500",
+  "_metadata": {
+    "channel": "Plone",
+    "description": "O Plone 6.1 j\u00e1 \u00e9 uma realidade e voc\u00ea pode se beneficiar das novidades.\nA comunidade PloneGov-Br vai te contar como, rapidamente, iniciar um novo projeto com a mais recente vers\u00e3o do Plone!\n\nRELATED LINKS: \nhttps://plone.org/  \n\nCONNECT: \nWebsite: https://plone.org/  \nX:  https://twitter.com/plone \nLinkedIn: https://www.linkedin.com/company/plone-foundation/ \nMastodon: https://plone.social/@plone \nInstagram: https://www.instagram.com/plonecms/ \nFacebook: https://www.facebook.com/plonecms \nBluesky: https://bsky.app/profile/plone.org \n\nhttps://plone.org/community \n\nSign up to the Plone Newsletter \u2013 comes out every two months (and easy to unsubscribe if it\u2019s not useful to you). \nhttps://plone.org/news-and-events/join-the-plone-newsletter \n\nABOUT \nPlone is an open-source content management system that is used to create, edit, and manage digital content, like websites, intranets and custom solutions. It comes with over 20 years of growth, optimisations, and refinements. The result is a system trusted by governments, universities, businesses, and other organisations all over the world.\n\nThe Plone Foundation protects and promotes Plone by furthering the development, marketing, and legal affairs of Plone and the Plone community.\n\nWANT TO WORK WITH PLONE \nTry Plone today https://demo.plone.org/",
+    "duration": 3683,
+    "service": "youtube",
+    "tags": [
+      "Plone",
+      "PloneGov-BR",
+      "M\u00e3o na Massa"
+    ],
+    "thumbnail_url": "https://i.ytimg.com/vi/x7QX9tQxEBc/maxresdefault.jpg",
+    "title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6.1",
+    "video_id": "x7QX9tQxEBc"
+  },
+  "allow_discussion": null,
+  "blocks": {
+    "28847fe3-7632-487c-b9af-f8b2442fbbdd": {
+      "@type": "description"
+    },
+    "7312db7d-5703-4a61-9cc7-ff0e764a3e90": {
+      "@type": "slate"
+    },
+    "833a5020-a59e-4844-98cf-7269be572293": {
+      "@type": "playerBlock",
+      "align": "wider",
+      "autoPlay": false,
+      "size": "l",
+      "theme": "grey"
+    },
+    "b7b429ef-fad7-4f45-a628-f2086f50b4e1": {
+      "@type": "title"
+    }
+  },
+  "blocks_layout": {
+    "items": [
+      "b7b429ef-fad7-4f45-a628-f2086f50b4e1",
+      "28847fe3-7632-487c-b9af-f8b2442fbbdd",
+      "833a5020-a59e-4844-98cf-7269be572293",
+      "7312db7d-5703-4a61-9cc7-ff0e764a3e90"
+    ]
+  },
+  "changeNote": "",
+  "channel": "Plone",
+  "created": "2026-04-18T01:02:57+00:00",
+  "description": "",
+  "duration": 3683,
+  "exportimport.constrains": {},
+  "exportimport.conversation": [],
+  "id": "mao-na-massa-comecando-um-projeto-com-plone-6.1",
+  "is_folderish": true,
+  "language": "##DEFAULT##",
+  "layout": "view",
+  "lock": {},
+  "modified": "2026-04-18T01:02:58+00:00",
+  "preview_caption": null,
+  "preview_image": {
+    "blob_path": "2d568fc8cef444138e55313ba89fd500/preview_image/maxresdefault.jpg",
+    "content-type": "image/jpeg",
+    "filename": "maxresdefault.jpg",
+    "height": 720,
+    "size": 136521,
+    "width": 1280
+  },
+  "review_state": "published",
+  "service": "youtube",
+  "start": "2025-04-02T18:00:18+00:00",
+  "subjects": [],
+  "title": "M\u00e3o na Massa: Come\u00e7ando um projeto com Plone 6.1",
+  "type_title": "Episode",
+  "version": "current",
+  "versioning_enabled": true,
+  "videoUrl": "https://www.youtube.com/watch?v=x7QX9tQxEBc",
+  "video_id": "x7QX9tQxEBc",
+  "workflow_history": {
+    "simple_publication_workflow": [
+      {
+        "action": null,
+        "actor": null,
+        "comments": "",
+        "review_state": "private",
+        "time": "2026-04-18T01:02:57+00:00"
+      },
+      {
+        "action": "publish",
+        "actor": null,
+        "comments": "",
+        "review_state": "published",
+        "time": "2026-04-18T01:02:58+00:00"
+      }
+    ]
+  },
+  "working_copy": null,
+  "working_copy_of": null
+}

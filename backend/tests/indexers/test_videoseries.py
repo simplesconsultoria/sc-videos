@@ -5,7 +5,7 @@ from zope.lifecycleevent import ObjectModifiedEvent
 import pytest
 
 
-SERIES_ADD_PERMISSION = "sc.videos: Add Series"
+SERIES_ADD_PERMISSION = "sc.videos: Add VideoSeries"
 DEFAULT_ROLES = ["Manager", "Site Administrator", "Editor", "Contributor"]
 
 
@@ -30,7 +30,7 @@ def series(content_factory, portal, enable_series):
     return content_factory(
         portal,
         {
-            "type": "Series",
+            "type": "VideoSeries",
             "id": "test-series",
             "title": "Test Series",
         },
@@ -62,18 +62,18 @@ class TestSeriesIndex:
         self.episode = episode
 
     def test_index_exists(self):
-        assert "series" in self.catalog.indexes()
+        assert "videoseries" in self.catalog.indexes()
 
     def test_episode_indexed_with_series_uuid(self):
         series_uuid = IUUID(self.series)
-        brains = self.catalog(portal_type="Episode", series=series_uuid)
+        brains = self.catalog(portal_type="Episode", videoseries=series_uuid)
         assert len(brains) == 1
         assert brains[0].Title == "Test Episode"
 
     def test_series_itself_not_indexed(self):
         """The Series itself has no parent Series, so it should not appear."""
         series_uuid = IUUID(self.series)
-        brains = self.catalog(series=series_uuid)
+        brains = self.catalog(videoseries=series_uuid)
         titles = [b.Title for b in brains]
         assert "Test Series" not in titles
 
@@ -84,10 +84,11 @@ class TestSeriesIndex:
                 "type": "Video",
                 "id": "standalone-video",
                 "title": "Standalone Video",
-                "videoUrl": "https://vimeo.com/123456789",
+                "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                "_metadata": {"video_id": "dQw4w9WgXcQ"},
             },
         )
         series_uuid = IUUID(self.series)
-        brains = self.catalog(series=series_uuid)
+        brains = self.catalog(videoseries=series_uuid)
         titles = [b.Title for b in brains]
         assert "Standalone Video" not in titles
