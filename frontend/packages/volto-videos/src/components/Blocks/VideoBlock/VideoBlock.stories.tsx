@@ -175,3 +175,36 @@ export const NoHref: Story = {
     data: { ...baseData, href: [] },
   },
 };
+
+export const WithCaption: Story = {
+  args: {
+    data: {
+      ...baseData,
+      showCaption: true,
+      title: 'A short video title',
+      description:
+        'A longer descriptive caption that explains what the video is about.\nIt can span multiple lines.',
+    },
+  },
+};
+
+export const WithCaptionTitleOnly: Story = {
+  args: {
+    data: {
+      ...baseData,
+      showCaption: true,
+      title: 'Title-only caption',
+    },
+  },
+};
+
+export const CaptionHidden: Story = {
+  args: {
+    data: {
+      ...baseData,
+      showCaption: false,
+      title: 'This title is stored but not rendered',
+      description: 'Because showCaption is false.',
+    },
+  },
+};

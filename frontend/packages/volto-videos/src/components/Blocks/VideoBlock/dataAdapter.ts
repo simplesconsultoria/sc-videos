@@ -35,7 +35,12 @@ export function videoBlockDataAdapter({
       image_scales: item.image_scales ?? {},
       videoUrl: item.videoUrl,
     };
-    onChangeBlock(block, { ...data, href: [href] });
+    onChangeBlock(block, {
+      ...data,
+      href: [href],
+      title: data.title || item.Title || '',
+      description: data.description || item.Description || '',
+    });
     return;
   }
   onChangeBlock(block, { ...data, [id]: value });

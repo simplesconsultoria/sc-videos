@@ -12,6 +12,7 @@ interface VideoPlayerBlockProps {
   videoUrl?: string;
   title?: string;
   theme?: string;
+  children?: React.ReactNode;
 }
 
 const VideoPlayerBlock: React.FC<VideoPlayerBlockProps> = ({
@@ -23,6 +24,7 @@ const VideoPlayerBlock: React.FC<VideoPlayerBlockProps> = ({
   size,
   align,
   theme = 'default',
+  children,
 }) => {
   return (
     <div
@@ -58,6 +60,7 @@ const VideoPlayerBlock: React.FC<VideoPlayerBlockProps> = ({
             title={title}
             previewImage={previewImage}
           />
+          {children}
         </figure>
       )}
     </div>
