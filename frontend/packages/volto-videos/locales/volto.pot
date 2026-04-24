@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2026-04-17T16:16:52.287Z\n"
+"POT-Creation-Date: 2026-04-24T18:38:54.378Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -28,6 +28,26 @@ msgstr ""
 #. Default: "Browse the site for a video to embed"
 #: components/Widgets/VideoInput
 msgid "Browse the site for a video to embed"
+msgstr ""
+
+#. Default: "Caption"
+#: components/Blocks/VideoBlock/schema
+msgid "Caption"
+msgstr ""
+
+#. Default: "Caption description"
+#: components/Blocks/VideoBlock/schema
+msgid "Caption description"
+msgstr ""
+
+#. Default: "Caption title"
+#: components/Blocks/VideoBlock/schema
+msgid "Caption title"
+msgstr ""
+
+#. Default: "Display caption"
+#: components/Blocks/VideoBlock/schema
+msgid "Display caption"
 msgstr ""
 
 #. Default: "External Video"

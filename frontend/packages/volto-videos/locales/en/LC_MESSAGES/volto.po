@@ -28,6 +28,26 @@ msgstr ""
 msgid "Browse the site for a video to embed"
 msgstr ""
 
+#. Default: "Caption"
+#: components/Blocks/VideoBlock/schema
+msgid "Caption"
+msgstr ""
+
+#. Default: "Caption description"
+#: components/Blocks/VideoBlock/schema
+msgid "Caption description"
+msgstr ""
+
+#. Default: "Caption title"
+#: components/Blocks/VideoBlock/schema
+msgid "Caption title"
+msgstr ""
+
+#. Default: "Display caption"
+#: components/Blocks/VideoBlock/schema
+msgid "Display caption"
+msgstr ""
+
 #. Default: "External Video"
 #: components/Blocks/VideoPlayerBlock/Edit
 msgid "External Video"

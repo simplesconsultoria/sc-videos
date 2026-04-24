@@ -20,47 +20,67 @@ msgstr ""
 #: components/Blocks/VideoBlock/schema
 #: components/Blocks/VideoPlayerBlock/schema
 msgid "Alignment"
-msgstr ""
+msgstr "Alinhamento"
 
 #. Default: "Video Auto Play"
 #: components/Blocks/VideoBlock/schema
 #: components/Blocks/VideoPlayerBlock/schema
 msgid "Auto Play"
-msgstr ""
+msgstr "Reprodução automática de vídeo"
 
 #. Default: "Browse the site for a video to embed"
 #: components/Widgets/VideoInput
 msgid "Browse the site for a video to embed"
-msgstr ""
+msgstr "Navegue pelo site para escolher um vídeo para incorporar"
+
+#. Default: "Caption"
+#: components/Blocks/VideoBlock/schema
+msgid "Caption"
+msgstr "Legenda"
+
+#. Default: "Caption description"
+#: components/Blocks/VideoBlock/schema
+msgid "Caption description"
+msgstr "Descrição da legenda"
+
+#. Default: "Caption title"
+#: components/Blocks/VideoBlock/schema
+msgid "Caption title"
+msgstr "Título da legenda"
+
+#. Default: "Display caption"
+#: components/Blocks/VideoBlock/schema
+msgid "Display caption"
+msgstr "Exibir legenda"
 
 #. Default: "External Video"
 #: components/Blocks/VideoPlayerBlock/Edit
 msgid "External Video"
-msgstr ""
+msgstr "Vídeo externo"
 
 #. Default: "Link to"
 #: components/Blocks/VideoBlock/schema
 msgid "Link to"
-msgstr ""
+msgstr "Link para"
 
 #. Default: "Video Player Block"
 #: components/Blocks/VideoBlock/schema
 #: components/Blocks/VideoPlayerBlock/schema
 msgid "Player Block"
-msgstr ""
+msgstr "Bloco de Player de Vídeo"
 
 #. Default: "Please, inform the url of a video from Youtube, Vimeo."
 #: components/Blocks/VideoPlayerBlock/Edit
 msgid "Please, inform the url of a video from Youtube, Vimeo."
-msgstr ""
+msgstr "Informe a URL de um vídeo do YouTube ou Vimeo."
 
 #. Default: "Video size"
 #: components/Blocks/VideoBlock/schema
 #: components/Blocks/VideoPlayerBlock/schema
 msgid "Video size"
-msgstr ""
+msgstr "Tamanho do vídeo"
 
 #. Default: "Pick an existing video"
 #: components/Widgets/VideoInput
 msgid "pickAVideo"
-msgstr ""
+msgstr "Escolher um vídeo existente"
