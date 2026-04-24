@@ -52,7 +52,7 @@ When the arrow button is clicked and metadata is fetched successfully, `applyVid
 | Form field | Metadata source | Transform |
 |---|---|---|
 | `title` | `metadata.title` |. |
-| `description` | `metadata.text` | Truncated to 150 chars |
+| `description` | `metadata.text` | Truncated per `voltoVideos.description` settings (default: 150 chars with `...` ellipsis). See {doc}`configuration`. |
 | `duration` | `metadata.duration` |. |
 | `channel` | `metadata.channel` |. |
 | `subjects` | `metadata.subjects` |. |

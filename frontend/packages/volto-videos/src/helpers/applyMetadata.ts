@@ -4,19 +4,18 @@
  * Only fields that are empty on the current form are written, so user edits
  * are never overwritten.
  */
+import config from '@plone/registry';
 import type { VideoMetadata } from '@simplesconsultoria/volto-videos/types/widgets';
-
-const DESCRIPTION_MAX_LENGTH = 150;
-const DESCRIPTION_ELLIPSIS = '...';
 
 function buildDescription(text: string): string {
   // Remove line breaks and truncate long descriptions for better display in the UI
+  const { maxLength, ellipsis } = config.settings.voltoVideos.description;
   const collapsed = text.replace(/\s+/g, ' ').trim();
-  if (collapsed.length <= DESCRIPTION_MAX_LENGTH) {
+  if (collapsed.length <= maxLength) {
     return collapsed;
   }
-  const cut = DESCRIPTION_MAX_LENGTH - DESCRIPTION_ELLIPSIS.length;
-  return collapsed.substring(0, cut) + DESCRIPTION_ELLIPSIS;
+  const cut = maxLength - ellipsis.length;
+  return collapsed.substring(0, cut) + ellipsis;
 }
 
 interface ApplyMetadataOptions {

@@ -1,6 +1,12 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeAll } from 'vitest';
+import config from '@plone/registry';
+import installSettings from '@simplesconsultoria/volto-videos/config/settings';
 import { applyVideoMetadataToForm } from './applyMetadata';
 import type { VideoMetadata } from '@simplesconsultoria/volto-videos/types/widgets';
+
+beforeAll(() => {
+  installSettings(config);
+});
 
 const baseMetadata: VideoMetadata = {
   service: 'youtube',
@@ -116,6 +122,28 @@ describe('applyVideoMetadataToForm', () => {
     });
     const calls = Object.fromEntries(onChange.mock.calls);
     expect(calls.description).toBe(text);
+  });
+
+  it('honors overridden description truncation settings', () => {
+    const originalMaxLength = config.settings.voltoVideos.description.maxLength;
+    const originalEllipsis = config.settings.voltoVideos.description.ellipsis;
+    config.settings.voltoVideos.description.maxLength = 20;
+    config.settings.voltoVideos.description.ellipsis = '…';
+    try {
+      const onChange = vi.fn();
+      applyVideoMetadataToForm({
+        metadata: { ...baseMetadata, text: 'a'.repeat(100) },
+        formData: {},
+        onChange,
+      });
+      const calls = Object.fromEntries(onChange.mock.calls);
+      expect(calls.description).toHaveLength(20);
+      expect(calls.description.endsWith('…')).toBe(true);
+      expect(calls.description.slice(0, 19)).toBe('a'.repeat(19));
+    } finally {
+      config.settings.voltoVideos.description.maxLength = originalMaxLength;
+      config.settings.voltoVideos.description.ellipsis = originalEllipsis;
+    }
   });
 
   it('treats missing formData the same as an empty form', () => {
