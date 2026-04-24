@@ -1,5 +1,6 @@
 import React from 'react';
 import withBlockExtensions from '@plone/volto/helpers/Extensions/withBlockExtensions';
+import Caption from '@kitconcept/volto-light-theme/components/Caption/Caption';
 import type { VideoBlockData } from './index';
 import VideoPlayerBlock from '@simplesconsultoria/volto-videos/components/VideoPlayer/BlockWrapper';
 
@@ -23,6 +24,8 @@ export const VideoBlockView: React.FC<VideoBlockViewProps> = ({
   const previewImage = previewImagePath
     ? `${href['@id']}/${previewImagePath}`
     : null;
+  const showCaption = data.showCaption !== false;
+  const hasCaption = Boolean(showCaption && (data.title || data.description));
   return (
     <VideoPlayerBlock
       videoUrl={videoUrl}
@@ -33,7 +36,11 @@ export const VideoBlockView: React.FC<VideoBlockViewProps> = ({
       align={data.align}
       className={className}
       style={style}
-    />
+    >
+      {hasCaption && (
+        <Caption title={data.title} description={data.description} />
+      )}
+    </VideoPlayerBlock>
   );
 };
 

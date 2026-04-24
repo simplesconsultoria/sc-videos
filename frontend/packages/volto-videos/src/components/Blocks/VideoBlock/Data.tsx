@@ -17,6 +17,16 @@ const VideoBlockDataForm: React.FC<VideoBlockDataProps> = (props) => {
   const schema = VideoBlockSchema({ ...props, intl });
 
   const handleFieldChange = (id: string, value: any) => {
+    if (id === 'href' && Array.isArray(value) && value[0]) {
+      const item = value[0];
+      onChangeBlock(block, {
+        ...data,
+        href: value,
+        title: data.title || item.Title || '',
+        description: data.description || item.Description || '',
+      });
+      return;
+    }
     onChangeBlock(block, {
       ...data,
       [id]: value,

@@ -2,10 +2,13 @@ import { defineConfig } from 'vitest/config';
 import voltoVitestConfig from '@plone/volto/vitest.config.mjs';
 import path from 'path';
 
+const packageDir = path.dirname(new URL(import.meta.url).pathname);
+
 const addonAlias = {
-  '@simplesconsultoria/volto-videos': path.resolve(
-    path.dirname(new URL(import.meta.url).pathname),
-    'src',
+  '@simplesconsultoria/volto-videos': path.resolve(packageDir, 'src'),
+  '@kitconcept/volto-light-theme': path.resolve(
+    packageDir,
+    'node_modules/@kitconcept/volto-light-theme/src',
   ),
 };
 

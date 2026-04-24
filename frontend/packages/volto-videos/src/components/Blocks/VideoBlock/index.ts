@@ -31,6 +31,9 @@ export interface VideoBlockData {
   size?: string;
   align: string;
   styles?: any;
+  showCaption?: boolean;
+  title?: string;
+  description?: string;
 }
 
 const VideoBlockInfo: BlockConfigBase = {

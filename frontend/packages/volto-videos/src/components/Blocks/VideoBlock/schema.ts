@@ -22,6 +22,22 @@ const messages = defineMessages({
     id: 'Alignment',
     defaultMessage: 'Alignment',
   },
+  caption: {
+    id: 'Caption',
+    defaultMessage: 'Caption',
+  },
+  showCaption: {
+    id: 'Display caption',
+    defaultMessage: 'Display caption',
+  },
+  captionTitle: {
+    id: 'Caption title',
+    defaultMessage: 'Caption title',
+  },
+  captionDescription: {
+    id: 'Caption description',
+    defaultMessage: 'Caption description',
+  },
 });
 
 export const VideoBlockSchema = (props: BlockSchemaProps): any => {
@@ -34,6 +50,11 @@ export const VideoBlockSchema = (props: BlockSchemaProps): any => {
         id: 'default',
         title: 'default',
         fields: ['href', 'autoPlay', 'size', 'align'],
+      },
+      {
+        id: 'caption',
+        title: intl.formatMessage(messages.caption),
+        fields: ['showCaption', 'title', 'description'],
       },
     ],
     properties: {
@@ -62,6 +83,18 @@ export const VideoBlockSchema = (props: BlockSchemaProps): any => {
       align: {
         title: intl.formatMessage(messages.Alignment),
         widget: 'align',
+      },
+      showCaption: {
+        title: intl.formatMessage(messages.showCaption),
+        type: 'boolean',
+        default: true,
+      },
+      title: {
+        title: intl.formatMessage(messages.captionTitle),
+      },
+      description: {
+        title: intl.formatMessage(messages.captionDescription),
+        widget: 'textarea',
       },
     },
     required: ['href', 'autoPlay'],

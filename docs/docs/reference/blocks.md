@@ -80,6 +80,11 @@ The Video block is for embedding an **existing Video content item** in any page.
 | `autoPlay` | Boolean | `false` | Start the video automatically. |
 | `size` | `image_size` | `l` | Player width. |
 | `align` | `align` |. | Horizontal alignment. |
+| `showCaption` | Boolean | `true` | When `true` and at least one caption field is populated, render the caption below the player. |
+| `title` | Text | -- | Caption title. Rendered as `<strong class="title">` by the `Caption` component. |
+| `description` | `textarea` | -- | Plain-text caption description. Line breaks are preserved and rendered as `<p>` elements. |
+
+The caption is rendered using the `Caption` component from `@kitconcept/volto-light-theme` as a `<figcaption>` inside the player's `<figure>`, and appears only when `showCaption` is `true` and either `title` or `description` has content.
 
 ### Data adapter
 
@@ -98,6 +103,8 @@ interface VideoHref {
 ```
 
 The `title` (lowercase) field is required by Volto's `ObjectBrowserWidget` to display the selected item label in the sidebar.
+
+When a video is selected (via either the in-block picker or the sidebar object browser), the caption `title` and `description` are populated from the item's `Title` and `Description`, but only when those fields are currently empty, so editor overrides are never overwritten.
 
 ### Edit behavior
 
