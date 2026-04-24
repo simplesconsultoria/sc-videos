@@ -3733,7 +3733,7 @@ requires-dist = [
     { name = "plone-app-testing", marker = "extra == 'test'" },
     { name = "plone-restapi" },
     { name = "plone-restapi", extras = ["test"], marker = "extra == 'test'" },
-    { name = "plone-stubs", marker = "python_full_version >= '3.12' and extra == 'test'", git = "https://github.com/plone/plone-stubs.git" },
+    { name = "plone-stubs", marker = "python_full_version >= '3.12' and extra == 'test'" },
     { name = "plone-volto" },
     { name = "products-cmfplone" },
     { name = "pytest", marker = "extra == 'test'" },

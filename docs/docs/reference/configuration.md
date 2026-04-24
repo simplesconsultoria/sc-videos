@@ -97,6 +97,34 @@ Settings are stored in the Plone registry under the `sc.videos` prefix.
 
 See {doc}`control-panel` for the web UI and REST API access.
 
+## ⚛️ Frontend settings
+
+Frontend configuration is grouped under `config.settings.voltoVideos` in the `@plone/registry` runtime configuration.
+Integrators can override these values from their own `applyConfig` function.
+
+### `voltoVideos.description`
+
+Controls how long video descriptions returned by the metadata pipeline are truncated before being written into form fields by `applyVideoMetadataToForm` (used by the VideoURLWidget "fetch metadata" action).
+
+| Key | Type | Default | Description |
+|---|---|---|---|
+| `voltoVideos.description.maxLength` | `number` | `150` | Maximum length (in characters) of the description after metadata population. |
+| `voltoVideos.description.ellipsis` | `string` | `"..."` | Suffix appended when the description is truncated. Counts against `maxLength`. |
+
+Example override:
+
+```ts
+import type { ConfigType } from '@plone/registry';
+
+export default function applyConfig(config: ConfigType) {
+  config.settings.voltoVideos.description.maxLength = 280;
+  config.settings.voltoVideos.description.ellipsis = '…';
+  return config;
+}
+```
+
+Types are declared via module augmentation on `@plone/types`' `SettingsConfig`, so TypeScript will catch typos and type mismatches on these keys.
+
 ## 🌍 Browser layer
 
 **Interface:** `sc.videos.interfaces.IBrowserLayer`

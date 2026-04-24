@@ -1,0 +1,1 @@
+Migrated Edit widget registration to `config.registerWidget`. View widgets still use direct `config.widgets.views.widget` assignment, since Volto does not yet support registering view widgets via the registry API. @ericof
