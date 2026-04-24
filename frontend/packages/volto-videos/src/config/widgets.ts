@@ -6,10 +6,17 @@ import VideoMetadataWidgetView from '@simplesconsultoria/volto-videos/components
 
 export default function install(config: ConfigType) {
   // Edit widgets
-  config.widgets.widget.VideoURL = VideoURLWidget;
-  config.widgets.widget.VideoMetadata = VideoMetadataWidget;
+  config.registerWidget({
+    key: 'widget',
+    definition: { VideoURL: VideoURLWidget },
+  });
+  config.registerWidget({
+    key: 'widget',
+    definition: { VideoMetadata: VideoMetadataWidget },
+  });
 
   // View widgets
+  /// Volto still lacks the ability to register view widgets, so we need to add them manually here.
   config.widgets.views.widget.VideoURL = VideoURLWidgetView;
   config.widgets.views.widget.VideoMetadata = VideoMetadataWidgetView;
 
