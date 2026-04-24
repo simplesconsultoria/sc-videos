@@ -1,0 +1,1 @@
+Documented the new `voltoVideos.description` frontend settings in the Configuration reference and updated the Widgets reference to point at the setting instead of the hardcoded 150-char default. @ericof
