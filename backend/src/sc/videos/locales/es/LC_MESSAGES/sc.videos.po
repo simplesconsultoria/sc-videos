@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-04-17 16:16+0000\n"
+"POT-Creation-Date: 2026-04-22 20:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -10,173 +10,206 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: es\n"
-"Language-Name: English\n"
+"Language-Name: Español\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
 #: sc/videos/vocabularies/duration_ranges.py:12
 msgid "0-10 minutes"
-msgstr ""
+msgstr "0-10 minutos"
 
 #: sc/videos/vocabularies/duration_ranges.py:13
 msgid "11-30 minutes"
-msgstr ""
+msgstr "11-30 minutos"
 
 #: sc/videos/vocabularies/duration_ranges.py:14
 msgid "31-60 minutes"
-msgstr ""
+msgstr "31-60 minutos"
 
 #: sc/videos/vocabularies/duration_ranges.py:15
 msgid "> 60 minutes"
-msgstr ""
+msgstr "> 60 minutos"
 
 #: sc/videos/profiles.zcml:13
 msgid "A Plone add-on providing a Video content type that supports external video sources"
-msgstr ""
+msgstr "Un complemento de Plone que provee un tipo de contenido Vídeo con soporte para fuentes externas de vídeo"
+
+#: sc/videos/profiles/default/types/VideoSeries.xml
+msgid "A series of video episodes"
+msgstr "Una serie de episodios de vídeo"
 
 #: sc/videos/profiles/default/types/Video.xml
 msgid "A video content"
-msgstr ""
+msgstr "Un contenido de vídeo"
+
+#: sc/videos/profiles/default/types/Episode.xml
+msgid "A video episode within a series"
+msgstr "Un episodio de vídeo dentro de una serie"
 
 #: sc/videos/profiles.zcml:22
 msgid "Create example content to showcase this addon."
-msgstr ""
+msgstr "Crea contenido de ejemplo para mostrar este complemento."
 
 #: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "Duration of the video in seconds"
-msgstr ""
+msgstr "Duración del vídeo en segundos"
 
 #: sc/videos/controlpanels/interfaces.py:12
+msgid "Enable Series and Episodes"
+msgstr "Activar Series y Episodios"
+
+#: sc/videos/controlpanels/interfaces.py:22
 msgid "Enable YouTube API (Authenticated)"
-msgstr ""
+msgstr "Activar API de YouTube (autenticada)"
+
+#: sc/videos/controlpanels/interfaces.py:23
+msgid "Enable or disable YouTube API integration."
+msgstr "Activa o desactiva la integración con la API de YouTube."
 
 #: sc/videos/controlpanels/interfaces.py:13
-msgid "Enable or disable YouTube API integration."
-msgstr ""
+msgid "Enable the Series and Episode content types. When enabled, Series becomes globally addable."
+msgstr "Activa los tipos de contenido Serie y Episodio. Cuando está activo, Serie se puede añadir globalmente."
 
 #: sc/videos/behaviors/video.py:18
 msgid "Enter a video URL (YouTube, Vimeo)"
-msgstr ""
+msgstr "Indica la URL de un vídeo (YouTube, Vimeo)"
 
-#: sc/videos/controlpanels/interfaces.py:20
+#: sc/videos/controlpanels/interfaces.py:30
 msgid "Enter your YouTube API key for video integration."
-msgstr ""
+msgstr "Introduce tu clave de API de YouTube para la integración de vídeo."
+
+#: sc/videos/profiles/default/types/Episode.xml
+msgid "Episode"
+msgstr "Episodio"
 
 #: sc/videos/behaviors/configure.zcml:20
 msgid "Fields for external video content"
-msgstr ""
+msgstr "Campos para contenido de vídeo externo"
 
 #: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "Filter by video duration range"
-msgstr ""
+msgstr "Filtrar por rango de duración del vídeo"
 
 #: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "Has video"
-msgstr ""
+msgstr "Tiene vídeo"
+
+#: sc/videos/content/episode.py:16
+msgid "Release time"
+msgstr "Fecha de publicación"
 
 #: sc/videos/behaviors/configure.zcml:20
 msgid "Remote Video Behavior"
-msgstr ""
+msgstr "Comportamiento de Vídeo Remoto"
+
+#: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
+#: sc/videos/profiles/default/types/VideoSeries.xml
+msgid "Series"
+msgstr "Serie"
 
 #: sc/videos/fields/url.py:17
 msgid "The address is not a valid video URL."
-msgstr ""
+msgstr "La dirección no es una URL de vídeo válida."
+
+#: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
+msgid "The series an episode belongs to"
+msgstr "La serie a la que pertenece un episodio"
 
 #: sc/videos/profiles.zcml:30
 msgid "Uninstall Video Support for Plone setup."
-msgstr ""
+msgstr "Desinstalar el soporte de vídeo para Plone."
 
 #: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 #: sc/videos/profiles/default/types/Video.xml
 msgid "Video"
-msgstr ""
+msgstr "Vídeo"
 
 #: sc/videos/behaviors/video.py:25
 msgid "Video Metadata"
-msgstr ""
+msgstr "Metadatos del Vídeo"
 
 #: sc/videos/controlpanels/controlpanel.py:34
 msgid "Video Settings"
-msgstr ""
+msgstr "Configuración de Vídeo"
 
 #: sc/videos/profiles.zcml:22
 msgid "Video Support for Plone: Example content"
-msgstr ""
+msgstr "Soporte de Vídeo para Plone: contenido de ejemplo"
 
 #: sc/videos/profiles.zcml:13
 msgid "Video Support for Plone: Install"
-msgstr ""
+msgstr "Soporte de Vídeo para Plone: instalar"
 
 #: sc/videos/profiles.zcml:30
 msgid "Video Support for Plone: Uninstall"
-msgstr ""
+msgstr "Soporte de Vídeo para Plone: desinstalar"
 
 #: sc/videos/behaviors/video.py:17
 msgid "Video URL"
-msgstr ""
+msgstr "URL del vídeo"
 
 #: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "Video duration"
-msgstr ""
+msgstr "Duración del vídeo"
 
 #: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "Video duration range"
-msgstr ""
+msgstr "Rango de duración del vídeo"
 
 #: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
 msgid "Whether the content has a video attached"
-msgstr ""
+msgstr "Si el contenido tiene un vídeo asociado"
 
-#: sc/videos/controlpanels/interfaces.py:19
+#: sc/videos/controlpanels/interfaces.py:29
 msgid "YouTube API Key"
-msgstr ""
+msgstr "Clave de API de YouTube"
 
 #. Default: "Enter the video channel"
 #: sc/videos/behaviors/video.py:51
 msgid "help_video_channel"
-msgstr ""
+msgstr "Introduce el canal del vídeo"
 
 #. Default: "Duration of the video in seconds."
 #: sc/videos/behaviors/video.py:31
 msgid "help_video_duration"
-msgstr ""
+msgstr "Duración del vídeo en segundos."
 
 #. Default: "Enter the video ID (e.g. YouTube video ID)."
 #: sc/videos/behaviors/video.py:60
 msgid "help_video_id"
-msgstr ""
+msgstr "Introduce el ID del vídeo (por ejemplo, ID de vídeo de YouTube)."
 
 #. Default: "Metadata of the video."
 #: sc/videos/behaviors/video.py:70
 msgid "help_video_metadata"
-msgstr ""
+msgstr "Metadatos del vídeo."
 
 #. Default: "Select the video service."
 #: sc/videos/behaviors/video.py:41
 msgid "help_video_service"
-msgstr ""
+msgstr "Selecciona el servicio de vídeo."
 
 #. Default: "Video Channel"
 #: sc/videos/behaviors/video.py:50
 msgid "label_video_channel"
-msgstr ""
+msgstr "Canal del vídeo"
 
 #. Default: "Video Duration"
 #: sc/videos/behaviors/video.py:30
 msgid "label_video_duration"
-msgstr ""
+msgstr "Duración del vídeo"
 
 #. Default: "Video ID"
 #: sc/videos/behaviors/video.py:59
 msgid "label_video_id"
-msgstr ""
+msgstr "ID del vídeo"
 
 #. Default: "Video Metadata"
 #: sc/videos/behaviors/video.py:69
 msgid "label_video_metadata"
-msgstr ""
+msgstr "Metadatos del vídeo"
 
 #. Default: "Video Service"
 #: sc/videos/behaviors/video.py:40
 msgid "label_video_service"
-msgstr ""
+msgstr "Servicio de vídeo"

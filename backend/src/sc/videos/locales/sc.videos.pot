@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-04-17 16:16+0000\n"
+"POT-Creation-Date: 2026-04-22 20:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,8 +37,16 @@ msgstr ""
 msgid "A Plone add-on providing a Video content type that supports external video sources"
 msgstr ""
 
+#: sc/videos/profiles/default/types/VideoSeries.xml
+msgid "A series of video episodes"
+msgstr ""
+
 #: sc/videos/profiles/default/types/Video.xml
 msgid "A video content"
+msgstr ""
+
+#: sc/videos/profiles/default/types/Episode.xml
+msgid "A video episode within a series"
 msgstr ""
 
 #: sc/videos/profiles.zcml:22
@@ -50,19 +58,31 @@ msgid "Duration of the video in seconds"
 msgstr ""
 
 #: sc/videos/controlpanels/interfaces.py:12
+msgid "Enable Series and Episodes"
+msgstr ""
+
+#: sc/videos/controlpanels/interfaces.py:22
 msgid "Enable YouTube API (Authenticated)"
 msgstr ""
 
-#: sc/videos/controlpanels/interfaces.py:13
+#: sc/videos/controlpanels/interfaces.py:23
 msgid "Enable or disable YouTube API integration."
+msgstr ""
+
+#: sc/videos/controlpanels/interfaces.py:13
+msgid "Enable the Series and Episode content types. When enabled, Series becomes globally addable."
 msgstr ""
 
 #: sc/videos/behaviors/video.py:18
 msgid "Enter a video URL (YouTube, Vimeo)"
 msgstr ""
 
-#: sc/videos/controlpanels/interfaces.py:20
+#: sc/videos/controlpanels/interfaces.py:30
 msgid "Enter your YouTube API key for video integration."
+msgstr ""
+
+#: sc/videos/profiles/default/types/Episode.xml
+msgid "Episode"
 msgstr ""
 
 #: sc/videos/behaviors/configure.zcml:20
@@ -77,12 +97,25 @@ msgstr ""
 msgid "Has video"
 msgstr ""
 
+#: sc/videos/content/episode.py:16
+msgid "Release time"
+msgstr ""
+
 #: sc/videos/behaviors/configure.zcml:20
 msgid "Remote Video Behavior"
 msgstr ""
 
+#: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
+#: sc/videos/profiles/default/types/VideoSeries.xml
+msgid "Series"
+msgstr ""
+
 #: sc/videos/fields/url.py:17
 msgid "The address is not a valid video URL."
+msgstr ""
+
+#: sc/videos/profiles/default/registry/plone.app.querystring.interfaces.IQueryField.xml
+msgid "The series an episode belongs to"
 msgstr ""
 
 #: sc/videos/profiles.zcml:30
@@ -130,7 +163,7 @@ msgstr ""
 msgid "Whether the content has a video attached"
 msgstr ""
 
-#: sc/videos/controlpanels/interfaces.py:19
+#: sc/videos/controlpanels/interfaces.py:29
 msgid "YouTube API Key"
 msgstr ""
 

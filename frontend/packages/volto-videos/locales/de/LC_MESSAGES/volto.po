@@ -15,47 +15,67 @@ msgstr ""
 #: components/Blocks/VideoBlock/schema
 #: components/Blocks/VideoPlayerBlock/schema
 msgid "Alignment"
-msgstr ""
+msgstr "Ausrichtung"
 
 #. Default: "Video Auto Play"
 #: components/Blocks/VideoBlock/schema
 #: components/Blocks/VideoPlayerBlock/schema
 msgid "Auto Play"
-msgstr ""
+msgstr "Video-Autoplay"
 
 #. Default: "Browse the site for a video to embed"
 #: components/Widgets/VideoInput
 msgid "Browse the site for a video to embed"
-msgstr ""
+msgstr "Durchsuchen Sie die Website nach einem einzubettenden Video"
+
+#. Default: "Caption"
+#: components/Blocks/VideoBlock/schema
+msgid "Caption"
+msgstr "Bildunterschrift"
+
+#. Default: "Caption description"
+#: components/Blocks/VideoBlock/schema
+msgid "Caption description"
+msgstr "Beschreibung der Bildunterschrift"
+
+#. Default: "Caption title"
+#: components/Blocks/VideoBlock/schema
+msgid "Caption title"
+msgstr "Titel der Bildunterschrift"
+
+#. Default: "Display caption"
+#: components/Blocks/VideoBlock/schema
+msgid "Display caption"
+msgstr "Bildunterschrift anzeigen"
 
 #. Default: "External Video"
 #: components/Blocks/VideoPlayerBlock/Edit
 msgid "External Video"
-msgstr ""
+msgstr "Externes Video"
 
 #. Default: "Link to"
 #: components/Blocks/VideoBlock/schema
 msgid "Link to"
-msgstr ""
+msgstr "Verknüpfen mit"
 
 #. Default: "Video Player Block"
 #: components/Blocks/VideoBlock/schema
 #: components/Blocks/VideoPlayerBlock/schema
 msgid "Player Block"
-msgstr ""
+msgstr "Video-Player-Block"
 
 #. Default: "Please, inform the url of a video from Youtube, Vimeo."
 #: components/Blocks/VideoPlayerBlock/Edit
 msgid "Please, inform the url of a video from Youtube, Vimeo."
-msgstr ""
+msgstr "Bitte geben Sie die URL eines YouTube- oder Vimeo-Videos ein."
 
 #. Default: "Video size"
 #: components/Blocks/VideoBlock/schema
 #: components/Blocks/VideoPlayerBlock/schema
 msgid "Video size"
-msgstr ""
+msgstr "Videogröße"
 
 #. Default: "Pick an existing video"
 #: components/Widgets/VideoInput
 msgid "pickAVideo"
-msgstr ""
+msgstr "Vorhandenes Video auswählen"
