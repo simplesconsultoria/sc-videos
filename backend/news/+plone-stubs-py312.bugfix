@@ -1,1 +1,0 @@
-Fixed dependency resolution failure on Python 3.12+ by installing `plone-stubs` from git in `requirements-mxdev.txt`. The marker (`python_version >= '3.12'`) lives in the requirements file, since `[tool.uv.sources]` is not honored when `[tool.uv] managed = false` and mxdev sections do not support PEP 508 markers per section. @ericof

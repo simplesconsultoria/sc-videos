@@ -8,6 +8,21 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0-alpha.2 (2026-04-27)
+
+### Feature
+
+- Added German (`de`) translations for the `volto-videos` frontend catalog. @ericof [#14](https://github.com/simplesconsultoria/sc-videos/issue/14)
+- Added Italian (`it`) translation catalog to `volto-videos`, including translations for the new caption-related strings. @ericof [#14](https://github.com/simplesconsultoria/sc-videos/issue/14)
+- Added Spanish (`es`) translations for the `volto-videos` frontend catalog. @ericof [#14](https://github.com/simplesconsultoria/sc-videos/issue/14)
+- Added Brazilian Portuguese (`pt_BR`) translations for the `volto-videos` frontend catalog. @ericof [#14](https://github.com/simplesconsultoria/sc-videos/issue/14)
+- Added caption support to the Video block. New schema fields `showCaption` (boolean, default `true`), `title`, and `description` are rendered below the player using the `Caption` component from `@kitconcept/volto-light-theme`. Caption `title` and `description` are prepopulated from the selected Video content item's `Title` and `Description` (both via the in-block picker and the sidebar object browser) when the fields are empty. @ericof [#15](https://github.com/simplesconsultoria/sc-videos/issue/15)
+- Exposed description truncation as configurable settings under `config.settings.voltoVideos.description` (`maxLength` default `150`, `ellipsis` default `"..."`). Integrators can now customize the truncation applied to descriptions auto-populated by `applyVideoMetadataToForm`. @ericof [#16](https://github.com/simplesconsultoria/sc-videos/issue/16)
+
+### Internal
+
+- Migrated Edit widget registration to `config.registerWidget`. View widgets still use direct `config.widgets.views.widget` assignment, since Volto does not yet support registering view widgets via the registry API. @ericof [#16](https://github.com/simplesconsultoria/sc-videos/issue/16)
+
 ## 1.0.0-alpha.1 (2026-04-17)
 
 ### Breaking

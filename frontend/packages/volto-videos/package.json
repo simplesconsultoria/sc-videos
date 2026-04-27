@@ -1,6 +1,6 @@
 {
   "name": "@simplesconsultoria/volto-videos",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "A Plone add-on providing a Video content type that supports external video sources",
   "main": "src/index.ts",
   "license": "MIT",

@@ -1,1 +1,0 @@
-Exposed description truncation as configurable settings under `config.settings.voltoVideos.description` (`maxLength` default `150`, `ellipsis` default `"..."`). Integrators can now customize the truncation applied to descriptions auto-populated by `applyVideoMetadataToForm`. @ericof

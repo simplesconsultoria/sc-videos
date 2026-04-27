@@ -9,6 +9,21 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0a2 (2026-04-27)
+
+
+### New features:
+
+- Added German (`de`) translations for the `sc.videos` message catalog. @ericof [#14](https://github.com/simplesconsultoria/sc-videos/issues/14)
+- Added Italian (`it`) translations for the `sc.videos` message catalog. @ericof [#14](https://github.com/simplesconsultoria/sc-videos/issues/14)
+- Added Spanish (`es`) translations for the `sc.videos` message catalog. @ericof [#14](https://github.com/simplesconsultoria/sc-videos/issues/14)
+- Added Brazilian Portuguese (`pt_BR`) translations for the `sc.videos` message catalog. @ericof [#14](https://github.com/simplesconsultoria/sc-videos/issues/14)
+
+
+### Bug fixes:
+
+- Fixed dependency resolution failure on Python 3.12+ by installing `plone-stubs` from git in `requirements-mxdev.txt`. The marker (`python_version >= '3.12'`) lives in the requirements file, since `[tool.uv.sources]` is not honored when `[tool.uv] managed = false` and mxdev sections do not support PEP 508 markers per section. @ericof 
+
 ## 1.0.0a1 (2026-04-17)
 
 
