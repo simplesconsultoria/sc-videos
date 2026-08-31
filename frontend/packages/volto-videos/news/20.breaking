@@ -1,1 +1,0 @@
-Removed the explicit dependency on `@kitconcept/volto-light-theme`. The add-on no longer declares it under `dependencies`, no longer auto-registers it via `addons`, and no longer sets it as the `theme`. Projects using `volto-videos` must now install `@kitconcept/volto-light-theme` themselves and register it in their `volto.config.js`. @ericof

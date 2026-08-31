@@ -8,6 +8,18 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0-alpha.3 (2026-08-31)
+
+### Breaking
+
+- Removed the explicit dependency on `@kitconcept/volto-light-theme`. The add-on no longer declares it under `dependencies`, no longer auto-registers it via `addons`, and no longer sets it as the `theme`. Projects using `volto-videos` must now install `@kitconcept/volto-light-theme` themselves and register it in their `volto.config.js`. @ericof [#20](https://github.com/simplesconsultoria/sc-videos/issue/20)
+
+### Internal
+
+- Added a `files` entry to `package.json` so the development `tsconfig.json` is no longer published. `@plone/registry` turns an installed add-on's tsconfig `paths` into webpack aliases resolved relative to the add-on directory, and spreads them last, so shipping workspace-only paths can break a consumer's build. @ericof [#20](https://github.com/simplesconsultoria/sc-videos/issue/20)
+- Declared the `@kitconcept/volto-light-theme` subpath imports in an ambient `src/types/addons.d.ts` instead of adding `paths` entries to `tsconfig.json`, and resolved the theme in `vitest.config.mjs` through Node's resolution algorithm rather than a nested `node_modules` path. @ericof [#20](https://github.com/simplesconsultoria/sc-videos/issue/20)
+- Updated the pinned Volto core from `19.0.0-alpha.29` to `19.3.1`. @ericof 
+
 ## 1.0.0-alpha.2 (2026-04-27)
 
 ### Feature
