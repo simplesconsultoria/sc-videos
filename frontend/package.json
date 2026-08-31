@@ -35,7 +35,8 @@
   "dependencies": {
     "@plone/volto": "workspace:*",
     "@plone/registry": "workspace:*",
-    "@simplesconsultoria/volto-videos": "workspace:*"
+    "@simplesconsultoria/volto-videos": "workspace:*",
+    "@kitconcept/volto-light-theme": "^8.0.0-alpha.31"
   },
   "devDependencies": {
     "mrs-developer": "^2.2.0"
