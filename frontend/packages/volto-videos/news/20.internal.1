@@ -1,0 +1,1 @@
+Added a `files` entry to `package.json` so the development `tsconfig.json` is no longer published. `@plone/registry` turns an installed add-on's tsconfig `paths` into webpack aliases resolved relative to the add-on directory, and spreads them last, so shipping workspace-only paths can break a consumer's build. @ericof

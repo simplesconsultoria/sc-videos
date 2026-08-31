@@ -19,19 +19,17 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "src",
+    "locales",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "i18n": "rm -rf build/messages && NODE_ENV=production i18n --addon",
     "dry-release": "release-it --dry-run",
     "release": "release-it",
     "release-major-alpha": "release-it major --preRelease=alpha",
     "release-alpha": "release-it --preRelease=alpha"
-  },
-  "addons": [
-    "@kitconcept/volto-light-theme"
-  ],
-  "theme": "@kitconcept/volto-light-theme",
-  "dependencies": {
-    "@kitconcept/volto-light-theme": "8.0.0-alpha.18"
   },
   "peerDependencies": {
     "classnames": "2.5.1",
