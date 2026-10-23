@@ -14,7 +14,7 @@ class SettingsEditForm(RegistryEditForm):
     """Classic (non-REST) edit form for video settings."""
 
     schema = ISCVideoSettings
-    schema_prefix = "video"
+    schema_prefix = "sc.videos"
     label = "Video Settings"
 
 
