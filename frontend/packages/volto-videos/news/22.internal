@@ -1,0 +1,1 @@
+Fixed the `@video-metadata` msw handlers, whose `++api++` string pattern made msw answer every request with a 500, and covered `fetchVideoMetadata` with request-level tests. @ericof

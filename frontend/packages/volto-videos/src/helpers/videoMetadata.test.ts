@@ -1,20 +1,26 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
 import {
-  buildMetadataUrl,
-  fetchVideoMetadata,
-  isVideoMetadataPopulated,
-} from './videoMetadata';
-import type { FetchVideoMetadataOptions } from './videoMetadata';
+  describe,
+  it,
+  expect,
+  beforeAll,
+  beforeEach,
+  afterEach,
+  afterAll,
+} from 'vitest';
+import { http, HttpResponse } from 'msw';
+import { setupServer } from 'msw/node';
+import config from '@plone/volto/registry';
+import { fetchVideoMetadata, isVideoMetadataPopulated } from './videoMetadata';
 import {
   YOUTUBE_METADATA,
   VIMEO_METADATA,
+  videoMetadataSuccessHandlers,
 } from '@simplesconsultoria/volto-videos/mocks/videoMetadata';
 
-const defaultOptions: FetchVideoMetadataOptions = {
-  apiPath: 'http://localhost:3000',
-  legacyTraverse: false,
-  contextUrl: '/my-folder',
-};
+const API_PATH = 'http://localhost:3000';
+const ENDPOINT = `${API_PATH}/++api++/my-folder/@video-metadata`;
+// msw string patterns treat `+` as a modifier, so overrides match by RegExp.
+const ENDPOINT_PATTERN = /\/@video-metadata$/;
 
 describe('isVideoMetadataPopulated', () => {
   it('rejects the empty object the backend uses as default', () => {
@@ -41,106 +47,138 @@ describe('isVideoMetadataPopulated', () => {
   });
 });
 
-describe('buildMetadataUrl', () => {
-  it('builds URL with ++api++ suffix', () => {
-    expect(buildMetadataUrl(defaultOptions)).toBe(
-      'http://localhost:3000/++api++/my-folder/@video-metadata',
-    );
-  });
-
-  it('builds URL without suffix for legacyTraverse', () => {
-    expect(buildMetadataUrl({ ...defaultOptions, legacyTraverse: true })).toBe(
-      'http://localhost:3000/my-folder/@video-metadata',
-    );
-  });
-
-  it('handles empty apiPath', () => {
-    expect(buildMetadataUrl({ ...defaultOptions, apiPath: '' })).toBe(
-      '/++api++/my-folder/@video-metadata',
-    );
-  });
-});
-
 describe('fetchVideoMetadata', () => {
+  const server = setupServer(...videoMetadataSuccessHandlers);
+  const { settings } = config;
+  const originalApiPath = settings.apiPath;
+  const originalLegacyTraverse = settings.legacyTraverse;
+
+  /** Record the URL, headers and body of every request the server sees. */
+  const captureRequests = () => {
+    const seen: Array<{ url: string; headers: Headers; body: unknown }> = [];
+    server.events.on('request:start', async ({ request }) => {
+      seen.push({
+        url: request.url,
+        headers: request.headers,
+        body: await request.clone().json(),
+      });
+    });
+    return seen;
+  };
+
+  beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
+
   beforeEach(() => {
-    vi.restoreAllMocks();
+    settings.apiPath = API_PATH;
+    settings.legacyTraverse = false;
+  });
+
+  afterEach(() => {
+    server.resetHandlers();
+    server.events.removeAllListeners();
+    settings.apiPath = originalApiPath;
+    settings.legacyTraverse = originalLegacyTraverse;
+    document.cookie = 'auth_token=; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+  });
+
+  afterAll(() => server.close());
+
+  it('posts the video URL to the context @video-metadata endpoint', async () => {
+    const seen = captureRequests();
+
+    await fetchVideoMetadata(
+      'https://youtube.com/watch?v=abc123',
+      '/my-folder',
+    );
+
+    expect(seen).toHaveLength(1);
+    expect(seen[0].url).toBe(ENDPOINT);
+    expect(seen[0].body).toEqual({
+      videoUrl: 'https://youtube.com/watch?v=abc123',
+    });
+  });
+
+  it('honours legacyTraverse', async () => {
+    settings.legacyTraverse = 'true';
+    const seen = captureRequests();
+
+    await fetchVideoMetadata(
+      'https://youtube.com/watch?v=abc123',
+      '/my-folder',
+    );
+
+    expect(seen[0].url).toBe(`${API_PATH}/my-folder/@video-metadata`);
+  });
+
+  it('sends the auth_token cookie as a Bearer token', async () => {
+    document.cookie = 'auth_token=secret-token';
+    const seen = captureRequests();
+
+    await fetchVideoMetadata(
+      'https://youtube.com/watch?v=abc123',
+      '/my-folder',
+    );
+
+    expect(seen[0].headers.get('Authorization')).toBe('Bearer secret-token');
+  });
+
+  it('sends no Authorization header without an auth_token cookie', async () => {
+    const seen = captureRequests();
+
+    await fetchVideoMetadata(
+      'https://youtube.com/watch?v=abc123',
+      '/my-folder',
+    );
+
+    expect(seen[0].headers.get('Authorization')).toBeNull();
   });
 
   it('returns YouTube metadata on success', async () => {
-    vi.stubGlobal(
-      'fetch',
-      vi.fn().mockResolvedValue({
-        ok: true,
-        json: () => Promise.resolve(YOUTUBE_METADATA),
-      }),
-    );
-
     const result = await fetchVideoMetadata(
       'https://youtube.com/watch?v=abc123',
-      defaultOptions,
+      '/my-folder',
     );
 
     expect(result.data).toEqual(YOUTUBE_METADATA);
     expect(result.error).toBeNull();
-    expect(fetch).toHaveBeenCalledWith(
-      'http://localhost:3000/++api++/my-folder/@video-metadata',
-      expect.objectContaining({
-        method: 'POST',
-        body: JSON.stringify({
-          videoUrl: 'https://youtube.com/watch?v=abc123',
-        }),
-      }),
-    );
   });
 
   it('returns Vimeo metadata on success', async () => {
-    vi.stubGlobal(
-      'fetch',
-      vi.fn().mockResolvedValue({
-        ok: true,
-        json: () => Promise.resolve(VIMEO_METADATA),
-      }),
-    );
-
     const result = await fetchVideoMetadata(
       'https://vimeo.com/110591222',
-      defaultOptions,
+      '/my-folder',
     );
 
     expect(result.data).toEqual(VIMEO_METADATA);
     expect(result.error).toBeNull();
   });
 
-  it('returns error on non-ok response with error body', async () => {
-    vi.stubGlobal(
-      'fetch',
-      vi.fn().mockResolvedValue({
-        ok: false,
-        json: () => Promise.resolve({ error: 'Unsupported video URL' }),
-      }),
-    );
-
+  it('returns the service error message on an error response', async () => {
     const result = await fetchVideoMetadata(
       'https://bad-url.com',
-      defaultOptions,
+      '/my-folder',
     );
 
     expect(result.data).toBeNull();
     expect(result.error).toBe('Unsupported video URL');
   });
 
-  it('returns fallback error when response body is not JSON', async () => {
-    vi.stubGlobal(
-      'fetch',
-      vi.fn().mockResolvedValue({
-        ok: false,
-        json: () => Promise.reject(new Error('not json')),
-      }),
+  it('returns fallback error when the error body has no message', async () => {
+    server.use(
+      http.post(ENDPOINT_PATTERN, () =>
+        HttpResponse.json(
+          {
+            message: 'You are not authorized to access this resource.',
+            type: 'Unauthorized',
+          },
+          { status: 401 },
+        ),
+      ),
     );
 
     const result = await fetchVideoMetadata(
-      'https://bad-url.com',
-      defaultOptions,
+      'https://youtube.com/watch?v=abc123',
+      '/my-folder',
     );
 
     expect(result.data).toBeNull();
@@ -148,14 +186,11 @@ describe('fetchVideoMetadata', () => {
   });
 
   it('returns error on network failure', async () => {
-    vi.stubGlobal(
-      'fetch',
-      vi.fn().mockRejectedValue(new Error('Network error')),
-    );
+    server.use(http.post(ENDPOINT_PATTERN, () => HttpResponse.error()));
 
     const result = await fetchVideoMetadata(
-      'https://youtube.com/watch?v=abc',
-      defaultOptions,
+      'https://youtube.com/watch?v=abc123',
+      '/my-folder',
     );
 
     expect(result.data).toBeNull();

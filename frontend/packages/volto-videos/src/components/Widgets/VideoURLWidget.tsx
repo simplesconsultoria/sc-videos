@@ -11,7 +11,6 @@ import { Input, Button, Loader, Message } from 'semantic-ui-react';
 import FormFieldWrapper from '@plone/volto/components/manage/Widgets/FormFieldWrapper';
 import Icon from '@plone/volto/components/theme/Icon/Icon';
 import { getBaseUrl } from '@plone/volto/helpers/Url/Url';
-import config from '@plone/volto/registry';
 import clearSVG from '@plone/volto/icons/clear.svg';
 import aheadSVG from '@plone/volto/icons/ahead.svg';
 import type {
@@ -80,12 +79,7 @@ const VideoURLWidget: React.FC<VideoURLWidgetProps> = (props) => {
       setFetchError(null);
       onChange('_metadata', undefined);
 
-      const { settings } = config;
-      const result = await fetchVideoMetadata(videoUrl, {
-        apiPath: settings.apiPath || '',
-        legacyTraverse: !!settings.legacyTraverse,
-        contextUrl,
-      });
+      const result = await fetchVideoMetadata(videoUrl, contextUrl);
 
       setFetchError(result.error);
       setIsLoading(false);

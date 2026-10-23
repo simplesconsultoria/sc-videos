@@ -1,17 +1,20 @@
 /**
  * Fetch video metadata from the @@video-metadata service.
  */
+import Api from '@plone/volto/helpers/Api/Api';
 import type { VideoMetadata } from '@simplesconsultoria/volto-videos/types/widgets';
-
-export interface FetchVideoMetadataOptions {
-  apiPath: string;
-  legacyTraverse: boolean;
-  contextUrl: string;
-}
 
 export interface FetchVideoMetadataResult {
   data: VideoMetadata | null;
   error: string | null;
+}
+
+/**
+ * Volto's `Api` attaches its HTTP methods at runtime, so TypeScript cannot
+ * see them; this types the one we use.
+ */
+interface ApiClient {
+  post: <T>(path: string, options: { data: unknown }) => Promise<T>;
 }
 
 /**
@@ -30,47 +33,32 @@ export function isVideoMetadataPopulated(
 }
 
 /**
- * Build the full API URL for the video-metadata service.
- */
-export function buildMetadataUrl(options: FetchVideoMetadataOptions): string {
-  const { apiPath, legacyTraverse, contextUrl } = options;
-  const apiSuffix = legacyTraverse ? '' : '/++api++';
-  return `${apiPath}${apiSuffix}${contextUrl}/@video-metadata`;
-}
-
-/**
  * Fetch video metadata from the backend service.
+ *
+ * Goes through Volto's `Api` client, which resolves the API URL and sends
+ * the `auth_token` cookie as a Bearer token. A plain `fetch` reaches Plone
+ * as Anonymous, because plone.restapi never reads that cookie.
  *
  * Returns either the metadata or an error message, never throws.
  */
 export async function fetchVideoMetadata(
   videoUrl: string,
-  options: FetchVideoMetadataOptions,
+  contextUrl: string,
 ): Promise<FetchVideoMetadataResult> {
-  const url = buildMetadataUrl(options);
-
+  const api = new Api() as unknown as ApiClient;
   try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-      body: JSON.stringify({ videoUrl }),
-    });
-
-    if (!response.ok) {
-      const body = await response.json().catch(() => ({}));
-      return {
-        data: null,
-        error: body.error ?? 'Failed to fetch video metadata',
-      };
-    }
-
-    const data: VideoMetadata = await response.json();
+    const data = await api.post<VideoMetadata>(
+      `${contextUrl}/@video-metadata`,
+      { data: { videoUrl } },
+    );
     return { data, error: null };
-  } catch {
-    return { data: null, error: 'Failed to connect to metadata service' };
+  } catch (err: any) {
+    if (!err?.response) {
+      return { data: null, error: 'Failed to connect to metadata service' };
+    }
+    return {
+      data: null,
+      error: err.response.body?.error ?? 'Failed to fetch video metadata',
+    };
   }
 }
