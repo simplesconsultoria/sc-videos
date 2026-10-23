@@ -1,1 +1,0 @@
-Fixed the Classic UI video settings control panel failing with a `KeyError` for the `enable_series` record. @ericof

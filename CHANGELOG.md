@@ -7,6 +7,36 @@
 -->
 
 <!-- towncrier release notes start -->
+## 1.0.0a4 (2026-10-23)
+
+### Backend
+
+
+#### Bug fixes:
+
+- Fixed the Classic UI video settings control panel failing with a `KeyError` for the `enable_series` record. @ericof [#13](https://github.com/simplesconsultoria/sc-videos/issues/13)
+
+
+
+### Frontend
+
+#### Bugfix
+
+- Fixed the video URL widget getting a 401 from `@video-metadata` for users who can add videos. The widget called the service with a plain `fetch`, which does not send the Volto login token, so the backend saw the request as anonymous. It now uses Volto's `Api` client, which authenticates the request. @ericof [#22](https://github.com/simplesconsultoria/sc-videos/issue/22)
+
+#### Internal
+
+- Fixed the `@video-metadata` msw handlers, whose `++api++` string pattern made msw answer every request with a 500, and covered `fetchVideoMetadata` with request-level tests. @ericof [#22](https://github.com/simplesconsultoria/sc-videos/issue/22)
+
+
+
+### Project
+
+No significant changes.
+
+
+
+
 ## 1.0.0a3 (2026-08-31)
 
 ### Backend

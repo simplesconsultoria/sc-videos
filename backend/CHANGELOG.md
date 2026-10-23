@@ -9,6 +9,13 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0a4 (2026-10-23)
+
+
+### Bug fixes:
+
+- Fixed the Classic UI video settings control panel failing with a `KeyError` for the `enable_series` record. @ericof [#13](https://github.com/simplesconsultoria/sc-videos/issues/13)
+
 ## 1.0.0a3 (2026-08-31)
 
 No significant changes.
