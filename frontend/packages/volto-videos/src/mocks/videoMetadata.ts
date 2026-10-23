@@ -2,11 +2,13 @@
  * MSW handlers for the `@video-metadata` endpoint.
  *
  * Handlers match both traverse styles (`++api++/...` and direct) so they
- * work regardless of how `buildMetadataUrl` is configured.
+ * work regardless of the `legacyTraverse` setting. The pattern is a RegExp
+ * because msw parses string patterns with path-to-regexp, where `+` is a
+ * modifier: a literal `++api++` makes every request fail with a 500.
  */
 import { http, HttpResponse } from 'msw';
 
-const ENDPOINT_PATTERNS = ['*/++api++/*/@video-metadata', '*/@video-metadata'];
+const ENDPOINT_PATTERNS = [/\/@video-metadata$/];
 
 export const YOUTUBE_METADATA = {
   service: 'youtube',

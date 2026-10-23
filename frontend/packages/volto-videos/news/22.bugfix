@@ -1,0 +1,1 @@
+Fixed the video URL widget getting a 401 from `@video-metadata` for users who can add videos. The widget called the service with a plain `fetch`, which does not send the Volto login token, so the backend saw the request as anonymous. It now uses Volto's `Api` client, which authenticates the request. @ericof
