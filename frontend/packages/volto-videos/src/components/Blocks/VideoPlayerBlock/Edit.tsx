@@ -31,8 +31,7 @@ interface VideoPlayerBlockEditProps {
 }
 
 const VideoPlayerBlockEdit: React.FC<VideoPlayerBlockEditProps> = (props) => {
-  const { data, onChangeBlock, onChangeField, properties, block, selected } =
-    props;
+  const { onChangeField, properties, selected } = props;
   const intl = useIntl();
 
   // The widget writes `videoUrl` on every keystroke, so we can't switch to the
@@ -52,11 +51,7 @@ const VideoPlayerBlockEdit: React.FC<VideoPlayerBlockEditProps> = (props) => {
     <>
       <VideoPlayerBlockView {...props} isEditMode />
       <SidebarPortal selected={selected}>
-        <VideoPlayerBlockDataForm
-          data={data}
-          block={block}
-          onChangeBlock={onChangeBlock}
-        />
+        <VideoPlayerBlockDataForm {...props} />
       </SidebarPortal>
     </>
   ) : (

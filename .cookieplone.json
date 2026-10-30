@@ -5,7 +5,7 @@
     "author": "Simples Consultoria",
     "container_registry": "github",
     "use_prerelease_versions": true,
-    "volto_version": "19.0.0-alpha.29",
+    "volto_version": "19.6.1",
     "title": "Video Support for Plone",
     "email": "comercial@simplesconsultoria.com.br",
     "description": "A Plone add-on providing a Video content type that supports external video sources",
