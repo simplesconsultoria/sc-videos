@@ -22,8 +22,40 @@ const addonAlias = {
   '@kitconcept/volto-light-theme': voltoLightThemeSrc,
 };
 
+// Volto's webpack also looks up bare imports (`redux`, `react-redux`, ...) in
+// Volto's own node_modules. pnpm does not expose them to this package, so fall
+// back to resolving them from Volto, as webpack does.
+const voltoDir = path.resolve(packageDir, '../../core/packages/volto');
+const resolveFromVolto = {
+  name: 'resolve-from-volto',
+  enforce: 'pre',
+  async resolveId(source, importer, options) {
+    if (
+      !importer ||
+      source.startsWith('.') ||
+      source.startsWith('\0') ||
+      path.isAbsolute(source) ||
+      importer.startsWith(voltoDir)
+    ) {
+      return null;
+    }
+    const resolved = await this.resolve(source, importer, {
+      ...options,
+      skipSelf: true,
+    });
+    if (resolved) {
+      return resolved;
+    }
+    return this.resolve(source, path.join(voltoDir, 'package.json'), {
+      ...options,
+      skipSelf: true,
+    });
+  },
+};
+
 const projects = (voltoVitestConfig.test?.projects ?? []).map((project) => ({
   ...project,
+  plugins: [resolveFromVolto, ...(project.plugins ?? [])],
   resolve: {
     ...project.resolve,
     alias: {

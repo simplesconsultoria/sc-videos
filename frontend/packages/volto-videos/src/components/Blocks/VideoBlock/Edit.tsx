@@ -43,11 +43,7 @@ const VideoBlockEdit: React.FC<VideoBlockEditProps> = (props) => {
         <VideoInput block={block} id={block} onSelectItem={onSelectItem} />
       )}
       <SidebarPortal selected={selected}>
-        <VideoBlockDataForm
-          data={data}
-          block={block}
-          onChangeBlock={onChangeBlock}
-        />
+        <VideoBlockDataForm {...props} />
       </SidebarPortal>
     </>
   );
