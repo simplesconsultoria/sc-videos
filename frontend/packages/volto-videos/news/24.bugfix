@@ -1,1 +1,0 @@
-Fixed the Video Player block being hidden from the block chooser on Video items, and the Video block being offered on them. The chooser now decides from the serialized `videoUrl` of the item, instead of a catalog-only flag that the content does not serialize. @ericof

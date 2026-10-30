@@ -1,1 +1,0 @@
-Documented the Video and Video Player blocks, so the `@blocks-schema` endpoint describes them: their fields, examples and restrictions. The sidebar forms now read the block schema from the block configuration and pass the same props to the data form as Volto core. @ericof

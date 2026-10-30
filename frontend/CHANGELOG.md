@@ -8,6 +8,16 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0-alpha.5 (2026-10-30)
+
+### Feature
+
+- Documented the Video and Video Player blocks, so the `@blocks-schema` endpoint describes them: their fields, examples and restrictions. The sidebar forms now read the block schema from the block configuration and pass the same props to the data form as Volto core. @ericof [#24](https://github.com/simplesconsultoria/sc-videos/issue/24)
+
+### Bugfix
+
+- Fixed the Video Player block being hidden from the block chooser on Video items, and the Video block being offered on them. The chooser now decides from the serialized `videoUrl` of the item, instead of a catalog-only flag that the content does not serialize. @ericof [#24](https://github.com/simplesconsultoria/sc-videos/issue/24)
+
 ## 1.0.0-alpha.4 (2026-10-23)
 
 ### Bugfix
