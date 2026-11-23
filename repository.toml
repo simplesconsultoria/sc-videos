@@ -17,7 +17,8 @@ code_path = "src/sc/videos"
 changelog = "backend/CHANGELOG.md"
 towncrier_settings = "backend/pyproject.toml"
 base_package = "Products.CMFPlone"
-publish = true
+# Published by .github/workflows/release.yml (trusted publishing).
+publish = false
 
 [frontend.package]
 name = "@simplesconsultoria/volto-videos"
@@ -26,7 +27,8 @@ code_path = "src"
 changelog = "frontend/packages/volto-videos/CHANGELOG.md"
 towncrier_settings = "frontend/packages/volto-videos/towncrier.toml"
 base_package = "@plone/volto"
-publish = true
+# Published by .github/workflows/release.yml (trusted publishing).
+publish = false
 
 [cookieplone]
 template = "monorepo_addon"

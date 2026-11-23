@@ -14,7 +14,8 @@
   "homepage": "https://github.com/simplesconsultoria/sc-videos#readme",
   "repository": {
     "type": "git",
-    "url": "git@github.com:simplesconsultoria/sc-videos"
+    "url": "git+https://github.com/simplesconsultoria/sc-videos.git",
+    "directory": "frontend/packages/volto-videos"
   },
   "publishConfig": {
     "access": "public"
