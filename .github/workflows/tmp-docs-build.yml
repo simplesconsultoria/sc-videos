@@ -71,8 +71,13 @@ jobs:
       - name: Compute artifact name
         id: artifact-name
         shell: bash
+        env:
+          PREFIX: ${{ inputs.artifacts-name-prefix }}
+          REF_NAME: ${{ github.ref_name }}
+        # Artifact names cannot contain "/", which branch names such as
+        # dependabot/github_actions/... do, so replace it with "-".
         run: |
-          echo "name=${{ inputs.artifacts-name-prefix }}-${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
+          echo "name=${PREFIX}-${REF_NAME//\//-}" >> "$GITHUB_OUTPUT"
 
       - name: Archive documentation artifacts
         if: ${{ inputs.artifacts-store }}
