@@ -8,13 +8,26 @@ name: Release
 # Both registries use trusted publishing (OIDC), so no token is stored here.
 # Each needs a trusted publisher for this repository, this workflow file
 # (release.yml) and the "release" environment.
+#
+# To retry a release whose publishing failed, run this workflow by hand with
+# the release's tag. Versions already on a registry are skipped.
 on:
   release:
     types:
       - published
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to publish (for example 1.0.0a6)"
+        required: true
+        type: string
 
 permissions:
   contents: read
+
+env:
+  # The tag being released, whichever event started the run.
+  RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.event.release.tag_name }}
 
 jobs:
   backend-build:
@@ -29,6 +42,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          ref: ${{ env.RELEASE_TAG }}
 
       - name: Install uv
         uses: astral-sh/setup-uv@v10.4.0
@@ -69,6 +84,9 @@ jobs:
 
       - name: Publish
         uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          # Lets a manual retry pass over files already on PyPI.
+          skip-existing: true
 
   frontend-build:
     name: "Frontend: pack @simplesconsultoria/volto-videos"
@@ -82,6 +100,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          ref: ${{ env.RELEASE_TAG }}
 
       - name: Set up pnpm
         uses: pnpm/action-setup@v6
@@ -145,12 +165,20 @@ jobs:
       # (1.0.0-alpha.6 -> alpha), as release-it did; final versions go to latest.
       - name: Publish
         run: |
-          TARBALL=$(ls dist/*.tgz)
+          # The leading ./ matters: npm reads a bare "dist/<file>.tgz" as the
+          # GitHub shorthand <user>/<repo> and refuses it (EALLOWGIT).
+          TARBALL=$(ls ./dist/*.tgz)
           VERSION=$(tar -xOzf "$TARBALL" package/package.json | node -p 'JSON.parse(require("fs").readFileSync(0)).version')
           case "$VERSION" in
             *-*) DIST_TAG=${VERSION#*-}; DIST_TAG=${DIST_TAG%%.*} ;;
             *) DIST_TAG=latest ;;
           esac
+          # Lets a manual retry pass over a version already on npm.
+          NAME=$(tar -xOzf "$TARBALL" package/package.json | node -p 'JSON.parse(require("fs").readFileSync(0)).name')
+          if [ -n "$(npm view "$NAME@$VERSION" version 2>/dev/null || true)" ]; then
+            echo "$NAME@$VERSION is already on npm, skipping"
+            exit 0
+          fi
           echo "Publishing $VERSION with dist-tag $DIST_TAG"
           npm publish "$TARBALL" --access public --tag "$DIST_TAG"
 
@@ -181,7 +209,7 @@ jobs:
           FRONTEND=$(link "@simplesconsultoria/volto-videos" "$FRONTEND_RESULT" \
             "https://www.npmjs.com/package/@simplesconsultoria/volto-videos/v/$FRONTEND_VERSION")
           {
-            echo "# Release ${{ github.event.release.tag_name }}"
+            echo "# Release $RELEASE_TAG"
             echo
             echo "| Package | Registry | Version | Publish |"
             echo "| --- | --- | --- | --- |"

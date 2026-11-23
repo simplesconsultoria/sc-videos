@@ -1,0 +1,1 @@
+Fixed the release workflow's npm publish, which npm refused because it read the tarball path as a GitHub shorthand, and let the workflow be run by hand with a release tag to retry publishing, skipping versions already on PyPI or npm. @ericof
