@@ -11,17 +11,34 @@ The block stores a copy of the picked `Video` item in `href`, with the caption i
 - `href`: a list with one object, the picked `Video` item, copied when it was picked. The block shows the first object only. Its keys are `@id` (the path or URL of the item), `Title`, `Description`, `hasPreviewImage`, `image_scales` (the image scales of the item, used for the preview image) and `videoUrl` (the URL of the video that the player loads). The block renders no player when the list is empty.
 - `autoPlay`: a boolean. It is stored, but the block does not read it when it renders.
 - `size`: `s`, `m` or `l`. Without a known value, the block uses `l`.
-- `align`: `left`, `right`, `center`, `wide` or `full`. Without a value, the block is centered. The sidebar form stores `wide` when it opens a block without an alignment, so a block that was never opened in the sidebar is centered and one that was is shown wide.
+- `align`: `left`, `right`, `center`, `wide` or `full`. Without a value, the block is centered. The sidebar form stores `wide` when it opens a block without an alignment, so a block that was never opened in the sidebar is centered and one that was is shown wide. On a site with `@kitconcept/volto-light-theme`, the sidebar does not show this field: the alignment and the width are stored in `styles` instead, as described below.
 - `showCaption`: a boolean. Without a value, or when it is `true`, the caption is shown whenever `title` or `description` has text. `false` hides the caption.
 - `title`: the caption title. When a video is picked and this field is empty, it is filled with the title of the video.
 - `description`: the caption description. When a video is picked and this field is empty, it is filled with the description of the video.
 
 `theme` and `styles` come from the theme's styling schema, which is added to every block.
 
+On a site with `@kitconcept/volto-light-theme`, `styles` also holds the alignment and the width of the block, in place of the `align` field:
+
+- `styles["align:noprefix"]`: `left`, `center` or `right`. The schema default is `center`.
+- `styles["blockWidth:noprefix"]`: `narrow`, `default`, `layout` or `full`. The schema default is `default`. While `align:noprefix` is `left` or `right`, the sidebar disables this field, and the block stores `default`.
+
 ### Examples
 
 ```json
 { "@type": "video" }
+```
+
+With `@kitconcept/volto-light-theme`, a block centered on the page and shown at the layout width is stored like this:
+
+```json
+{
+  "@type": "video",
+  "styles": {
+    "align:noprefix": "center",
+    "blockWidth:noprefix": "layout"
+  }
+}
 ```
 
 ```json

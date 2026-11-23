@@ -1,0 +1,1 @@
+The video block documentation now describes the alignment and width options of sites that use `@kitconcept/volto-light-theme`: the theme removes the `align` field from the sidebar and stores the alignment and width in the block's `styles`. @ericof
