@@ -70,7 +70,9 @@ describe.each([
   });
 
   it('only has examples that are data for this block', () => {
-    const known = ['@type', ...Object.keys(schema.properties)];
+    // `styles` is added to every block by the theme's styling schema, which
+    // is not part of the block's own schema, so examples may use it.
+    const known = ['@type', 'styles', ...Object.keys(schema.properties)];
     for (const example of examples) {
       expect(example['@type']).toBe(block.id);
       expect(known).toEqual(expect.arrayContaining(Object.keys(example)));
