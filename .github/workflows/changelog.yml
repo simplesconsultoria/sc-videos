@@ -12,6 +12,9 @@ env:
 
 jobs:
   config:
+    # Dependabot pull requests, and those labeled "skip changelog", need no
+    # news fragment. Every other job needs this one, so they are skipped too.
+    if: ${{ github.event.pull_request.user.login != 'dependabot[bot]' && !contains(github.event.pull_request.labels.*.name, 'skip changelog') }}
     runs-on: ubuntu-latest
     outputs:
       backend: ${{ steps.filter.outputs.backend }}

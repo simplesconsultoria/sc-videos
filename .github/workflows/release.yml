@@ -1,0 +1,190 @@
+name: Release
+
+# Publishes sc.videos to PyPI and @simplesconsultoria/volto-videos to npm
+# when a GitHub release is published. `repoplone release` bumps the versions,
+# builds the changelogs, tags and creates that release; with `publish = false`
+# in repository.toml it no longer uploads anything itself.
+#
+# Both registries use trusted publishing (OIDC), so no token is stored here.
+# Each needs a trusted publisher for this repository, this workflow file
+# (release.yml) and the "release" environment.
+on:
+  release:
+    types:
+      - published
+
+permissions:
+  contents: read
+
+jobs:
+  backend-build:
+    name: "Backend: build sc.videos"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: backend
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.4.0
+
+      - name: Build
+        run: uv build
+
+      - name: Check metadata
+        run: uvx twine check --strict dist/*
+
+      - name: Read version
+        id: version
+        run: |
+          SDIST=$(basename dist/*.tar.gz .tar.gz)
+          echo "version=${SDIST#sc_videos-}" >> "$GITHUB_OUTPUT"
+
+      - name: Upload distribution
+        uses: actions/upload-artifact@v7
+        with:
+          name: backend-dist
+          path: backend/dist/
+
+  backend-publish:
+    name: "Backend: publish to PyPI"
+    needs:
+      - backend-build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: release
+    permissions:
+      id-token: write
+    steps:
+      - name: Download distribution
+        uses: actions/download-artifact@v8
+        with:
+          name: backend-dist
+          path: dist/
+
+      - name: Publish
+        uses: pypa/gh-action-pypi-publish@release/v1
+
+  frontend-build:
+    name: "Frontend: pack @simplesconsultoria/volto-videos"
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: frontend
+    outputs:
+      version: ${{ steps.pack.outputs.version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          package_json_file: frontend/package.json
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24.x"
+
+      # The catalog: and workspace: versions in package.json resolve against
+      # the Volto core checkout and the installed workspace, so both are
+      # needed before packing.
+      - name: Install
+        run: |
+          pnpm dlx mrs-developer missdev --no-config --fetch-https
+          pnpm install --frozen-lockfile
+
+      - name: Pack
+        id: pack
+        working-directory: frontend/packages/volto-videos
+        run: |
+          cp ../../../README.md ./
+          mkdir -p dist
+          pnpm pack --pack-destination dist
+          echo "version=$(node -p 'require("./package.json").version')" >> "$GITHUB_OUTPUT"
+
+      - name: Upload tarball
+        uses: actions/upload-artifact@v7
+        with:
+          name: frontend-dist
+          path: frontend/packages/volto-videos/dist/
+
+  frontend-publish:
+    name: "Frontend: publish to npm"
+    needs:
+      - frontend-build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: release
+    permissions:
+      id-token: write
+    steps:
+      - name: Download tarball
+        uses: actions/download-artifact@v8
+        with:
+          name: frontend-dist
+          path: dist/
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24.x"
+
+      # Trusted publishing needs npm 11.5.1 or later.
+      - name: Install npm
+        run: npm install -g npm@12.2.3
+
+      # Pre-releases go to the dist-tag named after the pre-release id
+      # (1.0.0-alpha.6 -> alpha), as release-it did; final versions go to latest.
+      - name: Publish
+        run: |
+          TARBALL=$(ls dist/*.tgz)
+          VERSION=$(tar -xOzf "$TARBALL" package/package.json | node -p 'JSON.parse(require("fs").readFileSync(0)).version')
+          case "$VERSION" in
+            *-*) DIST_TAG=${VERSION#*-}; DIST_TAG=${DIST_TAG%%.*} ;;
+            *) DIST_TAG=latest ;;
+          esac
+          echo "Publishing $VERSION with dist-tag $DIST_TAG"
+          npm publish "$TARBALL" --access public --tag "$DIST_TAG"
+
+  report:
+    name: "Final report"
+    if: ${{ always() }}
+    needs:
+      - backend-build
+      - backend-publish
+      - frontend-build
+      - frontend-publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Write report
+        env:
+          BACKEND_VERSION: ${{ needs.backend-build.outputs.version }}
+          BACKEND_RESULT: ${{ needs.backend-publish.result }}
+          FRONTEND_VERSION: ${{ needs.frontend-build.outputs.version }}
+          FRONTEND_RESULT: ${{ needs.frontend-publish.result }}
+        run: |
+          link() {
+            # Link to the package page only when the publish job succeeded.
+            if [ "$2" = "success" ]; then echo "[$1]($3)"; else echo "$1"; fi
+          }
+          BACKEND=$(link "sc.videos" "$BACKEND_RESULT" \
+            "https://pypi.org/project/sc.videos/$BACKEND_VERSION/")
+          FRONTEND=$(link "@simplesconsultoria/volto-videos" "$FRONTEND_RESULT" \
+            "https://www.npmjs.com/package/@simplesconsultoria/volto-videos/v/$FRONTEND_VERSION")
+          {
+            echo "# Release ${{ github.event.release.tag_name }}"
+            echo
+            echo "| Package | Registry | Version | Publish |"
+            echo "| --- | --- | --- | --- |"
+            echo "| $BACKEND | PyPI | $BACKEND_VERSION | $BACKEND_RESULT |"
+            echo "| $FRONTEND | npm | $FRONTEND_VERSION | $FRONTEND_RESULT |"
+          } >> "$GITHUB_STEP_SUMMARY"
