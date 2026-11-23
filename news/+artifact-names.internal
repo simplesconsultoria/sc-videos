@@ -1,1 +1,0 @@
-Fixed the documentation and Storybook builds failing on branches whose name contains `/`, such as those of Dependabot pull requests: the artifact name now replaces `/` with `-`. @ericof

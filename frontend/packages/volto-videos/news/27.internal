@@ -1,1 +1,0 @@
-Set `repository.url` in `package.json` to the HTTPS form of the repository, with its `directory`, as npm provenance links the published package to it. @ericof

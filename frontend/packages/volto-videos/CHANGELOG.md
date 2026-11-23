@@ -8,6 +8,16 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0-alpha.6 (2026-11-23)
+
+### Internal
+
+- Set `repository.url` in `package.json` to the HTTPS form of the repository, with its `directory`, as npm provenance links the published package to it. @ericof [#27](https://github.com/simplesconsultoria/sc-videos/issue/27)
+
+### Documentation
+
+- The video block documentation now describes the alignment and width options of sites that use `@kitconcept/volto-light-theme`: the theme removes the `align` field from the sidebar and stores the alignment and width in the block's `styles`. @ericof [#26](https://github.com/simplesconsultoria/sc-videos/issue/26)
+
 ## 1.0.0-alpha.5 (2026-10-30)
 
 ### Feature

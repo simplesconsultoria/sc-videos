@@ -7,6 +7,37 @@
 -->
 
 <!-- towncrier release notes start -->
+## 1.0.0a6 (2026-11-23)
+
+### Backend
+
+No significant changes.
+
+
+
+
+### Frontend
+
+#### Internal
+
+- Set `repository.url` in `package.json` to the HTTPS form of the repository, with its `directory`, as npm provenance links the published package to it. @ericof [#27](https://github.com/simplesconsultoria/sc-videos/issue/27)
+
+#### Documentation
+
+- The video block documentation now describes the alignment and width options of sites that use `@kitconcept/volto-light-theme`: the theme removes the `align` field from the sidebar and stores the alignment and width in the block's `styles`. @ericof [#26](https://github.com/simplesconsultoria/sc-videos/issue/26)
+
+
+
+### Project
+
+
+#### Internal
+
+- Published `sc.videos` to PyPI and `@simplesconsultoria/volto-videos` to npm from a GitHub Actions workflow with trusted publishing, run when a GitHub release is published, instead of from `repoplone release`. Moved the Dependabot configuration to `.github/dependabot.yml`, where GitHub reads it, and skipped the change log check for Dependabot pull requests and those labeled `skip changelog`. @ericof [#27](https://github.com/simplesconsultoria/sc-videos/pull/27)
+- Fixed the documentation and Storybook builds failing on branches whose name contains `/`, such as those of Dependabot pull requests: the artifact name now replaces `/` with `-`. @ericof 
+
+
+
 ## 1.0.0a5 (2026-10-30)
 
 ### Backend
